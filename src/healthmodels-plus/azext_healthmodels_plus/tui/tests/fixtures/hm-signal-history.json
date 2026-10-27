@@ -1,0 +1,22 @@
+{
+  "entityName": "entity-1",
+  "signalName": "sig-cpu",
+  "history": [
+    {
+      "occurredAt": "2026-01-01T10:00:00Z",
+      "value": 75.5,
+      "healthState": "Degraded",
+      "additionalContext": "Approaching threshold"
+    },
+    {
+      "occurredAt": "2026-01-01T10:05:00Z",
+      "value": 95.2,
+      "healthState": "Unhealthy"
+    },
+    {
+      "occurredAt": "2026-01-01T10:30:00Z",
+      "value": 42.1,
+      "healthState": "Healthy"
+    }
+  ]
+}

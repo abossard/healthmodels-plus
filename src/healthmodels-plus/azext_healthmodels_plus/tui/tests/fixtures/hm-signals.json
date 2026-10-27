@@ -1,0 +1,1000 @@
+{
+  "value": [
+    {
+      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/rg-alwayson-global/providers/microsoft.cloudhealth/healthmodels/hm-graphorleons/signaldefinitions/000e8712-cabb-5a7c-8415-f2aa782e522c",
+      "name": "000e8712-cabb-5a7c-8415-f2aa782e522c",
+      "properties": {
+        "dataUnit": "Percent",
+        "displayName": "CPU Throttling",
+        "evaluationRules": {
+          "degradedRule": {
+            "operator": "GreaterThan",
+            "threshold": 20.0
+          },
+          "unhealthyRule": {
+            "operator": "GreaterThan",
+            "threshold": 50.0
+          }
+        },
+        "provisioningState": "Succeeded",
+        "queryText": "sum(rate(container_cpu_cfs_throttled_periods_total{namespace=\"graphorleons\", container!=\"\"}[5m])) / sum(rate(container_cpu_cfs_periods_total{namespace=\"graphorleons\", container!=\"\"}[5m])) * 100",
+        "refreshInterval": "PT1M",
+        "signalKind": "PrometheusMetricsQuery",
+        "timeGrain": "PT1M"
+      },
+      "systemData": {
+        "createdAt": "2026-04-13T17:57:59.5463722Z",
+        "createdBy": "11111111-1111-1111-1111-111111111111",
+        "createdByType": "Application",
+        "lastModifiedAt": "2026-04-13T17:57:59.7301059Z",
+        "lastModifiedBy": "11111111-1111-1111-1111-111111111111",
+        "lastModifiedByType": "Application"
+      },
+      "type": "microsoft.cloudhealth/healthmodels/signaldefinitions"
+    },
+    {
+      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/rg-alwayson-global/providers/microsoft.cloudhealth/healthmodels/hm-graphorleons/signaldefinitions/00e85bbd-c7ac-5f99-a97e-44225cb3b2ba",
+      "name": "00e85bbd-c7ac-5f99-a97e-44225cb3b2ba",
+      "properties": {
+        "dataUnit": "Count",
+        "displayName": "Pods on NotReady Nodes",
+        "evaluationRules": {
+          "degradedRule": {
+            "operator": "GreaterThan",
+            "threshold": 1.0
+          },
+          "unhealthyRule": {
+            "operator": "GreaterThan",
+            "threshold": 1.0
+          }
+        },
+        "provisioningState": "Succeeded",
+        "queryText": "count(kube_pod_info{namespace=\"graphorleons\"} * on(node) group_left() (kube_node_status_condition{condition=\"Ready\", status=\"false\"} == 1)) or vector(0)",
+        "refreshInterval": "PT1M",
+        "signalKind": "PrometheusMetricsQuery",
+        "timeGrain": "PT1M"
+      },
+      "systemData": {
+        "createdAt": "2026-04-13T17:57:59.6244989Z",
+        "createdBy": "11111111-1111-1111-1111-111111111111",
+        "createdByType": "Application",
+        "lastModifiedAt": "2026-04-13T22:07:49.1433401Z",
+        "lastModifiedBy": "11111111-1111-1111-1111-111111111111",
+        "lastModifiedByType": "Application"
+      },
+      "type": "microsoft.cloudhealth/healthmodels/signaldefinitions"
+    },
+    {
+      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/rg-alwayson-global/providers/microsoft.cloudhealth/healthmodels/hm-graphorleons/signaldefinitions/0ee2e762-aa6c-5809-8024-38d59141f3c9",
+      "name": "0ee2e762-aa6c-5809-8024-38d59141f3c9",
+      "properties": {
+        "aggregationType": "Average",
+        "dataUnit": "MilliSeconds",
+        "displayName": "FD Total Latency",
+        "evaluationRules": {
+          "degradedRule": {
+            "operator": "GreaterThan",
+            "threshold": 300.0
+          },
+          "unhealthyRule": {
+            "operator": "GreaterThan",
+            "threshold": 2000.0
+          }
+        },
+        "metricName": "TotalLatency",
+        "metricNamespace": "microsoft.cdn/profiles",
+        "provisioningState": "Succeeded",
+        "refreshInterval": "PT1M",
+        "signalKind": "AzureResourceMetric",
+        "timeGrain": "PT1H"
+      },
+      "systemData": {
+        "createdAt": "2026-04-13T17:57:59.6244989Z",
+        "createdBy": "11111111-1111-1111-1111-111111111111",
+        "createdByType": "Application",
+        "lastModifiedAt": "2026-04-13T17:57:59.8026531Z",
+        "lastModifiedBy": "11111111-1111-1111-1111-111111111111",
+        "lastModifiedByType": "Application"
+      },
+      "type": "microsoft.cloudhealth/healthmodels/signaldefinitions"
+    },
+    {
+      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/rg-alwayson-global/providers/microsoft.cloudhealth/healthmodels/hm-graphorleons/signaldefinitions/0f1bf265-25b1-52b5-ac95-17bd9c170123",
+      "name": "0f1bf265-25b1-52b5-ac95-17bd9c170123",
+      "properties": {
+        "dataUnit": "Count",
+        "displayName": "Pods on High-CPU Nodes",
+        "evaluationRules": {
+          "degradedRule": {
+            "operator": "GreaterThan",
+            "threshold": 1.0
+          },
+          "unhealthyRule": {
+            "operator": "GreaterThan",
+            "threshold": 3.0
+          }
+        },
+        "provisioningState": "Succeeded",
+        "queryText": "count(kube_pod_info{namespace=\"graphorleons\"} * on(node) group_left() ((1 - avg by (node) (rate(node_cpu_seconds_total{mode=\"idle\"}[5m]))) > 0.8)) or vector(0)",
+        "refreshInterval": "PT1M",
+        "signalKind": "PrometheusMetricsQuery",
+        "timeGrain": "PT1M"
+      },
+      "systemData": {
+        "createdAt": "2026-04-13T17:57:59.6088707Z",
+        "createdBy": "11111111-1111-1111-1111-111111111111",
+        "createdByType": "Application",
+        "lastModifiedAt": "2026-04-13T17:57:59.8161137Z",
+        "lastModifiedBy": "11111111-1111-1111-1111-111111111111",
+        "lastModifiedByType": "Application"
+      },
+      "type": "microsoft.cloudhealth/healthmodels/signaldefinitions"
+    },
+    {
+      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/rg-alwayson-global/providers/microsoft.cloudhealth/healthmodels/hm-graphorleons/signaldefinitions/112dec13-d8d5-5d1f-b6d7-948e301137c4",
+      "name": "112dec13-d8d5-5d1f-b6d7-948e301137c4",
+      "properties": {
+        "dataUnit": "Count",
+        "displayName": "Pods on High-Memory Nodes",
+        "evaluationRules": {
+          "degradedRule": {
+            "operator": "GreaterThan",
+            "threshold": 1.0
+          },
+          "unhealthyRule": {
+            "operator": "GreaterThan",
+            "threshold": 3.0
+          }
+        },
+        "provisioningState": "Succeeded",
+        "queryText": "count(kube_pod_info{namespace=\"graphorleons\"} * on(node) group_left() ((1 - avg by (node) (node_memory_MemAvailable_bytes / node_memory_MemTotal_bytes)) > 0.85)) or vector(0)",
+        "refreshInterval": "PT1M",
+        "signalKind": "PrometheusMetricsQuery",
+        "timeGrain": "PT1M"
+      },
+      "systemData": {
+        "createdAt": "2026-04-13T17:57:59.6244989Z",
+        "createdBy": "11111111-1111-1111-1111-111111111111",
+        "createdByType": "Application",
+        "lastModifiedAt": "2026-04-13T17:57:59.7951423Z",
+        "lastModifiedBy": "11111111-1111-1111-1111-111111111111",
+        "lastModifiedByType": "Application"
+      },
+      "type": "microsoft.cloudhealth/healthmodels/signaldefinitions"
+    },
+    {
+      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/rg-alwayson-global/providers/microsoft.cloudhealth/healthmodels/hm-graphorleons/signaldefinitions/14372c04-8404-50fb-980e-9c96ac7a388a",
+      "name": "14372c04-8404-50fb-980e-9c96ac7a388a",
+      "properties": {
+        "aggregationType": "Average",
+        "dataUnit": "Count",
+        "displayName": "Event Hub Capture Backlog",
+        "evaluationRules": {
+          "degradedRule": {
+            "operator": "GreaterThan",
+            "threshold": 1000.0
+          },
+          "unhealthyRule": {
+            "operator": "GreaterThan",
+            "threshold": 10000.0
+          }
+        },
+        "metricName": "CaptureBacklog",
+        "metricNamespace": "microsoft.eventhub/namespaces",
+        "provisioningState": "Succeeded",
+        "refreshInterval": "PT5M",
+        "signalKind": "AzureResourceMetric",
+        "timeGrain": "PT5M"
+      },
+      "systemData": {
+        "createdAt": "2026-04-13T23:23:14.9241518Z",
+        "createdBy": "11111111-1111-1111-1111-111111111111",
+        "createdByType": "Application",
+        "lastModifiedAt": "2026-04-13T23:23:15.0929747Z",
+        "lastModifiedBy": "11111111-1111-1111-1111-111111111111",
+        "lastModifiedByType": "Application"
+      },
+      "type": "microsoft.cloudhealth/healthmodels/signaldefinitions"
+    },
+    {
+      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/rg-alwayson-global/providers/microsoft.cloudhealth/healthmodels/hm-graphorleons/signaldefinitions/24d43e91-592d-5151-87b7-aec780ab9e7a",
+      "name": "24d43e91-592d-5151-87b7-aec780ab9e7a",
+      "properties": {
+        "aggregationType": "Average",
+        "dataUnit": "Count",
+        "displayName": "Event Hub Availability",
+        "evaluationRules": {
+          "degradedRule": {
+            "operator": "LessThan",
+            "threshold": 1.0
+          },
+          "unhealthyRule": {
+            "operator": "LessThan",
+            "threshold": 0.0
+          }
+        },
+        "metricName": "NamespaceActiveConnections",
+        "metricNamespace": "microsoft.eventhub/namespaces",
+        "provisioningState": "Succeeded",
+        "refreshInterval": "PT5M",
+        "signalKind": "AzureResourceMetric",
+        "timeGrain": "PT5M"
+      },
+      "systemData": {
+        "createdAt": "2026-04-13T17:57:59.5463722Z",
+        "createdBy": "11111111-1111-1111-1111-111111111111",
+        "createdByType": "Application",
+        "lastModifiedAt": "2026-04-13T17:57:59.6570015Z",
+        "lastModifiedBy": "11111111-1111-1111-1111-111111111111",
+        "lastModifiedByType": "Application"
+      },
+      "type": "microsoft.cloudhealth/healthmodels/signaldefinitions"
+    },
+    {
+      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/rg-alwayson-global/providers/microsoft.cloudhealth/healthmodels/hm-graphorleons/signaldefinitions/26da2fc4-6e06-5f0c-a0a2-7ed3cc3b1b94",
+      "name": "26da2fc4-6e06-5f0c-a0a2-7ed3cc3b1b94",
+      "properties": {
+        "aggregationType": "Average",
+        "dataUnit": "MilliSeconds",
+        "dimensionFilter": "Origin eq 'graphorleons-centralus-001.centralus.alwayson.actor:443'",
+        "displayName": "Origin Latency centralus-001",
+        "evaluationRules": {
+          "degradedRule": {
+            "operator": "GreaterThan",
+            "threshold": 200.0
+          },
+          "unhealthyRule": {
+            "operator": "GreaterThan",
+            "threshold": 1000.0
+          }
+        },
+        "metricName": "OriginLatency",
+        "metricNamespace": "microsoft.cdn/profiles",
+        "provisioningState": "Succeeded",
+        "refreshInterval": "PT1M",
+        "signalKind": "AzureResourceMetric",
+        "timeGrain": "PT1M"
+      },
+      "systemData": {
+        "createdAt": "2026-04-13T17:57:59.6088707Z",
+        "createdBy": "11111111-1111-1111-1111-111111111111",
+        "createdByType": "Application",
+        "lastModifiedAt": "2026-04-13T17:57:59.7756337Z",
+        "lastModifiedBy": "11111111-1111-1111-1111-111111111111",
+        "lastModifiedByType": "Application"
+      },
+      "type": "microsoft.cloudhealth/healthmodels/signaldefinitions"
+    },
+    {
+      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/rg-alwayson-global/providers/microsoft.cloudhealth/healthmodels/hm-graphorleons/signaldefinitions/388dc8e7-ebff-5752-90e9-c439ec257fae",
+      "name": "388dc8e7-ebff-5752-90e9-c439ec257fae",
+      "properties": {
+        "aggregationType": "Average",
+        "dataUnit": "Percent",
+        "displayName": "FD 5XX",
+        "evaluationRules": {
+          "degradedRule": {
+            "operator": "GreaterThan",
+            "threshold": 5.0
+          },
+          "unhealthyRule": {
+            "operator": "GreaterThan",
+            "threshold": 10.0
+          }
+        },
+        "metricName": "Percentage5XX",
+        "metricNamespace": "microsoft.cdn/profiles",
+        "provisioningState": "Succeeded",
+        "refreshInterval": "PT1M",
+        "signalKind": "AzureResourceMetric",
+        "timeGrain": "PT5M"
+      },
+      "systemData": {
+        "createdAt": "2026-04-13T17:57:59.6088707Z",
+        "createdBy": "11111111-1111-1111-1111-111111111111",
+        "createdByType": "Application",
+        "lastModifiedAt": "2026-04-13T17:57:59.7764863Z",
+        "lastModifiedBy": "11111111-1111-1111-1111-111111111111",
+        "lastModifiedByType": "Application"
+      },
+      "type": "microsoft.cloudhealth/healthmodels/signaldefinitions"
+    },
+    {
+      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/rg-alwayson-global/providers/microsoft.cloudhealth/healthmodels/hm-graphorleons/signaldefinitions/3a41daa9-b6cb-552c-9ef3-30a1ec994db1",
+      "name": "3a41daa9-b6cb-552c-9ef3-30a1ec994db1",
+      "properties": {
+        "aggregationType": "Count",
+        "dataUnit": "Count",
+        "dimensionFilter": "Status eq 'ClientThrottlingError'",
+        "displayName": "Cosmos Throttled",
+        "evaluationRules": {
+          "degradedRule": {
+            "operator": "GreaterThan",
+            "threshold": 100.0
+          },
+          "unhealthyRule": {
+            "operator": "GreaterThan",
+            "threshold": 400.0
+          }
+        },
+        "metricName": "TotalRequests",
+        "metricNamespace": "microsoft.documentdb/databaseaccounts",
+        "provisioningState": "Succeeded",
+        "refreshInterval": "PT1M",
+        "signalKind": "AzureResourceMetric",
+        "timeGrain": "P1D"
+      },
+      "systemData": {
+        "createdAt": "2026-04-13T17:57:59.6244989Z",
+        "createdBy": "11111111-1111-1111-1111-111111111111",
+        "createdByType": "Application",
+        "lastModifiedAt": "2026-04-14T23:12:07.5391053Z",
+        "lastModifiedBy": "11111111-1111-1111-1111-111111111111",
+        "lastModifiedByType": "Application"
+      },
+      "type": "microsoft.cloudhealth/healthmodels/signaldefinitions"
+    },
+    {
+      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/rg-alwayson-global/providers/microsoft.cloudhealth/healthmodels/hm-graphorleons/signaldefinitions/595daa85-6078-5143-b600-33a697cacc32",
+      "name": "595daa85-6078-5143-b600-33a697cacc32",
+      "properties": {
+        "dataUnit": "Count",
+        "displayName": "OOMKilled",
+        "evaluationRules": {
+          "degradedRule": {
+            "operator": "GreaterThan",
+            "threshold": 0.0
+          },
+          "unhealthyRule": {
+            "operator": "GreaterThan",
+            "threshold": 2.0
+          }
+        },
+        "provisioningState": "Succeeded",
+        "queryText": "sum(kube_pod_container_status_last_terminated_reason{namespace=\"graphorleons\", reason=\"OOMKilled\"}) or vector(0)",
+        "refreshInterval": "PT1M",
+        "signalKind": "PrometheusMetricsQuery",
+        "timeGrain": "PT1M"
+      },
+      "systemData": {
+        "createdAt": "2026-04-13T17:57:59.6088707Z",
+        "createdBy": "11111111-1111-1111-1111-111111111111",
+        "createdByType": "Application",
+        "lastModifiedAt": "2026-04-13T17:57:59.7749798Z",
+        "lastModifiedBy": "11111111-1111-1111-1111-111111111111",
+        "lastModifiedByType": "Application"
+      },
+      "type": "microsoft.cloudhealth/healthmodels/signaldefinitions"
+    },
+    {
+      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/rg-alwayson-global/providers/microsoft.cloudhealth/healthmodels/hm-graphorleons/signaldefinitions/5a136059-085d-597b-bc8d-b7b87ea3de44",
+      "name": "5a136059-085d-597b-bc8d-b7b87ea3de44",
+      "properties": {
+        "aggregationType": "Total",
+        "dataUnit": "Count",
+        "displayName": "Event Hub Server Errors",
+        "evaluationRules": {
+          "degradedRule": {
+            "operator": "GreaterThan",
+            "threshold": 1.0
+          },
+          "unhealthyRule": {
+            "operator": "GreaterThan",
+            "threshold": 10.0
+          }
+        },
+        "metricName": "ServerErrors",
+        "metricNamespace": "microsoft.eventhub/namespaces",
+        "provisioningState": "Succeeded",
+        "refreshInterval": "PT5M",
+        "signalKind": "AzureResourceMetric",
+        "timeGrain": "PT5M"
+      },
+      "systemData": {
+        "createdAt": "2026-04-13T17:57:59.5932451Z",
+        "createdBy": "11111111-1111-1111-1111-111111111111",
+        "createdByType": "Application",
+        "lastModifiedAt": "2026-04-13T17:58:00.7050452Z",
+        "lastModifiedBy": "11111111-1111-1111-1111-111111111111",
+        "lastModifiedByType": "Application"
+      },
+      "type": "microsoft.cloudhealth/healthmodels/signaldefinitions"
+    },
+    {
+      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/rg-alwayson-global/providers/microsoft.cloudhealth/healthmodels/hm-graphorleons/signaldefinitions/6b4730ce-dde8-5794-8073-3d958aca41cf",
+      "name": "6b4730ce-dde8-5794-8073-3d958aca41cf",
+      "properties": {
+        "dataUnit": "Count",
+        "displayName": "Minimum Deployment Replicas",
+        "evaluationRules": {
+          "degradedRule": {
+            "operator": "LessThan",
+            "threshold": 2.0
+          },
+          "unhealthyRule": {
+            "operator": "LessThan",
+            "threshold": 1.0
+          }
+        },
+        "provisioningState": "Succeeded",
+        "queryText": "min(kube_deployment_spec_replicas{namespace=\"graphorleons\"})",
+        "refreshInterval": "PT1M",
+        "signalKind": "PrometheusMetricsQuery",
+        "timeGrain": "PT1M"
+      },
+      "systemData": {
+        "createdAt": "2026-04-14T06:12:08.2541317Z",
+        "createdBy": "11111111-1111-1111-1111-111111111111",
+        "createdByType": "Application",
+        "lastModifiedAt": "2026-04-14T06:12:08.6657141Z",
+        "lastModifiedBy": "11111111-1111-1111-1111-111111111111",
+        "lastModifiedByType": "Application"
+      },
+      "type": "microsoft.cloudhealth/healthmodels/signaldefinitions"
+    },
+    {
+      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/rg-alwayson-global/providers/microsoft.cloudhealth/healthmodels/hm-graphorleons/signaldefinitions/6d4a8fbf-afc7-5b01-9376-f37babc1fd55",
+      "name": "6d4a8fbf-afc7-5b01-9376-f37babc1fd55",
+      "properties": {
+        "aggregationType": "Count",
+        "dataUnit": "Count",
+        "dimensionFilter": "Status eq 'ClientOtherError'",
+        "displayName": "Cosmos Client Errors",
+        "evaluationRules": {
+          "degradedRule": {
+            "operator": "GreaterThan",
+            "threshold": 10.0
+          },
+          "unhealthyRule": {
+            "operator": "GreaterThan",
+            "threshold": 100.0
+          }
+        },
+        "metricName": "TotalRequests",
+        "metricNamespace": "microsoft.documentdb/databaseaccounts",
+        "provisioningState": "Succeeded",
+        "refreshInterval": "PT1M",
+        "signalKind": "AzureResourceMetric",
+        "timeGrain": "PT1M"
+      },
+      "systemData": {
+        "createdAt": "2026-04-13T17:57:59.5463722Z",
+        "createdBy": "11111111-1111-1111-1111-111111111111",
+        "createdByType": "Application",
+        "lastModifiedAt": "2026-04-13T17:57:59.721842Z",
+        "lastModifiedBy": "11111111-1111-1111-1111-111111111111",
+        "lastModifiedByType": "Application"
+      },
+      "type": "microsoft.cloudhealth/healthmodels/signaldefinitions"
+    },
+    {
+      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/rg-alwayson-global/providers/microsoft.cloudhealth/healthmodels/hm-graphorleons/signaldefinitions/8b53c606-8780-5f06-832b-54d641d5e728",
+      "name": "8b53c606-8780-5f06-832b-54d641d5e728",
+      "properties": {
+        "aggregationType": "Total",
+        "dataUnit": "Count",
+        "dimensionFilter": "HttpStatusGroup eq '4XX'",
+        "displayName": "FD 4XX",
+        "evaluationRules": {
+          "degradedRule": {
+            "operator": "GreaterThan",
+            "threshold": 10.0
+          },
+          "unhealthyRule": {
+            "operator": "GreaterThan",
+            "threshold": 50.0
+          }
+        },
+        "metricName": "RequestCount",
+        "metricNamespace": "microsoft.cdn/profiles",
+        "provisioningState": "Succeeded",
+        "refreshInterval": "PT1M",
+        "signalKind": "AzureResourceMetric",
+        "timeGrain": "PT1M"
+      },
+      "systemData": {
+        "createdAt": "2026-04-13T17:57:59.6244989Z",
+        "createdBy": "11111111-1111-1111-1111-111111111111",
+        "createdByType": "Application",
+        "lastModifiedAt": "2026-04-13T17:57:59.8744999Z",
+        "lastModifiedBy": "11111111-1111-1111-1111-111111111111",
+        "lastModifiedByType": "Application"
+      },
+      "type": "microsoft.cloudhealth/healthmodels/signaldefinitions"
+    },
+    {
+      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/rg-alwayson-global/providers/microsoft.cloudhealth/healthmodels/hm-graphorleons/signaldefinitions/9b140ad7-a7a0-589d-92b7-d9d2f116add8",
+      "name": "9b140ad7-a7a0-589d-92b7-d9d2f116add8",
+      "properties": {
+        "aggregationType": "Average",
+        "dataUnit": "Percent",
+        "displayName": "Cosmos Availability",
+        "evaluationRules": {
+          "degradedRule": {
+            "operator": "LessThan",
+            "threshold": 100.0
+          },
+          "unhealthyRule": {
+            "operator": "LessThan",
+            "threshold": 95.0
+          }
+        },
+        "metricName": "ServiceAvailability",
+        "metricNamespace": "microsoft.documentdb/databaseaccounts",
+        "provisioningState": "Succeeded",
+        "refreshInterval": "PT1M",
+        "signalKind": "AzureResourceMetric",
+        "timeGrain": "PT1H"
+      },
+      "systemData": {
+        "createdAt": "2026-04-13T17:57:59.6088707Z",
+        "createdBy": "11111111-1111-1111-1111-111111111111",
+        "createdByType": "Application",
+        "lastModifiedAt": "2026-04-13T17:57:59.7752335Z",
+        "lastModifiedBy": "11111111-1111-1111-1111-111111111111",
+        "lastModifiedByType": "Application"
+      },
+      "type": "microsoft.cloudhealth/healthmodels/signaldefinitions"
+    },
+    {
+      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/rg-alwayson-global/providers/microsoft.cloudhealth/healthmodels/hm-graphorleons/signaldefinitions/9b6f898a-501e-5f82-83ab-78d512a9e366",
+      "name": "9b6f898a-501e-5f82-83ab-78d512a9e366",
+      "properties": {
+        "dataUnit": "Count",
+        "displayName": "CrashLoopBackOff",
+        "evaluationRules": {
+          "degradedRule": {
+            "operator": "GreaterThan",
+            "threshold": 0.0
+          },
+          "unhealthyRule": {
+            "operator": "GreaterThan",
+            "threshold": 1.0
+          }
+        },
+        "provisioningState": "Succeeded",
+        "queryText": "sum(kube_pod_container_status_waiting_reason{namespace=\"graphorleons\", reason=\"CrashLoopBackOff\"}) or vector(0)",
+        "refreshInterval": "PT1M",
+        "signalKind": "PrometheusMetricsQuery",
+        "timeGrain": "PT1M"
+      },
+      "systemData": {
+        "createdAt": "2026-04-13T17:57:59.6088707Z",
+        "createdBy": "11111111-1111-1111-1111-111111111111",
+        "createdByType": "Application",
+        "lastModifiedAt": "2026-04-13T17:57:59.8392983Z",
+        "lastModifiedBy": "11111111-1111-1111-1111-111111111111",
+        "lastModifiedByType": "Application"
+      },
+      "type": "microsoft.cloudhealth/healthmodels/signaldefinitions"
+    },
+    {
+      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/rg-alwayson-global/providers/microsoft.cloudhealth/healthmodels/hm-graphorleons/signaldefinitions/ac20bcb6-3ed2-59c3-a8e3-f1ab50c1dca3",
+      "name": "ac20bcb6-3ed2-59c3-a8e3-f1ab50c1dca3",
+      "properties": {
+        "dataUnit": "Percent",
+        "displayName": "CPU Pressure",
+        "evaluationRules": {
+          "degradedRule": {
+            "operator": "GreaterThan",
+            "threshold": 90.0
+          },
+          "unhealthyRule": {
+            "operator": "GreaterThan",
+            "threshold": 98.0
+          }
+        },
+        "provisioningState": "Succeeded",
+        "queryText": "sum(rate(container_cpu_usage_seconds_total{namespace=\"graphorleons\", container!=\"\", container!=\"POD\"}[5m])) / sum(kube_pod_container_resource_requests{namespace=\"graphorleons\", resource=\"cpu\"}) * 100",
+        "refreshInterval": "PT1M",
+        "signalKind": "PrometheusMetricsQuery",
+        "timeGrain": "PT1M"
+      },
+      "systemData": {
+        "createdAt": "2026-04-13T17:57:59.6088707Z",
+        "createdBy": "11111111-1111-1111-1111-111111111111",
+        "createdByType": "Application",
+        "lastModifiedAt": "2026-04-13T17:57:59.8392837Z",
+        "lastModifiedBy": "11111111-1111-1111-1111-111111111111",
+        "lastModifiedByType": "Application"
+      },
+      "type": "microsoft.cloudhealth/healthmodels/signaldefinitions"
+    },
+    {
+      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/rg-alwayson-global/providers/microsoft.cloudhealth/healthmodels/hm-graphorleons/signaldefinitions/b0ed7350-31aa-50e4-aa87-41fa2ae7f37a",
+      "name": "b0ed7350-31aa-50e4-aa87-41fa2ae7f37a",
+      "properties": {
+        "dataUnit": "Percent",
+        "displayName": "Gateway Error Rate (5xx)",
+        "evaluationRules": {
+          "degradedRule": {
+            "operator": "GreaterThan",
+            "threshold": 1.0
+          },
+          "unhealthyRule": {
+            "operator": "GreaterThan",
+            "threshold": 5.0
+          }
+        },
+        "provisioningState": "Succeeded",
+        "queryText": "(sum(rate(istio_requests_total{destination_workload_namespace=\"graphorleons\", response_code=~\"5..\"}[5m])) / sum(rate(istio_requests_total{destination_workload_namespace=\"graphorleons\"}[5m])) * 100) or vector(0)",
+        "refreshInterval": "PT1M",
+        "signalKind": "PrometheusMetricsQuery",
+        "timeGrain": "PT1M"
+      },
+      "systemData": {
+        "createdAt": "2026-04-13T22:07:49.0168996Z",
+        "createdBy": "11111111-1111-1111-1111-111111111111",
+        "createdByType": "Application",
+        "lastModifiedAt": "2026-04-13T22:07:49.1594406Z",
+        "lastModifiedBy": "11111111-1111-1111-1111-111111111111",
+        "lastModifiedByType": "Application"
+      },
+      "type": "microsoft.cloudhealth/healthmodels/signaldefinitions"
+    },
+    {
+      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/rg-alwayson-global/providers/microsoft.cloudhealth/healthmodels/hm-graphorleons/signaldefinitions/c0ef85fc-94d4-574f-93c5-1aab561ca673",
+      "name": "c0ef85fc-94d4-574f-93c5-1aab561ca673",
+      "properties": {
+        "aggregationType": "Average",
+        "dataUnit": "Count",
+        "dimensionFilter": "phase eq 'Failed'",
+        "displayName": "Failed Pods",
+        "evaluationRules": {
+          "degradedRule": {
+            "operator": "GreaterThan",
+            "threshold": 0.0
+          },
+          "unhealthyRule": {
+            "operator": "GreaterThan",
+            "threshold": 3.0
+          }
+        },
+        "metricName": "kube_pod_status_phase",
+        "metricNamespace": "microsoft.containerservice/managedclusters",
+        "provisioningState": "Succeeded",
+        "refreshInterval": "PT1M",
+        "signalKind": "AzureResourceMetric",
+        "timeGrain": "PT5M"
+      },
+      "systemData": {
+        "createdAt": "2026-04-13T17:57:59.6244989Z",
+        "createdBy": "11111111-1111-1111-1111-111111111111",
+        "createdByType": "Application",
+        "lastModifiedAt": "2026-04-13T17:57:59.7937463Z",
+        "lastModifiedBy": "11111111-1111-1111-1111-111111111111",
+        "lastModifiedByType": "Application"
+      },
+      "type": "microsoft.cloudhealth/healthmodels/signaldefinitions"
+    },
+    {
+      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/rg-alwayson-global/providers/microsoft.cloudhealth/healthmodels/hm-graphorleons/signaldefinitions/c4470a6e-3f8d-5f14-affd-6a2e50e7bc7b",
+      "name": "c4470a6e-3f8d-5f14-affd-6a2e50e7bc7b",
+      "properties": {
+        "dataUnit": "Count",
+        "displayName": "Deployments Not Ready",
+        "evaluationRules": {
+          "degradedRule": {
+            "operator": "GreaterThan",
+            "threshold": 0.0
+          },
+          "unhealthyRule": {
+            "operator": "GreaterThan",
+            "threshold": 0.0
+          }
+        },
+        "provisioningState": "Succeeded",
+        "queryText": "count(kube_deployment_status_replicas_ready{namespace=\"graphorleons\"} < kube_deployment_spec_replicas{namespace=\"graphorleons\"}) or vector(0)",
+        "refreshInterval": "PT1M",
+        "signalKind": "PrometheusMetricsQuery",
+        "timeGrain": "PT1M"
+      },
+      "systemData": {
+        "createdAt": "2026-04-13T21:32:45.5645394Z",
+        "createdBy": "11111111-1111-1111-1111-111111111111",
+        "createdByType": "Application",
+        "lastModifiedAt": "2026-04-14T05:26:39.4943038Z",
+        "lastModifiedBy": "11111111-1111-1111-1111-111111111111",
+        "lastModifiedByType": "Application"
+      },
+      "type": "microsoft.cloudhealth/healthmodels/signaldefinitions"
+    },
+    {
+      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/rg-alwayson-global/providers/microsoft.cloudhealth/healthmodels/hm-graphorleons/signaldefinitions/c7d840c0-2907-5213-b90c-e327c81cfcb2",
+      "name": "c7d840c0-2907-5213-b90c-e327c81cfcb2",
+      "properties": {
+        "dataUnit": "Percent",
+        "displayName": "Memory Pressure",
+        "evaluationRules": {
+          "degradedRule": {
+            "operator": "GreaterThan",
+            "threshold": 80.0
+          },
+          "unhealthyRule": {
+            "operator": "GreaterThan",
+            "threshold": 95.0
+          }
+        },
+        "provisioningState": "Succeeded",
+        "queryText": "sum(container_memory_working_set_bytes{namespace=\"graphorleons\", container!=\"\", container!=\"POD\"}) / sum(kube_pod_container_resource_limits{namespace=\"graphorleons\", resource=\"memory\"}) * 100",
+        "refreshInterval": "PT1M",
+        "signalKind": "PrometheusMetricsQuery",
+        "timeGrain": "PT1M"
+      },
+      "systemData": {
+        "createdAt": "2026-04-13T17:57:59.6244989Z",
+        "createdBy": "11111111-1111-1111-1111-111111111111",
+        "createdByType": "Application",
+        "lastModifiedAt": "2026-04-13T17:57:59.8016369Z",
+        "lastModifiedBy": "11111111-1111-1111-1111-111111111111",
+        "lastModifiedByType": "Application"
+      },
+      "type": "microsoft.cloudhealth/healthmodels/signaldefinitions"
+    },
+    {
+      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/rg-alwayson-global/providers/microsoft.cloudhealth/healthmodels/hm-graphorleons/signaldefinitions/cd810dbd-7af4-584b-8166-9c71d09ac458",
+      "name": "cd810dbd-7af4-584b-8166-9c71d09ac458",
+      "properties": {
+        "dataUnit": "MilliSeconds",
+        "displayName": "Gateway P99 Latency",
+        "evaluationRules": {
+          "degradedRule": {
+            "operator": "GreaterThan",
+            "threshold": 500.0
+          },
+          "unhealthyRule": {
+            "operator": "GreaterThan",
+            "threshold": 2000.0
+          }
+        },
+        "provisioningState": "Succeeded",
+        "queryText": "(histogram_quantile(0.99, sum(rate(istio_request_duration_milliseconds_bucket{destination_workload_namespace=\"graphorleons\"}[5m])) by (le)) > 0) or vector(0)",
+        "refreshInterval": "PT1M",
+        "signalKind": "PrometheusMetricsQuery",
+        "timeGrain": "PT1M"
+      },
+      "systemData": {
+        "createdAt": "2026-04-13T22:07:48.985646Z",
+        "createdBy": "11111111-1111-1111-1111-111111111111",
+        "createdByType": "Application",
+        "lastModifiedAt": "2026-04-14T05:26:39.5101741Z",
+        "lastModifiedBy": "11111111-1111-1111-1111-111111111111",
+        "lastModifiedByType": "Application"
+      },
+      "type": "microsoft.cloudhealth/healthmodels/signaldefinitions"
+    },
+    {
+      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/rg-alwayson-global/providers/microsoft.cloudhealth/healthmodels/hm-graphorleons/signaldefinitions/d11c151e-de4e-5758-96af-4c78001ff544",
+      "name": "d11c151e-de4e-5758-96af-4c78001ff544",
+      "properties": {
+        "dataUnit": "Count",
+        "displayName": "Pods on DiskPressure Nodes",
+        "evaluationRules": {
+          "degradedRule": {
+            "operator": "GreaterThan",
+            "threshold": 1.0
+          },
+          "unhealthyRule": {
+            "operator": "GreaterThan",
+            "threshold": 1.0
+          }
+        },
+        "provisioningState": "Succeeded",
+        "queryText": "count(kube_pod_info{namespace=\"graphorleons\"} * on(node) group_left() (kube_node_status_condition{condition=\"DiskPressure\", status=\"true\"} == 1)) or vector(0)",
+        "refreshInterval": "PT1M",
+        "signalKind": "PrometheusMetricsQuery",
+        "timeGrain": "PT1M"
+      },
+      "systemData": {
+        "createdAt": "2026-04-13T17:57:59.6088707Z",
+        "createdBy": "11111111-1111-1111-1111-111111111111",
+        "createdByType": "Application",
+        "lastModifiedAt": "2026-04-13T22:07:49.1253095Z",
+        "lastModifiedBy": "11111111-1111-1111-1111-111111111111",
+        "lastModifiedByType": "Application"
+      },
+      "type": "microsoft.cloudhealth/healthmodels/signaldefinitions"
+    },
+    {
+      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/rg-alwayson-global/providers/microsoft.cloudhealth/healthmodels/hm-graphorleons/signaldefinitions/d21d4e36-70f4-5cc2-afa6-92e60fc2e36a",
+      "name": "d21d4e36-70f4-5cc2-afa6-92e60fc2e36a",
+      "properties": {
+        "aggregationType": "Total",
+        "dataUnit": "Count",
+        "displayName": "Event Hub Throttled",
+        "evaluationRules": {
+          "degradedRule": {
+            "operator": "GreaterThan",
+            "threshold": 5.0
+          },
+          "unhealthyRule": {
+            "operator": "GreaterThan",
+            "threshold": 50.0
+          }
+        },
+        "metricName": "ThrottledRequests",
+        "metricNamespace": "microsoft.eventhub/namespaces",
+        "provisioningState": "Succeeded",
+        "refreshInterval": "PT5M",
+        "signalKind": "AzureResourceMetric",
+        "timeGrain": "PT5M"
+      },
+      "systemData": {
+        "createdAt": "2026-04-13T17:57:59.6088707Z",
+        "createdBy": "11111111-1111-1111-1111-111111111111",
+        "createdByType": "Application",
+        "lastModifiedAt": "2026-04-13T17:57:59.7846044Z",
+        "lastModifiedBy": "11111111-1111-1111-1111-111111111111",
+        "lastModifiedByType": "Application"
+      },
+      "type": "microsoft.cloudhealth/healthmodels/signaldefinitions"
+    },
+    {
+      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/rg-alwayson-global/providers/microsoft.cloudhealth/healthmodels/hm-graphorleons/signaldefinitions/e3388ad5-61a0-5b4e-85cd-c7cb4e2ce189",
+      "name": "e3388ad5-61a0-5b4e-85cd-c7cb4e2ce189",
+      "properties": {
+        "aggregationType": "Maximum",
+        "dataUnit": "Percent",
+        "displayName": "Cosmos NormalizedRU",
+        "evaluationRules": {
+          "degradedRule": {
+            "operator": "GreaterThan",
+            "threshold": 80.0
+          },
+          "unhealthyRule": {
+            "operator": "GreaterThan",
+            "threshold": 90.0
+          }
+        },
+        "metricName": "NormalizedRUConsumption",
+        "metricNamespace": "microsoft.documentdb/databaseaccounts",
+        "provisioningState": "Succeeded",
+        "refreshInterval": "PT1M",
+        "signalKind": "AzureResourceMetric",
+        "timeGrain": "PT5M"
+      },
+      "systemData": {
+        "createdAt": "2026-04-13T17:57:59.6088707Z",
+        "createdBy": "11111111-1111-1111-1111-111111111111",
+        "createdByType": "Application",
+        "lastModifiedAt": "2026-04-13T17:57:59.8297554Z",
+        "lastModifiedBy": "11111111-1111-1111-1111-111111111111",
+        "lastModifiedByType": "Application"
+      },
+      "type": "microsoft.cloudhealth/healthmodels/signaldefinitions"
+    },
+    {
+      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/rg-alwayson-global/providers/microsoft.cloudhealth/healthmodels/hm-graphorleons/signaldefinitions/e67afd09-e807-52f9-8ce7-205dfa3cc275",
+      "name": "e67afd09-e807-52f9-8ce7-205dfa3cc275",
+      "properties": {
+        "dataUnit": "Count",
+        "displayName": "Pod Restarts",
+        "evaluationRules": {
+          "degradedRule": {
+            "operator": "GreaterThan",
+            "threshold": 1.0
+          },
+          "unhealthyRule": {
+            "operator": "GreaterThan",
+            "threshold": 3.0
+          }
+        },
+        "provisioningState": "Succeeded",
+        "queryText": "sum(increase(kube_pod_container_status_restarts_total{namespace=\"graphorleons\"}[15m]))",
+        "refreshInterval": "PT1M",
+        "signalKind": "PrometheusMetricsQuery",
+        "timeGrain": "PT1M"
+      },
+      "systemData": {
+        "createdAt": "2026-04-13T17:57:59.6088707Z",
+        "createdBy": "11111111-1111-1111-1111-111111111111",
+        "createdByType": "Application",
+        "lastModifiedAt": "2026-04-14T05:26:39.6117406Z",
+        "lastModifiedBy": "11111111-1111-1111-1111-111111111111",
+        "lastModifiedByType": "Application"
+      },
+      "type": "microsoft.cloudhealth/healthmodels/signaldefinitions"
+    },
+    {
+      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/rg-alwayson-global/providers/microsoft.cloudhealth/healthmodels/hm-graphorleons/signaldefinitions/e8007b8c-255f-558e-b45c-5c2ef3d3bf25",
+      "name": "e8007b8c-255f-558e-b45c-5c2ef3d3bf25",
+      "properties": {
+        "dataUnit": "Count",
+        "displayName": "Pods on PIDPressure Nodes",
+        "evaluationRules": {
+          "degradedRule": {
+            "operator": "GreaterThan",
+            "threshold": 1.0
+          },
+          "unhealthyRule": {
+            "operator": "GreaterThan",
+            "threshold": 1.0
+          }
+        },
+        "provisioningState": "Succeeded",
+        "queryText": "count(kube_pod_info{namespace=\"graphorleons\"} * on(node) group_left() (kube_node_status_condition{condition=\"PIDPressure\", status=\"true\"} == 1)) or vector(0)",
+        "refreshInterval": "PT1M",
+        "signalKind": "PrometheusMetricsQuery",
+        "timeGrain": "PT1M"
+      },
+      "systemData": {
+        "createdAt": "2026-04-13T17:57:59.5463722Z",
+        "createdBy": "11111111-1111-1111-1111-111111111111",
+        "createdByType": "Application",
+        "lastModifiedAt": "2026-04-13T22:07:49.1402981Z",
+        "lastModifiedBy": "11111111-1111-1111-1111-111111111111",
+        "lastModifiedByType": "Application"
+      },
+      "type": "microsoft.cloudhealth/healthmodels/signaldefinitions"
+    },
+    {
+      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/rg-alwayson-global/providers/microsoft.cloudhealth/healthmodels/hm-graphorleons/signaldefinitions/f2ebeaac-3428-5f5d-b949-9a319a6e3ab6",
+      "name": "f2ebeaac-3428-5f5d-b949-9a319a6e3ab6",
+      "properties": {
+        "aggregationType": "Maximum",
+        "dataUnit": "Count",
+        "displayName": "Event Hub Geo-Replication Lag",
+        "evaluationRules": {
+          "degradedRule": {
+            "operator": "GreaterThan",
+            "threshold": 100.0
+          },
+          "unhealthyRule": {
+            "operator": "GreaterThan",
+            "threshold": 1000.0
+          }
+        },
+        "metricName": "ReplicationLagCount",
+        "metricNamespace": "microsoft.eventhub/namespaces",
+        "provisioningState": "Succeeded",
+        "refreshInterval": "PT5M",
+        "signalKind": "AzureResourceMetric",
+        "timeGrain": "PT5M"
+      },
+      "systemData": {
+        "createdAt": "2026-04-13T23:23:14.9241518Z",
+        "createdBy": "11111111-1111-1111-1111-111111111111",
+        "createdByType": "Application",
+        "lastModifiedAt": "2026-04-13T23:23:15.106388Z",
+        "lastModifiedBy": "11111111-1111-1111-1111-111111111111",
+        "lastModifiedByType": "Application"
+      },
+      "type": "microsoft.cloudhealth/healthmodels/signaldefinitions"
+    },
+    {
+      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/rg-alwayson-global/providers/microsoft.cloudhealth/healthmodels/hm-graphorleons/signaldefinitions/ffd1d7a3-a706-5b3b-8d37-52a64bde7ac6",
+      "name": "ffd1d7a3-a706-5b3b-8d37-52a64bde7ac6",
+      "properties": {
+        "aggregationType": "Average",
+        "dataUnit": "MilliSeconds",
+        "dimensionFilter": "Origin eq 'graphorleons-swedencentral-001.swedencentral.alwayson.actor:443'",
+        "displayName": "Origin Latency swedencentral-001",
+        "evaluationRules": {
+          "degradedRule": {
+            "operator": "GreaterThan",
+            "threshold": 200.0
+          },
+          "unhealthyRule": {
+            "operator": "GreaterThan",
+            "threshold": 1000.0
+          }
+        },
+        "metricName": "OriginLatency",
+        "metricNamespace": "microsoft.cdn/profiles",
+        "provisioningState": "Succeeded",
+        "refreshInterval": "PT1M",
+        "signalKind": "AzureResourceMetric",
+        "timeGrain": "PT1M"
+      },
+      "systemData": {
+        "createdAt": "2026-04-13T17:57:59.6088707Z",
+        "createdBy": "11111111-1111-1111-1111-111111111111",
+        "createdByType": "Application",
+        "lastModifiedAt": "2026-04-13T17:57:59.7877449Z",
+        "lastModifiedBy": "11111111-1111-1111-1111-111111111111",
+        "lastModifiedByType": "Application"
+      },
+      "type": "microsoft.cloudhealth/healthmodels/signaldefinitions"
+    }
+  ]
+}

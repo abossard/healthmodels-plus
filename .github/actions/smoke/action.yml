@@ -1,0 +1,26 @@
+name: Smoke test the extension
+description: Installs healthmodels-plus into an isolated Azure CLI extension directory, runs its help commands and removes it again.
+
+inputs:
+  source:
+    description: Path or URL of the wheel to install.
+    required: true
+
+runs:
+  using: composite
+  steps:
+    - name: Install, run help, remove
+      shell: bash
+      env:
+        AZURE_EXTENSION_DIR: ${{ runner.temp }}/azext
+        SOURCE: ${{ inputs.source }}
+      run: |
+        set -euxo pipefail
+        az version
+        az extension add --source "$SOURCE" --yes
+        az monitor health-models layout --help
+        az monitor health-models layout arrange --help
+        az health-models-tui --help
+        az extension show --name healthmodels-plus
+        az extension remove --name healthmodels-plus
+        az extension list -o json | jq -e 'all(.name != "healthmodels-plus")'

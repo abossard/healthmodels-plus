@@ -1,0 +1,1623 @@
+{
+  "value": [
+    {
+      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/rg-alwayson-global/providers/microsoft.cloudhealth/healthmodels/hm-graphorleons/entities/028f77e9-b029-56b9-9d68-b3a77e15758d",
+      "name": "028f77e9-b029-56b9-9d68-b3a77e15758d",
+      "properties": {
+        "canvasPosition": {
+          "x": 2250.0,
+          "y": 587.0
+        },
+        "displayName": "swedencentral-001 - Gateway Health",
+        "healthState": "Healthy",
+        "icon": {
+          "iconName": "Resource"
+        },
+        "impact": "Standard",
+        "provisioningState": "Succeeded",
+        "signalGroups": {
+          "azureMonitorWorkspace": {
+            "authenticationSetting": "id-healthmodel-alwayson",
+            "azureMonitorWorkspaceResourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg-alwayson-swedencentral/providers/Microsoft.Monitor/accounts/amw-alwayson-swedencentral",
+            "signals": [
+              {
+                "name": "f2caed85-5298-5c0b-aff9-ad3c7c38b084",
+                "refreshInterval": "PT1M",
+                "signalDefinitionName": "b0ed7350-31aa-50e4-aa87-41fa2ae7f37a",
+                "signalKind": "PrometheusMetricsQuery",
+                "status": {
+                  "healthState": "Healthy",
+                  "reportedAt": "2026-04-16T20:42:59.8055993+00:00",
+                  "value": 0.0
+                }
+              }
+            ]
+          }
+        },
+        "tags": {}
+      },
+      "systemData": {
+        "createdAt": "2026-04-13T22:07:49.8919205Z",
+        "createdBy": "11111111-1111-1111-1111-111111111111",
+        "createdByType": "Application",
+        "lastModifiedAt": "2026-04-16T20:42:00.7758216Z",
+        "lastModifiedBy": "user@contoso.com",
+        "lastModifiedByType": "User"
+      },
+      "type": "Microsoft.CloudHealth/healthmodels/entities"
+    },
+    {
+      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/rg-alwayson-global/providers/microsoft.cloudhealth/healthmodels/hm-graphorleons/entities/0923d7e7-744f-53d2-b3da-e5f7bc67b2f8",
+      "name": "0923d7e7-744f-53d2-b3da-e5f7bc67b2f8",
+      "properties": {
+        "canvasPosition": {
+          "x": 3250.0,
+          "y": 587.0
+        },
+        "displayName": "swedencentral-001 - FD Latency",
+        "healthState": "Healthy",
+        "icon": {
+          "iconName": "Resource"
+        },
+        "impact": "Standard",
+        "provisioningState": "Succeeded",
+        "signalGroups": {
+          "azureResource": {
+            "authenticationSetting": "id-healthmodel-alwayson",
+            "azureResourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg-alwayson-global/providers/Microsoft.Cdn/profiles/fd-alwayson",
+            "signals": [
+              {
+                "name": "7e307eca-3a13-5a77-b6bf-868e15ae2978",
+                "refreshInterval": "PT1M",
+                "signalDefinitionName": "ffd1d7a3-a706-5b3b-8d37-52a64bde7ac6",
+                "signalKind": "AzureResourceMetric",
+                "status": {
+                  "healthState": "Healthy",
+                  "reportedAt": "2026-04-16T20:42:40.5692113+00:00",
+                  "value": 0.0
+                }
+              },
+              {
+                "name": "c6e16dcb-26ce-59f9-aac5-e0f5689c40d3",
+                "refreshInterval": "PT1M",
+                "signalDefinitionName": "0ee2e762-aa6c-5809-8024-38d59141f3c9",
+                "signalKind": "AzureResourceMetric",
+                "status": {
+                  "healthState": "Healthy",
+                  "reportedAt": "2026-04-16T20:42:53.9985947+00:00",
+                  "value": 0.0
+                }
+              }
+            ]
+          }
+        },
+        "tags": {}
+      },
+      "systemData": {
+        "createdAt": "2026-04-13T17:58:00.8745146Z",
+        "createdBy": "11111111-1111-1111-1111-111111111111",
+        "createdByType": "Application",
+        "lastModifiedAt": "2026-04-16T20:42:00.8531717Z",
+        "lastModifiedBy": "user@contoso.com",
+        "lastModifiedByType": "User"
+      },
+      "type": "Microsoft.CloudHealth/healthmodels/entities"
+    },
+    {
+      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/rg-alwayson-global/providers/microsoft.cloudhealth/healthmodels/hm-graphorleons/entities/12cfa1e5-64cd-533f-be30-de3e71d46085",
+      "name": "12cfa1e5-64cd-533f-be30-de3e71d46085",
+      "properties": {
+        "canvasPosition": {
+          "x": 1750.0,
+          "y": 587.0
+        },
+        "displayName": "swedencentral-001 - Front Door Errors",
+        "healthState": "Healthy",
+        "icon": {
+          "iconName": "Resource"
+        },
+        "impact": "Standard",
+        "provisioningState": "Succeeded",
+        "signalGroups": {
+          "azureResource": {
+            "authenticationSetting": "id-healthmodel-alwayson",
+            "azureResourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg-alwayson-global/providers/Microsoft.Cdn/profiles/fd-alwayson",
+            "signals": [
+              {
+                "name": "a51b2469-7495-5d7e-9dc3-03c015b1b8d9",
+                "refreshInterval": "PT1M",
+                "signalDefinitionName": "388dc8e7-ebff-5752-90e9-c439ec257fae",
+                "signalKind": "AzureResourceMetric",
+                "status": {
+                  "healthState": "Healthy",
+                  "reportedAt": "2026-04-16T20:43:06.683425+00:00",
+                  "value": 0.0
+                }
+              },
+              {
+                "name": "a243d918-01f3-51ac-a088-1655ac966e79",
+                "refreshInterval": "PT1M",
+                "signalDefinitionName": "8b53c606-8780-5f06-832b-54d641d5e728",
+                "signalKind": "AzureResourceMetric",
+                "status": {
+                  "healthState": "Healthy",
+                  "reportedAt": "2026-04-16T20:42:31.3478278+00:00",
+                  "value": 0.0
+                }
+              }
+            ]
+          }
+        },
+        "tags": {}
+      },
+      "systemData": {
+        "createdAt": "2026-04-13T17:58:00.8588962Z",
+        "createdBy": "11111111-1111-1111-1111-111111111111",
+        "createdByType": "Application",
+        "lastModifiedAt": "2026-04-16T20:42:00.7179134Z",
+        "lastModifiedBy": "user@contoso.com",
+        "lastModifiedByType": "User"
+      },
+      "type": "Microsoft.CloudHealth/healthmodels/entities"
+    },
+    {
+      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/rg-alwayson-global/providers/microsoft.cloudhealth/healthmodels/hm-graphorleons/entities/1b3d369b-bebd-59ae-94a4-3a4aab477355",
+      "name": "1b3d369b-bebd-59ae-94a4-3a4aab477355",
+      "properties": {
+        "canvasPosition": {
+          "x": 2750.0,
+          "y": 587.0
+        },
+        "displayName": "swedencentral-001 - AKS Failures",
+        "healthState": "Healthy",
+        "icon": {
+          "iconName": "Resource"
+        },
+        "impact": "Standard",
+        "provisioningState": "Succeeded",
+        "signalGroups": {
+          "azureResource": {
+            "authenticationSetting": "id-healthmodel-alwayson",
+            "azureResourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg-alwayson-swedencentral-001/providers/Microsoft.ContainerService/managedClusters/aks-alwayson-swedencentral-001",
+            "signals": [
+              {
+                "name": "e1288a90-5534-56de-ac0a-0e4121a0c0a9",
+                "refreshInterval": "PT1M",
+                "signalDefinitionName": "c0ef85fc-94d4-574f-93c5-1aab561ca673",
+                "signalKind": "AzureResourceMetric",
+                "status": {
+                  "healthState": "Healthy",
+                  "reportedAt": "2026-04-16T20:43:12.9856534+00:00",
+                  "value": 0.0
+                }
+              }
+            ]
+          }
+        },
+        "tags": {}
+      },
+      "systemData": {
+        "createdAt": "2026-04-13T17:58:00.5776317Z",
+        "createdBy": "11111111-1111-1111-1111-111111111111",
+        "createdByType": "Application",
+        "lastModifiedAt": "2026-04-16T20:42:01.1049671Z",
+        "lastModifiedBy": "user@contoso.com",
+        "lastModifiedByType": "User"
+      },
+      "type": "Microsoft.CloudHealth/healthmodels/entities"
+    },
+    {
+      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/rg-alwayson-global/providers/microsoft.cloudhealth/healthmodels/hm-graphorleons/entities/1f5fb5d5-f562-513b-a937-74dba9a5e7a3",
+      "name": "1f5fb5d5-f562-513b-a937-74dba9a5e7a3",
+      "properties": {
+        "canvasPosition": {
+          "x": 1500.0,
+          "y": 587.0
+        },
+        "displayName": "swedencentral-001 - Orleans Cosmos Errors",
+        "healthState": "Healthy",
+        "icon": {
+          "iconName": "Resource"
+        },
+        "impact": "Standard",
+        "provisioningState": "Succeeded",
+        "signalGroups": {
+          "azureResource": {
+            "authenticationSetting": "id-healthmodel-alwayson",
+            "azureResourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg-alwayson-swedencentral-001/providers/Microsoft.DocumentDB/databaseAccounts/cosmos-orl-alwayson-swedencentral",
+            "signals": [
+              {
+                "name": "51bba8ec-d285-56a5-81b2-0d4371a8b845",
+                "refreshInterval": "PT1M",
+                "signalDefinitionName": "9b140ad7-a7a0-589d-92b7-d9d2f116add8",
+                "signalKind": "AzureResourceMetric",
+                "status": {
+                  "healthState": "Healthy",
+                  "reportedAt": "2026-04-16T20:42:22.336859+00:00",
+                  "value": 100.0
+                }
+              },
+              {
+                "name": "ae187c7c-8d87-5da9-9cd7-b6a4b57fbb51",
+                "refreshInterval": "PT1M",
+                "signalDefinitionName": "6d4a8fbf-afc7-5b01-9376-f37babc1fd55",
+                "signalKind": "AzureResourceMetric",
+                "status": {
+                  "healthState": "Healthy",
+                  "reportedAt": "2026-04-16T20:42:45.7042586+00:00",
+                  "value": 0.0
+                }
+              }
+            ]
+          }
+        },
+        "tags": {}
+      },
+      "systemData": {
+        "createdAt": "2026-04-14T21:07:25.4887291Z",
+        "createdBy": "11111111-1111-1111-1111-111111111111",
+        "createdByType": "Application",
+        "lastModifiedAt": "2026-04-16T20:42:00.7263823Z",
+        "lastModifiedBy": "user@contoso.com",
+        "lastModifiedByType": "User"
+      },
+      "type": "Microsoft.CloudHealth/healthmodels/entities"
+    },
+    {
+      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/rg-alwayson-global/providers/microsoft.cloudhealth/healthmodels/hm-graphorleons/entities/21eb9ab7-3f38-55a4-bf16-38367018071f",
+      "name": "21eb9ab7-3f38-55a4-bf16-38367018071f",
+      "properties": {
+        "canvasPosition": {
+          "x": 1375.0,
+          "y": 193.0
+        },
+        "displayName": "Failures",
+        "healthState": "Degraded",
+        "icon": {
+          "iconName": "SystemComponent"
+        },
+        "impact": "Standard",
+        "provisioningState": "Succeeded",
+        "tags": {}
+      },
+      "systemData": {
+        "createdAt": "2026-04-13T17:57:59.5463722Z",
+        "createdBy": "11111111-1111-1111-1111-111111111111",
+        "createdByType": "Application",
+        "lastModifiedAt": "2026-04-16T20:42:00.8191562Z",
+        "lastModifiedBy": "user@contoso.com",
+        "lastModifiedByType": "User"
+      },
+      "type": "Microsoft.CloudHealth/healthmodels/entities"
+    },
+    {
+      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/rg-alwayson-global/providers/microsoft.cloudhealth/healthmodels/hm-graphorleons/entities/2ecd547a-51a5-5411-8a40-894d164898e1",
+      "name": "2ecd547a-51a5-5411-8a40-894d164898e1",
+      "properties": {
+        "canvasPosition": {
+          "x": 3500.0,
+          "y": 386.0
+        },
+        "displayName": "Stamp swedencentral-001",
+        "healthState": "Degraded",
+        "icon": {
+          "iconName": "AzureKubernetesService"
+        },
+        "impact": "Standard",
+        "provisioningState": "Succeeded",
+        "tags": {}
+      },
+      "systemData": {
+        "createdAt": "2026-04-13T17:57:59.6088707Z",
+        "createdBy": "11111111-1111-1111-1111-111111111111",
+        "createdByType": "Application",
+        "lastModifiedAt": "2026-04-16T20:42:00.8228113Z",
+        "lastModifiedBy": "user@contoso.com",
+        "lastModifiedByType": "User"
+      },
+      "type": "Microsoft.CloudHealth/healthmodels/entities"
+    },
+    {
+      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/rg-alwayson-global/providers/microsoft.cloudhealth/healthmodels/hm-graphorleons/entities/2fb39c5c-ebf6-5fa7-b5e4-7b4a3e2df2e6",
+      "name": "2fb39c5c-ebf6-5fa7-b5e4-7b4a3e2df2e6",
+      "properties": {
+        "canvasPosition": {
+          "x": 250.0,
+          "y": 587.0
+        },
+        "displayName": "centralus-001 - AKS Failures",
+        "healthState": "Healthy",
+        "icon": {
+          "iconName": "Resource"
+        },
+        "impact": "Standard",
+        "provisioningState": "Succeeded",
+        "signalGroups": {
+          "azureResource": {
+            "authenticationSetting": "id-healthmodel-alwayson",
+            "azureResourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg-alwayson-centralus-001/providers/Microsoft.ContainerService/managedClusters/aks-alwayson-centralus-001",
+            "signals": [
+              {
+                "name": "64c9e943-ff2b-56ca-b37b-1a0d74f29248",
+                "refreshInterval": "PT1M",
+                "signalDefinitionName": "c0ef85fc-94d4-574f-93c5-1aab561ca673",
+                "signalKind": "AzureResourceMetric",
+                "status": {
+                  "healthState": "Healthy",
+                  "reportedAt": "2026-04-16T20:42:46.9275296+00:00",
+                  "value": 0.0
+                }
+              }
+            ]
+          }
+        },
+        "tags": {}
+      },
+      "systemData": {
+        "createdAt": "2026-04-13T17:58:00.5620081Z",
+        "createdBy": "11111111-1111-1111-1111-111111111111",
+        "createdByType": "Application",
+        "lastModifiedAt": "2026-04-16T20:42:00.8749399Z",
+        "lastModifiedBy": "user@contoso.com",
+        "lastModifiedByType": "User"
+      },
+      "type": "Microsoft.CloudHealth/healthmodels/entities"
+    },
+    {
+      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/rg-alwayson-global/providers/microsoft.cloudhealth/healthmodels/hm-graphorleons/entities/30781c5b-7c8a-5561-bb34-dca7801d3524",
+      "name": "30781c5b-7c8a-5561-bb34-dca7801d3524",
+      "properties": {
+        "canvasPosition": {
+          "x": 5000.0,
+          "y": 579.0
+        },
+        "displayName": "centralus-001 - Orleans Cosmos Latency",
+        "healthState": "Unknown",
+        "icon": {
+          "iconName": "Resource"
+        },
+        "impact": "Standard",
+        "provisioningState": "Succeeded",
+        "signalGroups": {
+          "azureResource": {
+            "authenticationSetting": "id-healthmodel-alwayson",
+            "azureResourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg-alwayson-centralus-001/providers/Microsoft.DocumentDB/databaseAccounts/cosmos-orl-alwayson-centralus",
+            "signals": [
+              {
+                "name": "b5e56f47-142a-5a92-a6b7-31cbd721395f",
+                "refreshInterval": "PT1M",
+                "signalDefinitionName": "e3388ad5-61a0-5b4e-85cd-c7cb4e2ce189",
+                "signalKind": "AzureResourceMetric"
+              },
+              {
+                "name": "1bb1c0c8-5e94-5b6e-a67f-31db3896dea3",
+                "refreshInterval": "PT1M",
+                "signalDefinitionName": "3a41daa9-b6cb-552c-9ef3-30a1ec994db1",
+                "signalKind": "AzureResourceMetric",
+                "status": {
+                  "error": "Metric has no value at all for the queried timespan",
+                  "healthState": "Unknown",
+                  "reportedAt": "2026-04-16T20:42:28.0974494+00:00"
+                }
+              }
+            ]
+          }
+        },
+        "tags": {}
+      },
+      "systemData": {
+        "createdAt": "2026-04-14T21:07:25.5512275Z",
+        "createdBy": "11111111-1111-1111-1111-111111111111",
+        "createdByType": "Application",
+        "lastModifiedAt": "2026-04-16T20:42:00.7751937Z",
+        "lastModifiedBy": "user@contoso.com",
+        "lastModifiedByType": "User"
+      },
+      "type": "Microsoft.CloudHealth/healthmodels/entities"
+    },
+    {
+      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/rg-alwayson-global/providers/microsoft.cloudhealth/healthmodels/hm-graphorleons/entities/41e5920a-2ced-5724-8b4b-e5d9aca2ac4f",
+      "name": "41e5920a-2ced-5724-8b4b-e5d9aca2ac4f",
+      "properties": {
+        "canvasPosition": {
+          "x": 4250.0,
+          "y": 587.0
+        },
+        "displayName": "centralus-001 - Resource Pressure",
+        "healthState": "Healthy",
+        "icon": {
+          "iconName": "Resource"
+        },
+        "impact": "Standard",
+        "provisioningState": "Succeeded",
+        "signalGroups": {
+          "azureMonitorWorkspace": {
+            "authenticationSetting": "id-healthmodel-alwayson",
+            "azureMonitorWorkspaceResourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg-alwayson-centralus/providers/Microsoft.Monitor/accounts/amw-alwayson-centralus",
+            "signals": [
+              {
+                "name": "06c478a7-01d2-53a2-8a8a-d313e998fbd6",
+                "refreshInterval": "PT1M",
+                "signalDefinitionName": "ac20bcb6-3ed2-59c3-a8e3-f1ab50c1dca3",
+                "signalKind": "PrometheusMetricsQuery",
+                "status": {
+                  "healthState": "Healthy",
+                  "reportedAt": "2026-04-16T20:42:28.5393331+00:00",
+                  "value": 7.40286094223998
+                }
+              },
+              {
+                "name": "eb98cd94-7609-5cd4-a226-2e5a0edd3412",
+                "refreshInterval": "PT1M",
+                "signalDefinitionName": "c7d840c0-2907-5213-b90c-e327c81cfcb2",
+                "signalKind": "PrometheusMetricsQuery",
+                "status": {
+                  "healthState": "Healthy",
+                  "reportedAt": "2026-04-16T20:42:21.7116332+00:00",
+                  "value": 11.0202365451389
+                }
+              },
+              {
+                "name": "4c7bcd39-b15c-5d29-a7fa-296d77361d9e",
+                "refreshInterval": "PT1M",
+                "signalDefinitionName": "0f1bf265-25b1-52b5-ac95-17bd9c170123",
+                "signalKind": "PrometheusMetricsQuery",
+                "status": {
+                  "healthState": "Healthy",
+                  "reportedAt": "2026-04-16T20:42:51.8198588+00:00",
+                  "value": 0.0
+                }
+              },
+              {
+                "name": "4e2bacdc-acc6-5ef9-a6da-60cfb32ccf3c",
+                "refreshInterval": "PT1M",
+                "signalDefinitionName": "112dec13-d8d5-5d1f-b6d7-948e301137c4",
+                "signalKind": "PrometheusMetricsQuery",
+                "status": {
+                  "healthState": "Healthy",
+                  "reportedAt": "2026-04-16T20:42:25.3087115+00:00",
+                  "value": 0.0
+                }
+              },
+              {
+                "name": "584df9e8-dc8b-5d25-9cb0-587cad6d341f",
+                "refreshInterval": "PT1M",
+                "signalDefinitionName": "d11c151e-de4e-5758-96af-4c78001ff544",
+                "signalKind": "PrometheusMetricsQuery",
+                "status": {
+                  "healthState": "Healthy",
+                  "reportedAt": "2026-04-16T20:42:21.3362397+00:00",
+                  "value": 0.0
+                }
+              },
+              {
+                "name": "7a58ffc6-0336-56b9-8577-f442b7a7f1fc",
+                "refreshInterval": "PT1M",
+                "signalDefinitionName": "e8007b8c-255f-558e-b45c-5c2ef3d3bf25",
+                "signalKind": "PrometheusMetricsQuery",
+                "status": {
+                  "healthState": "Healthy",
+                  "reportedAt": "2026-04-16T20:42:28.3235808+00:00",
+                  "value": 0.0
+                }
+              }
+            ]
+          }
+        },
+        "tags": {}
+      },
+      "systemData": {
+        "createdAt": "2026-04-13T17:58:00.5463838Z",
+        "createdBy": "11111111-1111-1111-1111-111111111111",
+        "createdByType": "Application",
+        "lastModifiedAt": "2026-04-16T20:42:00.6232641Z",
+        "lastModifiedBy": "user@contoso.com",
+        "lastModifiedByType": "User"
+      },
+      "type": "Microsoft.CloudHealth/healthmodels/entities"
+    },
+    {
+      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/rg-alwayson-global/providers/microsoft.cloudhealth/healthmodels/hm-graphorleons/entities/448dc8af-8eee-551c-b1c1-dd523675a8bd",
+      "name": "448dc8af-8eee-551c-b1c1-dd523675a8bd",
+      "properties": {
+        "canvasPosition": {
+          "x": 5250.0,
+          "y": 587.0
+        },
+        "displayName": "centralus-001 - Gateway Latency",
+        "healthState": "Healthy",
+        "icon": {
+          "iconName": "Resource"
+        },
+        "impact": "Standard",
+        "provisioningState": "Succeeded",
+        "signalGroups": {
+          "azureMonitorWorkspace": {
+            "authenticationSetting": "id-healthmodel-alwayson",
+            "azureMonitorWorkspaceResourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg-alwayson-centralus/providers/Microsoft.Monitor/accounts/amw-alwayson-centralus",
+            "signals": [
+              {
+                "name": "b9a46bea-b5bf-5d71-a696-500406ffef4e",
+                "refreshInterval": "PT1M",
+                "signalDefinitionName": "cd810dbd-7af4-584b-8166-9c71d09ac458",
+                "signalKind": "PrometheusMetricsQuery",
+                "status": {
+                  "healthState": "Healthy",
+                  "reportedAt": "2026-04-16T20:42:26.9614946+00:00",
+                  "value": 248.5
+                }
+              }
+            ]
+          }
+        },
+        "tags": {}
+      },
+      "systemData": {
+        "createdAt": "2026-04-13T22:07:50.4231791Z",
+        "createdBy": "11111111-1111-1111-1111-111111111111",
+        "createdByType": "Application",
+        "lastModifiedAt": "2026-04-16T20:42:00.9224793Z",
+        "lastModifiedBy": "user@contoso.com",
+        "lastModifiedByType": "User"
+      },
+      "type": "Microsoft.CloudHealth/healthmodels/entities"
+    },
+    {
+      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/rg-alwayson-global/providers/microsoft.cloudhealth/healthmodels/hm-graphorleons/entities/4ab04b62-2c1f-5fde-8746-f4f94372b56d",
+      "name": "4ab04b62-2c1f-5fde-8746-f4f94372b56d",
+      "properties": {
+        "canvasPosition": {
+          "x": 750.0,
+          "y": 587.0
+        },
+        "displayName": "centralus-001 - Orleans Cosmos Errors",
+        "healthState": "Healthy",
+        "icon": {
+          "iconName": "Resource"
+        },
+        "impact": "Standard",
+        "provisioningState": "Succeeded",
+        "signalGroups": {
+          "azureResource": {
+            "authenticationSetting": "id-healthmodel-alwayson",
+            "azureResourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg-alwayson-centralus-001/providers/Microsoft.DocumentDB/databaseAccounts/cosmos-orl-alwayson-centralus",
+            "signals": [
+              {
+                "name": "c94a8cc3-0457-5d32-af8a-6e86123c938e",
+                "refreshInterval": "PT1M",
+                "signalDefinitionName": "9b140ad7-a7a0-589d-92b7-d9d2f116add8",
+                "signalKind": "AzureResourceMetric",
+                "status": {
+                  "healthState": "Healthy",
+                  "reportedAt": "2026-04-16T20:42:21.8309164+00:00",
+                  "value": 100.0
+                }
+              },
+              {
+                "name": "1ace0aa0-f75b-5526-9af7-b81200f8914f",
+                "refreshInterval": "PT1M",
+                "signalDefinitionName": "6d4a8fbf-afc7-5b01-9376-f37babc1fd55",
+                "signalKind": "AzureResourceMetric",
+                "status": {
+                  "healthState": "Healthy",
+                  "reportedAt": "2026-04-16T20:42:21.5242796+00:00",
+                  "value": 0.0
+                }
+              }
+            ]
+          }
+        },
+        "tags": {}
+      },
+      "systemData": {
+        "createdAt": "2026-04-14T21:07:25.5043516Z",
+        "createdBy": "11111111-1111-1111-1111-111111111111",
+        "createdByType": "Application",
+        "lastModifiedAt": "2026-04-16T20:42:01.0135831Z",
+        "lastModifiedBy": "user@contoso.com",
+        "lastModifiedByType": "User"
+      },
+      "type": "Microsoft.CloudHealth/healthmodels/entities"
+    },
+    {
+      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/rg-alwayson-global/providers/microsoft.cloudhealth/healthmodels/hm-graphorleons/entities/4f132e63-a38d-5125-a44a-f6b9fadc5207",
+      "name": "4f132e63-a38d-5125-a44a-f6b9fadc5207",
+      "properties": {
+        "canvasPosition": {
+          "x": 4750.0,
+          "y": 386.0
+        },
+        "displayName": "Stamp centralus-001",
+        "healthState": "Healthy",
+        "icon": {
+          "iconName": "AzureKubernetesService"
+        },
+        "impact": "Standard",
+        "provisioningState": "Succeeded",
+        "tags": {}
+      },
+      "systemData": {
+        "createdAt": "2026-04-13T17:57:59.6088707Z",
+        "createdBy": "11111111-1111-1111-1111-111111111111",
+        "createdByType": "Application",
+        "lastModifiedAt": "2026-04-16T20:42:01.0691262Z",
+        "lastModifiedBy": "user@contoso.com",
+        "lastModifiedByType": "User"
+      },
+      "type": "Microsoft.CloudHealth/healthmodels/entities"
+    },
+    {
+      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/rg-alwayson-global/providers/microsoft.cloudhealth/healthmodels/hm-graphorleons/entities/58fd8939-0008-587c-b5bb-4df80542b95d",
+      "name": "58fd8939-0008-587c-b5bb-4df80542b95d",
+      "properties": {
+        "canvasPosition": {
+          "x": 3750.0,
+          "y": 587.0
+        },
+        "displayName": "swedencentral-001 - Cosmos Latency",
+        "healthState": "Healthy",
+        "icon": {
+          "iconName": "Resource"
+        },
+        "impact": "Standard",
+        "provisioningState": "Succeeded",
+        "signalGroups": {
+          "azureResource": {
+            "authenticationSetting": "id-healthmodel-alwayson",
+            "azureResourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg-alwayson-global/providers/Microsoft.DocumentDB/databaseAccounts/cosmos-alwayson-a2nyh4",
+            "signals": [
+              {
+                "name": "543c94ed-b41d-537a-8df4-99f5d335ea15",
+                "refreshInterval": "PT1M",
+                "signalDefinitionName": "e3388ad5-61a0-5b4e-85cd-c7cb4e2ce189",
+                "signalKind": "AzureResourceMetric",
+                "status": {
+                  "healthState": "Healthy",
+                  "reportedAt": "2026-04-16T20:42:49.6640874+00:00",
+                  "value": 0.0
+                }
+              },
+              {
+                "name": "8a93b665-5819-5688-bbba-6a7f086fb344",
+                "refreshInterval": "PT1M",
+                "signalDefinitionName": "3a41daa9-b6cb-552c-9ef3-30a1ec994db1",
+                "signalKind": "AzureResourceMetric",
+                "status": {
+                  "error": "Metric has no value at all for the queried timespan",
+                  "healthState": "Unknown",
+                  "reportedAt": "2026-04-16T20:42:34.4277196+00:00"
+                }
+              }
+            ]
+          }
+        },
+        "tags": {}
+      },
+      "systemData": {
+        "createdAt": "2026-04-13T17:58:00.5463838Z",
+        "createdBy": "11111111-1111-1111-1111-111111111111",
+        "createdByType": "Application",
+        "lastModifiedAt": "2026-04-16T20:42:01.4095876Z",
+        "lastModifiedBy": "user@contoso.com",
+        "lastModifiedByType": "User"
+      },
+      "type": "Microsoft.CloudHealth/healthmodels/entities"
+    },
+    {
+      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/rg-alwayson-global/providers/microsoft.cloudhealth/healthmodels/hm-graphorleons/entities/5c729e0e-89f9-55d9-be0a-37c414ed4f7a",
+      "name": "5c729e0e-89f9-55d9-be0a-37c414ed4f7a",
+      "properties": {
+        "canvasPosition": {
+          "x": 500.0,
+          "y": 587.0
+        },
+        "displayName": "centralus-001 - Front Door Errors",
+        "healthState": "Healthy",
+        "icon": {
+          "iconName": "Resource"
+        },
+        "impact": "Standard",
+        "provisioningState": "Succeeded",
+        "signalGroups": {
+          "azureResource": {
+            "authenticationSetting": "id-healthmodel-alwayson",
+            "azureResourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg-alwayson-global/providers/Microsoft.Cdn/profiles/fd-alwayson",
+            "signals": [
+              {
+                "name": "9ea7b7a1-1c60-5974-a015-8a5dc09feb31",
+                "refreshInterval": "PT1M",
+                "signalDefinitionName": "388dc8e7-ebff-5752-90e9-c439ec257fae",
+                "signalKind": "AzureResourceMetric",
+                "status": {
+                  "healthState": "Healthy",
+                  "reportedAt": "2026-04-16T20:42:44.9879762+00:00",
+                  "value": 0.0
+                }
+              },
+              {
+                "name": "b7fccc47-6eae-557c-aa1c-055bac9ce6e7",
+                "refreshInterval": "PT1M",
+                "signalDefinitionName": "8b53c606-8780-5f06-832b-54d641d5e728",
+                "signalKind": "AzureResourceMetric",
+                "status": {
+                  "healthState": "Healthy",
+                  "reportedAt": "2026-04-16T20:42:30.667202+00:00",
+                  "value": 0.0
+                }
+              }
+            ]
+          }
+        },
+        "tags": {}
+      },
+      "systemData": {
+        "createdAt": "2026-04-13T17:58:00.8588962Z",
+        "createdBy": "11111111-1111-1111-1111-111111111111",
+        "createdByType": "Application",
+        "lastModifiedAt": "2026-04-16T20:42:01.1063625Z",
+        "lastModifiedBy": "user@contoso.com",
+        "lastModifiedByType": "User"
+      },
+      "type": "Microsoft.CloudHealth/healthmodels/entities"
+    },
+    {
+      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/rg-alwayson-global/providers/microsoft.cloudhealth/healthmodels/hm-graphorleons/entities/775fce9b-c237-536e-aed8-0dfb4b8be103",
+      "name": "775fce9b-c237-536e-aed8-0dfb4b8be103",
+      "properties": {
+        "canvasPosition": {
+          "x": 4375.0,
+          "y": 193.0
+        },
+        "displayName": "Event Hubs",
+        "healthState": "Healthy",
+        "icon": {
+          "iconName": "AzureEventHub"
+        },
+        "impact": "Standard",
+        "provisioningState": "Succeeded",
+        "signalGroups": {
+          "azureResource": {
+            "authenticationSetting": "id-healthmodel-alwayson",
+            "azureResourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg-alwayson-global/providers/Microsoft.EventHub/namespaces/eh-alwayson",
+            "signals": [
+              {
+                "name": "3072c9a9-770b-56ba-8cf5-a998890c4a03",
+                "refreshInterval": "PT5M",
+                "signalDefinitionName": "d21d4e36-70f4-5cc2-afa6-92e60fc2e36a",
+                "signalKind": "AzureResourceMetric",
+                "status": {
+                  "healthState": "Healthy",
+                  "reportedAt": "2026-04-16T20:40:23.6771659+00:00",
+                  "value": 0.0
+                }
+              },
+              {
+                "name": "4f9f9ec6-08ec-5020-8771-522868dabe4d",
+                "refreshInterval": "PT5M",
+                "signalDefinitionName": "5a136059-085d-597b-bc8d-b7b87ea3de44",
+                "signalKind": "AzureResourceMetric",
+                "status": {
+                  "healthState": "Healthy",
+                  "reportedAt": "2026-04-16T20:40:21.3189386+00:00",
+                  "value": 0.0
+                }
+              },
+              {
+                "name": "a5c294af-cbd7-57d0-98d2-e768d7cbb213",
+                "refreshInterval": "PT5M",
+                "signalDefinitionName": "14372c04-8404-50fb-980e-9c96ac7a388a",
+                "signalKind": "AzureResourceMetric",
+                "status": {
+                  "healthState": "Healthy",
+                  "reportedAt": "2026-04-16T20:40:31.0563639+00:00",
+                  "value": 0.0
+                }
+              },
+              {
+                "name": "7ba796bb-5f00-580f-b636-25e7518eecf7",
+                "refreshInterval": "PT5M",
+                "signalDefinitionName": "f2ebeaac-3428-5f5d-b949-9a319a6e3ab6",
+                "signalKind": "AzureResourceMetric",
+                "status": {
+                  "healthState": "Healthy",
+                  "reportedAt": "2026-04-16T20:40:34.4534382+00:00",
+                  "value": 0.0
+                }
+              }
+            ]
+          }
+        },
+        "tags": {}
+      },
+      "systemData": {
+        "createdAt": "2026-04-13T17:58:01.1870175Z",
+        "createdBy": "11111111-1111-1111-1111-111111111111",
+        "createdByType": "Application",
+        "lastModifiedAt": "2026-04-16T20:42:01.5051538Z",
+        "lastModifiedBy": "user@contoso.com",
+        "lastModifiedByType": "User"
+      },
+      "type": "Microsoft.CloudHealth/healthmodels/entities"
+    },
+    {
+      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/rg-alwayson-global/providers/microsoft.cloudhealth/healthmodels/hm-graphorleons/entities/7e265bfd-c5eb-5bb6-80f7-d422c92b83b1",
+      "name": "7e265bfd-c5eb-5bb6-80f7-d422c92b83b1",
+      "properties": {
+        "canvasPosition": {
+          "x": 4125.0,
+          "y": 193.0
+        },
+        "displayName": "Latency",
+        "healthState": "Healthy",
+        "icon": {
+          "iconName": "SystemComponent"
+        },
+        "impact": "Limited",
+        "provisioningState": "Succeeded",
+        "tags": {}
+      },
+      "systemData": {
+        "createdAt": "2026-04-13T17:57:59.6401202Z",
+        "createdBy": "11111111-1111-1111-1111-111111111111",
+        "createdByType": "Application",
+        "lastModifiedAt": "2026-04-16T20:42:01.2087247Z",
+        "lastModifiedBy": "user@contoso.com",
+        "lastModifiedByType": "User"
+      },
+      "type": "Microsoft.CloudHealth/healthmodels/entities"
+    },
+    {
+      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/rg-alwayson-global/providers/microsoft.cloudhealth/healthmodels/hm-graphorleons/entities/8116afcd-76f4-5f62-9ad5-43d9fa6926f0",
+      "name": "8116afcd-76f4-5f62-9ad5-43d9fa6926f0",
+      "properties": {
+        "canvasPosition": {
+          "x": 625.0,
+          "y": 386.0
+        },
+        "displayName": "Stamp centralus-001",
+        "healthState": "Healthy",
+        "icon": {
+          "iconName": "AzureKubernetesService"
+        },
+        "impact": "Standard",
+        "provisioningState": "Succeeded",
+        "tags": {}
+      },
+      "systemData": {
+        "createdAt": "2026-04-13T17:57:59.6088707Z",
+        "createdBy": "11111111-1111-1111-1111-111111111111",
+        "createdByType": "Application",
+        "lastModifiedAt": "2026-04-16T20:42:01.1687826Z",
+        "lastModifiedBy": "user@contoso.com",
+        "lastModifiedByType": "User"
+      },
+      "type": "Microsoft.CloudHealth/healthmodels/entities"
+    },
+    {
+      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/rg-alwayson-global/providers/microsoft.cloudhealth/healthmodels/hm-graphorleons/entities/a03d0ec8-7c84-540c-a9da-29e7cb23c333",
+      "name": "a03d0ec8-7c84-540c-a9da-29e7cb23c333",
+      "properties": {
+        "canvasPosition": {
+          "x": 0.0,
+          "y": 587.0
+        },
+        "displayName": "centralus-001 - Cosmos Errors",
+        "healthState": "Healthy",
+        "icon": {
+          "iconName": "Resource"
+        },
+        "impact": "Standard",
+        "provisioningState": "Succeeded",
+        "signalGroups": {
+          "azureResource": {
+            "authenticationSetting": "id-healthmodel-alwayson",
+            "azureResourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg-alwayson-global/providers/Microsoft.DocumentDB/databaseAccounts/cosmos-alwayson-a2nyh4",
+            "signals": [
+              {
+                "name": "c94a8cc3-0457-5d32-af8a-6e86123c938e",
+                "refreshInterval": "PT1M",
+                "signalDefinitionName": "9b140ad7-a7a0-589d-92b7-d9d2f116add8",
+                "signalKind": "AzureResourceMetric",
+                "status": {
+                  "healthState": "Healthy",
+                  "reportedAt": "2026-04-16T20:42:44.1288641+00:00",
+                  "value": 100.0
+                }
+              },
+              {
+                "name": "1ace0aa0-f75b-5526-9af7-b81200f8914f",
+                "refreshInterval": "PT1M",
+                "signalDefinitionName": "6d4a8fbf-afc7-5b01-9376-f37babc1fd55",
+                "signalKind": "AzureResourceMetric",
+                "status": {
+                  "healthState": "Healthy",
+                  "reportedAt": "2026-04-16T20:42:50.0698406+00:00",
+                  "value": 0.0
+                }
+              }
+            ]
+          }
+        },
+        "tags": {}
+      },
+      "systemData": {
+        "createdAt": "2026-04-13T17:58:00.5620081Z",
+        "createdBy": "11111111-1111-1111-1111-111111111111",
+        "createdByType": "Application",
+        "lastModifiedAt": "2026-04-16T20:42:01.2332196Z",
+        "lastModifiedBy": "user@contoso.com",
+        "lastModifiedByType": "User"
+      },
+      "type": "Microsoft.CloudHealth/healthmodels/entities"
+    },
+    {
+      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/rg-alwayson-global/providers/microsoft.cloudhealth/healthmodels/hm-graphorleons/entities/a24ba7ca-c93e-5b99-9f39-1eb3b5004106",
+      "name": "a24ba7ca-c93e-5b99-9f39-1eb3b5004106",
+      "properties": {
+        "canvasPosition": {
+          "x": 3000.0,
+          "y": 579.0
+        },
+        "displayName": "swedencentral-001 - Orleans Cosmos Latency",
+        "healthState": "Unknown",
+        "icon": {
+          "iconName": "Resource"
+        },
+        "impact": "Standard",
+        "provisioningState": "Succeeded",
+        "signalGroups": {
+          "azureResource": {
+            "authenticationSetting": "id-healthmodel-alwayson",
+            "azureResourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg-alwayson-swedencentral-001/providers/Microsoft.DocumentDB/databaseAccounts/cosmos-orl-alwayson-swedencentral",
+            "signals": [
+              {
+                "name": "543c94ed-b41d-537a-8df4-99f5d335ea15",
+                "refreshInterval": "PT1M",
+                "signalDefinitionName": "e3388ad5-61a0-5b4e-85cd-c7cb4e2ce189",
+                "signalKind": "AzureResourceMetric"
+              },
+              {
+                "name": "8a93b665-5819-5688-bbba-6a7f086fb344",
+                "refreshInterval": "PT1M",
+                "signalDefinitionName": "3a41daa9-b6cb-552c-9ef3-30a1ec994db1",
+                "signalKind": "AzureResourceMetric",
+                "status": {
+                  "error": "Metric has no value at all for the queried timespan",
+                  "healthState": "Unknown",
+                  "reportedAt": "2026-04-16T20:42:49.2640271+00:00"
+                }
+              }
+            ]
+          }
+        },
+        "tags": {}
+      },
+      "systemData": {
+        "createdAt": "2026-04-14T21:07:25.5824779Z",
+        "createdBy": "11111111-1111-1111-1111-111111111111",
+        "createdByType": "Application",
+        "lastModifiedAt": "2026-04-16T20:42:01.3026801Z",
+        "lastModifiedBy": "user@contoso.com",
+        "lastModifiedByType": "User"
+      },
+      "type": "Microsoft.CloudHealth/healthmodels/entities"
+    },
+    {
+      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/rg-alwayson-global/providers/microsoft.cloudhealth/healthmodels/hm-graphorleons/entities/b837fc55-e35c-5c7b-87b6-949a99ec3b6e",
+      "name": "b837fc55-e35c-5c7b-87b6-949a99ec3b6e",
+      "properties": {
+        "canvasPosition": {
+          "x": 4750.0,
+          "y": 587.0
+        },
+        "displayName": "centralus-001 - FD Latency",
+        "healthState": "Healthy",
+        "icon": {
+          "iconName": "Resource"
+        },
+        "impact": "Standard",
+        "provisioningState": "Succeeded",
+        "signalGroups": {
+          "azureResource": {
+            "authenticationSetting": "id-healthmodel-alwayson",
+            "azureResourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg-alwayson-global/providers/Microsoft.Cdn/profiles/fd-alwayson",
+            "signals": [
+              {
+                "name": "16034e9d-2112-5f94-a7f3-9eba0fff8f0d",
+                "refreshInterval": "PT1M",
+                "signalDefinitionName": "26da2fc4-6e06-5f0c-a0a2-7ed3cc3b1b94",
+                "signalKind": "AzureResourceMetric",
+                "status": {
+                  "healthState": "Healthy",
+                  "reportedAt": "2026-04-16T20:42:49.1841511+00:00",
+                  "value": 0.0
+                }
+              },
+              {
+                "name": "df96f98a-542d-5358-bcd5-63c59db7e014",
+                "refreshInterval": "PT1M",
+                "signalDefinitionName": "0ee2e762-aa6c-5809-8024-38d59141f3c9",
+                "signalKind": "AzureResourceMetric",
+                "status": {
+                  "healthState": "Healthy",
+                  "reportedAt": "2026-04-16T20:42:16.8550416+00:00",
+                  "value": 0.0
+                }
+              }
+            ]
+          }
+        },
+        "tags": {}
+      },
+      "systemData": {
+        "createdAt": "2026-04-13T17:58:00.8588962Z",
+        "createdBy": "11111111-1111-1111-1111-111111111111",
+        "createdByType": "Application",
+        "lastModifiedAt": "2026-04-16T20:42:00.9687113Z",
+        "lastModifiedBy": "user@contoso.com",
+        "lastModifiedByType": "User"
+      },
+      "type": "Microsoft.CloudHealth/healthmodels/entities"
+    },
+    {
+      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/rg-alwayson-global/providers/microsoft.cloudhealth/healthmodels/hm-graphorleons/entities/bd552eef-4fa8-53f2-ae41-ec128252dfe8",
+      "name": "bd552eef-4fa8-53f2-ae41-ec128252dfe8",
+      "properties": {
+        "canvasPosition": {
+          "x": 4000.0,
+          "y": 587.0
+        },
+        "displayName": "swedencentral-001 - Gateway Latency",
+        "healthState": "Healthy",
+        "icon": {
+          "iconName": "Resource"
+        },
+        "impact": "Standard",
+        "provisioningState": "Succeeded",
+        "signalGroups": {
+          "azureMonitorWorkspace": {
+            "authenticationSetting": "id-healthmodel-alwayson",
+            "azureMonitorWorkspaceResourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg-alwayson-swedencentral/providers/Microsoft.Monitor/accounts/amw-alwayson-swedencentral",
+            "signals": [
+              {
+                "name": "bfdd6658-ed5c-58f2-adce-2d6d79f12260",
+                "refreshInterval": "PT1M",
+                "signalDefinitionName": "cd810dbd-7af4-584b-8166-9c71d09ac458",
+                "signalKind": "PrometheusMetricsQuery",
+                "status": {
+                  "healthState": "Healthy",
+                  "reportedAt": "2026-04-16T20:42:42.7802408+00:00",
+                  "value": 8.34999999999998
+                }
+              }
+            ]
+          }
+        },
+        "tags": {}
+      },
+      "systemData": {
+        "createdAt": "2026-04-13T22:07:50.4388528Z",
+        "createdBy": "11111111-1111-1111-1111-111111111111",
+        "createdByType": "Application",
+        "lastModifiedAt": "2026-04-16T20:42:00.6690437Z",
+        "lastModifiedBy": "user@contoso.com",
+        "lastModifiedByType": "User"
+      },
+      "type": "Microsoft.CloudHealth/healthmodels/entities"
+    },
+    {
+      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/rg-alwayson-global/providers/microsoft.cloudhealth/healthmodels/hm-graphorleons/entities/cc5933ec-149a-5386-a437-b87b6ef22086",
+      "name": "cc5933ec-149a-5386-a437-b87b6ef22086",
+      "properties": {
+        "canvasPosition": {
+          "x": 2500.0,
+          "y": 587.0
+        },
+        "displayName": "swedencentral-001 - Cosmos Errors",
+        "healthState": "Healthy",
+        "icon": {
+          "iconName": "Resource"
+        },
+        "impact": "Standard",
+        "provisioningState": "Succeeded",
+        "signalGroups": {
+          "azureResource": {
+            "authenticationSetting": "id-healthmodel-alwayson",
+            "azureResourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg-alwayson-global/providers/Microsoft.DocumentDB/databaseAccounts/cosmos-alwayson-a2nyh4",
+            "signals": [
+              {
+                "name": "51bba8ec-d285-56a5-81b2-0d4371a8b845",
+                "refreshInterval": "PT1M",
+                "signalDefinitionName": "9b140ad7-a7a0-589d-92b7-d9d2f116add8",
+                "signalKind": "AzureResourceMetric",
+                "status": {
+                  "healthState": "Healthy",
+                  "reportedAt": "2026-04-16T20:42:49.1510865+00:00",
+                  "value": 100.0
+                }
+              },
+              {
+                "name": "ae187c7c-8d87-5da9-9cd7-b6a4b57fbb51",
+                "refreshInterval": "PT1M",
+                "signalDefinitionName": "6d4a8fbf-afc7-5b01-9376-f37babc1fd55",
+                "signalKind": "AzureResourceMetric",
+                "status": {
+                  "healthState": "Healthy",
+                  "reportedAt": "2026-04-16T20:42:52.4379492+00:00",
+                  "value": 0.0
+                }
+              }
+            ]
+          }
+        },
+        "tags": {}
+      },
+      "systemData": {
+        "createdAt": "2026-04-13T17:58:00.5620081Z",
+        "createdBy": "11111111-1111-1111-1111-111111111111",
+        "createdByType": "Application",
+        "lastModifiedAt": "2026-04-16T20:42:00.745863Z",
+        "lastModifiedBy": "user@contoso.com",
+        "lastModifiedByType": "User"
+      },
+      "type": "Microsoft.CloudHealth/healthmodels/entities"
+    },
+    {
+      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/rg-alwayson-global/providers/microsoft.cloudhealth/healthmodels/hm-graphorleons/entities/da6f39ac-be63-526b-b446-3cc51015d00f",
+      "name": "da6f39ac-be63-526b-b446-3cc51015d00f",
+      "properties": {
+        "canvasPosition": {
+          "x": 2000.0,
+          "y": 587.0
+        },
+        "displayName": "swedencentral-001 - Pod Failures",
+        "healthState": "Unhealthy",
+        "icon": {
+          "iconName": "Resource"
+        },
+        "impact": "Standard",
+        "provisioningState": "Succeeded",
+        "signalGroups": {
+          "azureMonitorWorkspace": {
+            "authenticationSetting": "id-healthmodel-alwayson",
+            "azureMonitorWorkspaceResourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg-alwayson-swedencentral/providers/Microsoft.Monitor/accounts/amw-alwayson-swedencentral",
+            "signals": [
+              {
+                "name": "17eef46c-fefe-5c2e-a138-7255e3cff6f7",
+                "refreshInterval": "PT1M",
+                "signalDefinitionName": "e67afd09-e807-52f9-8ce7-205dfa3cc275",
+                "signalKind": "PrometheusMetricsQuery",
+                "status": {
+                  "healthState": "Unhealthy",
+                  "reportedAt": "2026-04-16T20:42:21.7311668+00:00",
+                  "value": 5.0
+                }
+              },
+              {
+                "name": "03f7cba8-641b-530d-bce2-f368c1d6cf21",
+                "refreshInterval": "PT1M",
+                "signalDefinitionName": "595daa85-6078-5143-b600-33a697cacc32",
+                "signalKind": "PrometheusMetricsQuery",
+                "status": {
+                  "healthState": "Degraded",
+                  "reportedAt": "2026-04-16T20:42:36.8338588+00:00",
+                  "value": 2.0
+                }
+              },
+              {
+                "name": "a6e46a90-fc09-5762-8691-b2cd05878dd8",
+                "refreshInterval": "PT1M",
+                "signalDefinitionName": "9b6f898a-501e-5f82-83ab-78d512a9e366",
+                "signalKind": "PrometheusMetricsQuery",
+                "status": {
+                  "healthState": "Healthy",
+                  "reportedAt": "2026-04-16T20:42:38.2188017+00:00",
+                  "value": 0.0
+                }
+              },
+              {
+                "name": "28159897-8d02-59c5-9155-f6e32e00f770",
+                "refreshInterval": "PT1M",
+                "signalDefinitionName": "00e85bbd-c7ac-5f99-a97e-44225cb3b2ba",
+                "signalKind": "PrometheusMetricsQuery",
+                "status": {
+                  "healthState": "Healthy",
+                  "reportedAt": "2026-04-16T20:43:13.0028556+00:00",
+                  "value": 0.0
+                }
+              },
+              {
+                "name": "c311e93e-392f-5194-82e4-3a96a5921b00",
+                "refreshInterval": "PT1M",
+                "signalDefinitionName": "6b4730ce-dde8-5794-8073-3d958aca41cf",
+                "signalKind": "PrometheusMetricsQuery",
+                "status": {
+                  "healthState": "Healthy",
+                  "reportedAt": "2026-04-16T20:42:13.3887272+00:00",
+                  "value": 2.0
+                }
+              },
+              {
+                "name": "abdcdcee-759a-5676-9bf0-de9745d1cb8a",
+                "refreshInterval": "PT1M",
+                "signalDefinitionName": "c4470a6e-3f8d-5f14-affd-6a2e50e7bc7b",
+                "signalKind": "PrometheusMetricsQuery",
+                "status": {
+                  "healthState": "Healthy",
+                  "reportedAt": "2026-04-16T20:42:47.3773824+00:00",
+                  "value": 0.0
+                }
+              }
+            ]
+          }
+        },
+        "tags": {}
+      },
+      "systemData": {
+        "createdAt": "2026-04-13T17:58:00.5463838Z",
+        "createdBy": "11111111-1111-1111-1111-111111111111",
+        "createdByType": "Application",
+        "lastModifiedAt": "2026-04-16T20:42:00.5880581Z",
+        "lastModifiedBy": "user@contoso.com",
+        "lastModifiedByType": "User"
+      },
+      "type": "Microsoft.CloudHealth/healthmodels/entities"
+    },
+    {
+      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/rg-alwayson-global/providers/microsoft.cloudhealth/healthmodels/hm-graphorleons/entities/dfb1892c-722c-54f2-98c4-acfdc50ed413",
+      "name": "dfb1892c-722c-54f2-98c4-acfdc50ed413",
+      "properties": {
+        "canvasPosition": {
+          "x": 1000.0,
+          "y": 587.0
+        },
+        "displayName": "centralus-001 - Gateway Health",
+        "healthState": "Healthy",
+        "icon": {
+          "iconName": "Resource"
+        },
+        "impact": "Standard",
+        "provisioningState": "Succeeded",
+        "signalGroups": {
+          "azureMonitorWorkspace": {
+            "authenticationSetting": "id-healthmodel-alwayson",
+            "azureMonitorWorkspaceResourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg-alwayson-centralus/providers/Microsoft.Monitor/accounts/amw-alwayson-centralus",
+            "signals": [
+              {
+                "name": "e21f2727-e2ff-5224-864b-bd548ab53b4c",
+                "refreshInterval": "PT1M",
+                "signalDefinitionName": "b0ed7350-31aa-50e4-aa87-41fa2ae7f37a",
+                "signalKind": "PrometheusMetricsQuery",
+                "status": {
+                  "healthState": "Healthy",
+                  "reportedAt": "2026-04-16T20:42:22.4783338+00:00",
+                  "value": 0.0
+                }
+              }
+            ]
+          }
+        },
+        "tags": {}
+      },
+      "systemData": {
+        "createdAt": "2026-04-13T22:07:50.4076509Z",
+        "createdBy": "11111111-1111-1111-1111-111111111111",
+        "createdByType": "Application",
+        "lastModifiedAt": "2026-04-16T20:42:01.0084549Z",
+        "lastModifiedBy": "user@contoso.com",
+        "lastModifiedByType": "User"
+      },
+      "type": "Microsoft.CloudHealth/healthmodels/entities"
+    },
+    {
+      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/rg-alwayson-global/providers/microsoft.cloudhealth/healthmodels/hm-graphorleons/entities/edac475a-80c7-5f3e-b75d-339a605cab11",
+      "name": "edac475a-80c7-5f3e-b75d-339a605cab11",
+      "properties": {
+        "canvasPosition": {
+          "x": 1250.0,
+          "y": 587.0
+        },
+        "displayName": "centralus-001 - Pod Failures",
+        "healthState": "Healthy",
+        "icon": {
+          "iconName": "Resource"
+        },
+        "impact": "Standard",
+        "provisioningState": "Succeeded",
+        "signalGroups": {
+          "azureMonitorWorkspace": {
+            "authenticationSetting": "id-healthmodel-alwayson",
+            "azureMonitorWorkspaceResourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg-alwayson-centralus/providers/Microsoft.Monitor/accounts/amw-alwayson-centralus",
+            "signals": [
+              {
+                "name": "2cabfcd4-2add-524f-86f0-19ab09390d15",
+                "refreshInterval": "PT1M",
+                "signalDefinitionName": "e67afd09-e807-52f9-8ce7-205dfa3cc275",
+                "signalKind": "PrometheusMetricsQuery",
+                "status": {
+                  "healthState": "Healthy",
+                  "reportedAt": "2026-04-16T20:42:22.9158833+00:00",
+                  "value": 0.0
+                }
+              },
+              {
+                "name": "e7a3ac27-792b-55b7-9d0a-dbd4f9330d76",
+                "refreshInterval": "PT1M",
+                "signalDefinitionName": "595daa85-6078-5143-b600-33a697cacc32",
+                "signalKind": "PrometheusMetricsQuery",
+                "status": {
+                  "healthState": "Healthy",
+                  "reportedAt": "2026-04-16T20:42:52.9078243+00:00",
+                  "value": 0.0
+                }
+              },
+              {
+                "name": "ff848ea3-0d88-5e33-9a26-4d16cd1e205c",
+                "refreshInterval": "PT1M",
+                "signalDefinitionName": "9b6f898a-501e-5f82-83ab-78d512a9e366",
+                "signalKind": "PrometheusMetricsQuery",
+                "status": {
+                  "healthState": "Healthy",
+                  "reportedAt": "2026-04-16T20:42:28.7063912+00:00",
+                  "value": 0.0
+                }
+              },
+              {
+                "name": "99c31c05-f140-5e91-bc71-932de5c1030f",
+                "refreshInterval": "PT1M",
+                "signalDefinitionName": "00e85bbd-c7ac-5f99-a97e-44225cb3b2ba",
+                "signalKind": "PrometheusMetricsQuery",
+                "status": {
+                  "healthState": "Healthy",
+                  "reportedAt": "2026-04-16T20:42:28.3995078+00:00",
+                  "value": 0.0
+                }
+              },
+              {
+                "name": "fb529941-7dc5-5d26-92bc-dc9025b7a623",
+                "refreshInterval": "PT1M",
+                "signalDefinitionName": "6b4730ce-dde8-5794-8073-3d958aca41cf",
+                "signalKind": "PrometheusMetricsQuery",
+                "status": {
+                  "healthState": "Healthy",
+                  "reportedAt": "2026-04-16T20:42:51.5371483+00:00",
+                  "value": 2.0
+                }
+              },
+              {
+                "name": "50a525e9-1205-585b-b543-178c899df538",
+                "refreshInterval": "PT1M",
+                "signalDefinitionName": "c4470a6e-3f8d-5f14-affd-6a2e50e7bc7b",
+                "signalKind": "PrometheusMetricsQuery",
+                "status": {
+                  "healthState": "Healthy",
+                  "reportedAt": "2026-04-16T20:42:54.1548506+00:00",
+                  "value": 0.0
+                }
+              }
+            ]
+          }
+        },
+        "tags": {}
+      },
+      "systemData": {
+        "createdAt": "2026-04-13T17:58:00.5463838Z",
+        "createdBy": "11111111-1111-1111-1111-111111111111",
+        "createdByType": "Application",
+        "lastModifiedAt": "2026-04-16T20:42:00.8701306Z",
+        "lastModifiedBy": "user@contoso.com",
+        "lastModifiedByType": "User"
+      },
+      "type": "Microsoft.CloudHealth/healthmodels/entities"
+    },
+    {
+      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/rg-alwayson-global/providers/microsoft.cloudhealth/healthmodels/hm-graphorleons/entities/eebd1a93-6ace-5a56-a087-e94b277b7ca9",
+      "name": "eebd1a93-6ace-5a56-a087-e94b277b7ca9",
+      "properties": {
+        "canvasPosition": {
+          "x": 2125.0,
+          "y": 386.0
+        },
+        "displayName": "Stamp swedencentral-001",
+        "healthState": "Degraded",
+        "icon": {
+          "iconName": "AzureKubernetesService"
+        },
+        "impact": "Standard",
+        "provisioningState": "Succeeded",
+        "tags": {}
+      },
+      "systemData": {
+        "createdAt": "2026-04-13T17:57:59.6557446Z",
+        "createdBy": "11111111-1111-1111-1111-111111111111",
+        "createdByType": "Application",
+        "lastModifiedAt": "2026-04-16T20:42:00.4701965Z",
+        "lastModifiedBy": "user@contoso.com",
+        "lastModifiedByType": "User"
+      },
+      "type": "Microsoft.CloudHealth/healthmodels/entities"
+    },
+    {
+      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/rg-alwayson-global/providers/microsoft.cloudhealth/healthmodels/hm-graphorleons/entities/f74bb038-dc9d-55da-89e1-eefe0d5db391",
+      "name": "f74bb038-dc9d-55da-89e1-eefe0d5db391",
+      "properties": {
+        "canvasPosition": {
+          "x": 4500.0,
+          "y": 587.0
+        },
+        "displayName": "centralus-001 - Cosmos Latency",
+        "healthState": "Healthy",
+        "icon": {
+          "iconName": "Resource"
+        },
+        "impact": "Standard",
+        "provisioningState": "Succeeded",
+        "signalGroups": {
+          "azureResource": {
+            "authenticationSetting": "id-healthmodel-alwayson",
+            "azureResourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg-alwayson-global/providers/Microsoft.DocumentDB/databaseAccounts/cosmos-alwayson-a2nyh4",
+            "signals": [
+              {
+                "name": "b5e56f47-142a-5a92-a6b7-31cbd721395f",
+                "refreshInterval": "PT1M",
+                "signalDefinitionName": "e3388ad5-61a0-5b4e-85cd-c7cb4e2ce189",
+                "signalKind": "AzureResourceMetric",
+                "status": {
+                  "healthState": "Healthy",
+                  "reportedAt": "2026-04-16T20:42:45.3107551+00:00",
+                  "value": 0.0
+                }
+              },
+              {
+                "name": "1bb1c0c8-5e94-5b6e-a67f-31db3896dea3",
+                "refreshInterval": "PT1M",
+                "signalDefinitionName": "3a41daa9-b6cb-552c-9ef3-30a1ec994db1",
+                "signalKind": "AzureResourceMetric",
+                "status": {
+                  "error": "Metric has no value at all for the queried timespan",
+                  "healthState": "Unknown",
+                  "reportedAt": "2026-04-16T20:42:51.6444162+00:00"
+                }
+              }
+            ]
+          }
+        },
+        "tags": {}
+      },
+      "systemData": {
+        "createdAt": "2026-04-13T17:58:00.5463838Z",
+        "createdBy": "11111111-1111-1111-1111-111111111111",
+        "createdByType": "Application",
+        "lastModifiedAt": "2026-04-16T20:42:00.970328Z",
+        "lastModifiedBy": "user@contoso.com",
+        "lastModifiedByType": "User"
+      },
+      "type": "Microsoft.CloudHealth/healthmodels/entities"
+    },
+    {
+      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/rg-alwayson-global/providers/microsoft.cloudhealth/healthmodels/hm-graphorleons/entities/fff668d9-54a3-579c-8b7d-004eeb80d2ef",
+      "name": "fff668d9-54a3-579c-8b7d-004eeb80d2ef",
+      "properties": {
+        "canvasPosition": {
+          "x": 3500.0,
+          "y": 587.0
+        },
+        "displayName": "swedencentral-001 - Resource Pressure",
+        "healthState": "Degraded",
+        "icon": {
+          "iconName": "Resource"
+        },
+        "impact": "Standard",
+        "provisioningState": "Succeeded",
+        "signalGroups": {
+          "azureMonitorWorkspace": {
+            "authenticationSetting": "id-healthmodel-alwayson",
+            "azureMonitorWorkspaceResourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg-alwayson-swedencentral/providers/Microsoft.Monitor/accounts/amw-alwayson-swedencentral",
+            "signals": [
+              {
+                "name": "39391378-ec35-5ae6-bf5e-e7104f983d61",
+                "refreshInterval": "PT1M",
+                "signalDefinitionName": "ac20bcb6-3ed2-59c3-a8e3-f1ab50c1dca3",
+                "signalKind": "PrometheusMetricsQuery",
+                "status": {
+                  "healthState": "Healthy",
+                  "reportedAt": "2026-04-16T20:42:13.4529555+00:00",
+                  "value": 6.5800957081083
+                }
+              },
+              {
+                "name": "564743bd-8f34-5872-942b-857cbcc6ee0d",
+                "refreshInterval": "PT1M",
+                "signalDefinitionName": "c7d840c0-2907-5213-b90c-e327c81cfcb2",
+                "signalKind": "PrometheusMetricsQuery",
+                "status": {
+                  "healthState": "Degraded",
+                  "reportedAt": "2026-04-16T20:42:13.8026655+00:00",
+                  "value": 85.5
+                }
+              },
+              {
+                "name": "d5ccc3d2-5be3-52b0-b1eb-add3b2ff55d3",
+                "refreshInterval": "PT1M",
+                "signalDefinitionName": "0f1bf265-25b1-52b5-ac95-17bd9c170123",
+                "signalKind": "PrometheusMetricsQuery",
+                "status": {
+                  "healthState": "Healthy",
+                  "reportedAt": "2026-04-16T20:42:25.5019899+00:00",
+                  "value": 0.0
+                }
+              },
+              {
+                "name": "9dbddb25-d062-5b4a-a865-6a94028f3422",
+                "refreshInterval": "PT1M",
+                "signalDefinitionName": "112dec13-d8d5-5d1f-b6d7-948e301137c4",
+                "signalKind": "PrometheusMetricsQuery",
+                "status": {
+                  "healthState": "Healthy",
+                  "reportedAt": "2026-04-16T20:42:46.1441601+00:00",
+                  "value": 0.0
+                }
+              },
+              {
+                "name": "763f2f78-7085-5698-bbe4-936edddfac05",
+                "refreshInterval": "PT1M",
+                "signalDefinitionName": "d11c151e-de4e-5758-96af-4c78001ff544",
+                "signalKind": "PrometheusMetricsQuery",
+                "status": {
+                  "healthState": "Healthy",
+                  "reportedAt": "2026-04-16T20:42:13.5250969+00:00",
+                  "value": 0.0
+                }
+              },
+              {
+                "name": "81c24226-438a-5a9a-8130-961333147c65",
+                "refreshInterval": "PT1M",
+                "signalDefinitionName": "e8007b8c-255f-558e-b45c-5c2ef3d3bf25",
+                "signalKind": "PrometheusMetricsQuery",
+                "status": {
+                  "healthState": "Healthy",
+                  "reportedAt": "2026-04-16T20:43:05.0526804+00:00",
+                  "value": 0.0
+                }
+              }
+            ]
+          }
+        },
+        "tags": {}
+      },
+      "systemData": {
+        "createdAt": "2026-04-13T17:58:00.6401353Z",
+        "createdBy": "11111111-1111-1111-1111-111111111111",
+        "createdByType": "Application",
+        "lastModifiedAt": "2026-04-16T20:42:00.5232118Z",
+        "lastModifiedBy": "user@contoso.com",
+        "lastModifiedByType": "User"
+      },
+      "type": "Microsoft.CloudHealth/healthmodels/entities"
+    },
+    {
+      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/rg-alwayson-global/providers/microsoft.cloudhealth/healthmodels/hm-graphorleons/entities/hm-graphorleons",
+      "name": "hm-graphorleons",
+      "properties": {
+        "canvasPosition": {
+          "x": 4125.0,
+          "y": 0.0
+        },
+        "displayName": "GraphOrleons",
+        "healthState": "Healthy",
+        "icon": {
+          "iconName": "UserFlow"
+        },
+        "impact": "Standard",
+        "provisioningState": "Succeeded",
+        "tags": {}
+      },
+      "systemData": {
+        "lastModifiedAt": "2026-04-16T20:42:00.4754482Z",
+        "lastModifiedBy": "user@contoso.com",
+        "lastModifiedByType": "User"
+      },
+      "type": "Microsoft.CloudHealth/healthmodels/entities"
+    }
+  ]
+}

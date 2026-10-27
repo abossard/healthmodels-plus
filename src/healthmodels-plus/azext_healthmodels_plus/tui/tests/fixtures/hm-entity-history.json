@@ -1,0 +1,23 @@
+{
+  "entityName": "entity-1",
+  "history": [
+    {
+      "previousState": "Healthy",
+      "newState": "Degraded",
+      "occurredAt": "2026-01-01T10:00:00Z",
+      "reason": "CPU threshold exceeded"
+    },
+    {
+      "previousState": "Degraded",
+      "newState": "Unhealthy",
+      "occurredAt": "2026-01-01T10:05:00Z",
+      "reason": "Multiple signals failing"
+    },
+    {
+      "previousState": "Unhealthy",
+      "newState": "Healthy",
+      "occurredAt": "2026-01-01T10:30:00Z",
+      "reason": "All signals recovered"
+    }
+  ]
+}

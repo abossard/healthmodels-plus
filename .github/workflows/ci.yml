@@ -1,0 +1,57 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_call:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    name: Test (Python ${{ matrix.python-version }})
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.11", "3.12", "3.13"]
+    defaults:
+      run:
+        working-directory: src/healthmodels-plus
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - uses: astral-sh/setup-uv@v10.3.2
+        with:
+          python-version: ${{ matrix.python-version }}
+      - run: uv sync --locked
+      - run: uv run --locked python -m pytest
+      - run: uv build --wheel
+      - name: Upload wheel
+        if: strategy.job-index == 0
+        uses: actions/upload-artifact@v7
+        with:
+          name: wheel
+          path: src/healthmodels-plus/dist/*.whl
+          if-no-files-found: error
+
+  smoke:
+    name: Install, run, remove with Azure CLI
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - uses: actions/download-artifact@v8
+        with:
+          name: wheel
+          path: dist
+      - id: wheel
+        run: echo "path=$(ls dist/*.whl)" >> "$GITHUB_OUTPUT"
+      - uses: ./.github/actions/smoke
+        with:
+          source: ${{ steps.wheel.outputs.path }}

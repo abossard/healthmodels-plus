@@ -3,6 +3,10 @@
 Release History
 ===============
 
+0.3.0
++++++
+* ``az monitor health-models tui`` colors the tree lines by health: a vertical line by its parent, a branch by the entity or signal it leads to.
+
 0.2.0
 +++++
 * ``az health-models-tui`` is now ``az monitor health-models tui``, next to the ``layout`` group. Arguments and help are unchanged.

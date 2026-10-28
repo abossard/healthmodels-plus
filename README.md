@@ -39,7 +39,7 @@ For now it holds one Azure CLI extension, `healthmodels-plus` (preview), with tw
 The extension is not in the Azure CLI extension index. Install the wheel of a [release](https://github.com/abossard/healthmodels-plus/releases):
 
 ```bash
-VERSION=0.2.0
+VERSION=0.3.0
 az extension add --yes --source "https://github.com/abossard/healthmodels-plus/releases/download/v$VERSION/healthmodels_plus-$VERSION-py3-none-any.whl"
 ```
 

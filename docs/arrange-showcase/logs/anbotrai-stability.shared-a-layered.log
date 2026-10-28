@@ -1,0 +1,9 @@
+INFO: Loaded 17 entities (1 with a canvas position) and 17 relationships
+INFO: Arranging the whole health model
+INFO: Arranging 17 entities and 17 relationships with engine 'layered' as 1 part(s)
+INFO: Part 1 of 1: 17 entities, 17 relationships
+INFO: 4 rows by longest path; 0 edges skip rows and get 0 extra points
+INFO: Row order: 0 crossings to start with, 0 at best (after 0 of 12 sweeps)
+INFO: Local search kept 0 of 13 swaps (limit 300), score 37 -> 37 (lower is better)
+INFO: Part 1 of 1 is 2200 x 706 px with 0 edges through cards, 11 false links, 0 crossings, 0 label clashes
+INFO: 17 of 17 positions change; saving them

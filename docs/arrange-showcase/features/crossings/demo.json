@@ -1,0 +1,5 @@
+[
+ {"name":"demo-assistant-generation-resource","p":"assistant","c":"generation-resource"},
+ {"name":"demo-itinerary-generation-resource","p":"itinerary","c":"generation-resource"},
+ {"name":"demo-destinations-preferences-resource","p":"destinations","c":"preferences-resource"}
+]

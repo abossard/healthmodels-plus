@@ -1,0 +1,18 @@
+INFO: Loaded 17 entities (17 with a canvas position) and 16 relationships
+INFO: Arranging only 'assistant' and the entities below it; 'assistant' keeps its position
+INFO: Arranging 4 entities and 3 relationships with engine 'auto' as 1 part(s)
+INFO: Part 1 of 1: 4 entities, 3 relationships
+INFO: Auto: trying layered
+INFO: 2 rows by longest path; 0 edges skip rows and get 0 extra points
+INFO: Row order: 0 crossings to start with, 0 at best (after 0 of 12 sweeps)
+INFO: Local search kept 0 of 2 swaps (limit 300), score -43 -> -43 (lower is better)
+INFO: Auto: trying tree
+INFO: Tree: 0 cards with several parents hang under the deepest ancestor their parents share
+INFO: 2 rows by longest path; 0 edges skip rows and get 0 extra points
+INFO: Local search kept 0 of 2 swaps (limit 300), score -43 -> -43 (lower is better)
+INFO: Auto: layered has 0 edges through cards, 0 false links, 0 crossings, 0 label clashes, score -43
+INFO: Auto: tree has 0 edges through cards, 0 false links, 0 crossings, 0 label clashes, score -43
+INFO: Auto: keeping layered, the first of equal scores
+INFO: Part 1 of 1 is 700 x 322 px with 0 edges through cards, 0 false links, 0 crossings, 0 label clashes
+INFO: 'assistant' stays at (750, 384); 6 cards beside it slid 250 px right, 5 slid 250 px left to clear the subtree
+INFO: 14 of 15 positions change; dry run, nothing is saved

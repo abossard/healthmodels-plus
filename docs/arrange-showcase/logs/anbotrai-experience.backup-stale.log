@@ -1,0 +1,3 @@
+INFO: Loaded 17 entities (17 with a canvas position) and 16 relationships
+WARNING: Skipping entities that are not in the health model: legacy-cache
+INFO: 1 of 2 positions change; dry run, nothing is saved

@@ -1,0 +1,19 @@
+[
+  "anbotrai-stability",
+  "assistant",
+  "assistant-langchain-resource",
+  "assistant-llamaindex-resource",
+  "assistant-python-resource",
+  "destinations",
+  "destinations-ai-resource",
+  "destinations-mcp-resource",
+  "generation",
+  "generation-resource",
+  "interface",
+  "interface-resource",
+  "itinerary",
+  "itinerary-resource",
+  "plan-trip",
+  "preferences",
+  "preferences-resource"
+]

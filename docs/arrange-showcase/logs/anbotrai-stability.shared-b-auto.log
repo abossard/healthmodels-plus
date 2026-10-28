@@ -1,0 +1,17 @@
+INFO: Loaded 17 entities (1 with a canvas position) and 18 relationships
+INFO: Arranging the whole health model
+INFO: Arranging 17 entities and 18 relationships with engine 'auto' as 1 part(s)
+INFO: Part 1 of 1: 17 entities, 18 relationships
+INFO: Auto: trying layered
+INFO: 6 rows by longest path; 2 edges skip rows and get 3 extra points
+INFO: Row order: 1 crossings to start with, 0 at best (after 2 of 12 sweeps)
+INFO: Local search kept 1 of 28 swaps (limit 300), score 1129 -> 129 (lower is better)
+INFO: Auto: trying tree
+INFO: Tree: 2 cards with several parents hang under the deepest ancestor their parents share
+INFO: 6 rows by longest path; 2 edges skip rows and get 3 extra points
+INFO: Local search kept 2 of 28 swaps (limit 300), score 1128 -> 35 (lower is better)
+INFO: Auto: layered has 0 edges through cards, 12 false links, 0 crossings, 0 label clashes, score 129
+INFO: Auto: tree has 0 edges through cards, 3 false links, 0 crossings, 0 label clashes, score 35
+INFO: Auto: keeping tree, the lower score
+INFO: Part 1 of 1 is 1950 x 1090 px with 0 edges through cards, 3 false links, 0 crossings, 0 label clashes
+INFO: 17 of 17 positions change; saving them

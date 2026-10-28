@@ -7,7 +7,7 @@ import threading
 import subprocess
 import sys
 from collections import Counter
-from dataclasses import dataclass
+from dataclasses import dataclass, replace
 from typing import Any
 from urllib.parse import unquote, urlsplit
 
@@ -31,6 +31,7 @@ from azext_healthmodels_plus.tui.domain.model_reference import ModelKey
 from azext_healthmodels_plus.tui.domain.occurrences import project
 from azext_healthmodels_plus.tui.domain.graph_builder import build_forest
 from azext_healthmodels_plus.tui.domain.parse import parse_entities, parse_relationships
+from azext_healthmodels_plus.tui.models.domain import Forest
 
 SUB = "00000000-0000-0000-0000-000000000001"
 OTHER_SUB = "00000000-0000-0000-0000-000000000002"
@@ -1231,6 +1232,40 @@ async def test_earlier_branch_toggle_rebases_selected_node_before_next_key(widge
         assert tree.cursor_line == selected.line
         await pilot.press("down")
         assert tree.cursor_node is following
+
+
+@pytest.mark.anyio
+@pytest.mark.parametrize("name,guides", [
+    ("A", [("├── ", "green")]),
+    ("A1", [("│   ", "yellow"), ("└── ", "green")]),
+    ("B", [("└── ", "red")]),
+])
+async def test_tree_guides_take_the_health_they_roll_up(name, guides):
+    states = {"R": "Degraded", "A": "Healthy", "A1": "Healthy", "B": "Unhealthy"}
+    children = {"R": ("A", "B"), "A": ("A1",)}
+    entities = parse_entities([
+        {"id": f"/entities/{n}", "name": n, "properties": {"healthState": s}} for n, s in states.items()
+    ], {})
+    forest = Forest(("R",), {n: replace(e, children=children.get(n, ())) for n, e in entities.items()})
+
+    class WidgetApp(App):
+        def compose(self):
+            tree = HealthTree()
+            tree.show_root = False
+            yield tree
+
+        def on_mount(self):
+            self.query_one(HealthTree).apply_forest(forest, [])
+
+    app = WidgetApp()
+    async with app.run_test(size=(100, 20)) as pilot:
+        await pilot.pause()
+        tree = app.query_one(HealthTree)
+        node = next(n for n in tree._occurrence_nodes.values() if n.data.entity_name == name)
+        cells = [(char, segment.style.color.name) for segment in tree.render_line(node.line) for char in segment.text]
+        depth = tree.guide_depth
+        units = [("".join(c for c, _ in cells[i:i + depth]), cells[i][1]) for i in range(0, len(guides) * depth, depth)]
+        assert units == guides
 
 
 @pytest.mark.anyio

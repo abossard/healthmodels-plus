@@ -1,11 +1,15 @@
 """Occurrence-aware tree presentation. No model cache or fetch-on-render."""
 from __future__ import annotations
 
+from collections.abc import Sequence
 from dataclasses import dataclass
 
+from rich.segment import Segment
+from rich.style import Style
 from rich.text import Text
 from textual.message import Message
 from textual.geometry import Size
+from textual.strip import Strip
 from textual.widgets import Tree
 from textual.widgets._tree import TreeNode, _TreeLine
 
@@ -14,6 +18,7 @@ from azext_healthmodels_plus.tui.domain.model_reference import ModelKey
 from azext_healthmodels_plus.tui.domain.occurrences import Occurrence, Path, project
 from azext_healthmodels_plus.tui.domain.snapshot import build_change_map
 from azext_healthmodels_plus.tui.models.domain import Forest, StateChange
+from azext_healthmodels_plus.tui.models.enums import HealthState
 from azext_healthmodels_plus.tui.watch.poller import MonitorView
 
 
@@ -26,6 +31,12 @@ class EntityData:
     path: Path = ()
     target: ModelKey | None = None
     cycle: bool = False
+    state: HealthState | None = None
+
+
+def guide_states(path: Sequence[HealthState | None]) -> list[HealthState | None]:
+    """The health each guide of a line rolls up: a trunk its parent's, the connector its node's."""
+    return [*path[:-2], path[-1]] if len(path) > 1 else []
 
 
 class HealthTree(Tree[EntityData]):
@@ -71,6 +82,19 @@ class HealthTree(Tree[EntityData]):
             self.cursor_line = self.cursor_node.line
         if self.cursor_line >= len(lines):
             self.cursor_line = -1
+
+    def _render_line(self, y: int, x1: int, x2: int, base_style: Style) -> Strip:
+        strip = super()._render_line(y, 0, x2, base_style)
+        if y < len(self._tree_lines):
+            states = guide_states([node.data.state if node.data else None for node in self._tree_lines[y].path])
+            depth = self.guide_depth
+            cuts = [*range(depth, depth * len(states) + 1, depth), strip.cell_length]
+            strip = Strip.join(
+                Strip(Segment.apply_style(part, post_style=Style.parse(state.color)), part.cell_length)
+                if state else part
+                for part, state in zip(strip.divide(cuts), [*states, None])
+            )
+        return strip.crop(x1, x2)
 
     def apply_view(self, view: MonitorView) -> None:
         forests = {k: s.previous.forest for k, s in view.entries.items() if s.previous}
@@ -118,7 +142,8 @@ class HealthTree(Tree[EntityData]):
             if row.cycle:
                 label.append(" [cycle link]", style="dim italic")
             data = EntityData(entity.name, model=row.model, path=path,
-                              target=reference.target if reference else None, cycle=row.cycle)
+                              target=reference.target if reference else None, cycle=row.cycle,
+                              state=entity.health_state)
             node = self._occurrence_nodes.get(path)
             if node is None:
                 expandable = bool(entity.children or entity.signals or (reference and reference.target))
@@ -131,7 +156,8 @@ class HealthTree(Tree[EntityData]):
             for sig in entity.signals:
                 signal_path = path + ("signals/" + sig.name.casefold(),)
                 leaf = self._occurrence_nodes.get(signal_path)
-                signal_data = EntityData(sig.name, True, entity.name, row.model, signal_path)
+                signal_data = EntityData(sig.name, True, entity.name, row.model, signal_path,
+                                         state=sig.health_state)
                 if leaf is None:
                     leaf = node.add_leaf(format_signal_label(sig), data=signal_data)
                 else:

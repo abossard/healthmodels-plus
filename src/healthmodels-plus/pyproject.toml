@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "healthmodels-plus"
-version = "0.3.0"
+version = "0.4.0"
 description = "Azure CLI extension for Azure Monitor health models: canvas layout and a terminal monitor"
 readme = "README.md"
 requires-python = ">=3.11"

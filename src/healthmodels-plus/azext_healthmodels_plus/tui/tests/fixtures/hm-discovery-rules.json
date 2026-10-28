@@ -1,0 +1,37 @@
+{
+  "value": [
+    {
+      "id": "/subscriptions/test-sub/resourceGroups/rg/providers/Microsoft.CloudHealth/healthmodels/m/discoveryrules/dr-appinsights",
+      "name": "dr-appinsights",
+      "type": "Microsoft.CloudHealth/healthmodels/discoveryrules",
+      "properties": {
+        "provisioningState": "Succeeded",
+        "displayName": "App Insights Discovery",
+        "authenticationSetting": "auth-msi",
+        "discoverRelationships": "Enabled",
+        "addRecommendedSignals": "Enabled",
+        "specification": {
+          "kind": "ApplicationInsightsTopology",
+          "applicationInsightsResourceId": "/subscriptions/test-sub/resourceGroups/rg/providers/Microsoft.Insights/components/myapp"
+        },
+        "entityName": "discovered-entity-1"
+      }
+    },
+    {
+      "id": "/subscriptions/test-sub/resourceGroups/rg/providers/Microsoft.CloudHealth/healthmodels/m/discoveryrules/dr-resourcegraph",
+      "name": "dr-resourcegraph",
+      "type": "Microsoft.CloudHealth/healthmodels/discoveryrules",
+      "properties": {
+        "provisioningState": "Succeeded",
+        "displayName": "Resource Graph Query",
+        "authenticationSetting": "auth-msi",
+        "discoverRelationships": "Disabled",
+        "addRecommendedSignals": "Disabled",
+        "specification": {
+          "kind": "ResourceGraphQuery",
+          "resourceGraphQuery": "resources | where type == 'microsoft.compute/virtualmachines' | project id"
+        }
+      }
+    }
+  ]
+}

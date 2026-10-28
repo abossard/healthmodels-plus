@@ -1,0 +1,452 @@
+/* ─── Health Model Watch — Textual CSS ────────────────────────────── */
+/* Stylesheet for the HealthWatchApp TUI.                              */
+
+/* ─── Overall app ───────────────────────────────────────────────── */
+Screen {
+    background: $surface;
+    color: $text;
+}
+
+/* split, not dock: side panes start below the tabs, so Tree stays clickable when a pane is full width */
+#workspace-tabs {
+    split: top;
+    height: 1;
+    padding: 0 1;
+    background: $panel;
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+#workspace-tabs Button {
+    margin-right: 1;
+    min-width: 8;
+    width: auto;
+    height: 1;
+    border: none;
+    padding: 0 1;
+    background: $surface;
+}
+
+#workspace-tabs Button:focus,
+#workspace-tabs Button:hover {
+    background: $primary-darken-2;
+    text-style: bold;
+}
+
+#workspace-tabs Button.-selected {
+    background: $primary;
+    text-style: bold;
+}
+
+/* ─── Health Tree ───────────────────────────────────────────────── */
+HealthTree {
+    width: 1fr;
+    height: 1fr;
+    border: round $primary;
+    padding: 1 2;
+    scrollbar-size-vertical: 1;
+}
+
+/* Room for a 20-col label and a 48-bucket band; the tree keeps the rest. */
+TimelinePane, ChangesPane {
+    dock: right;
+    width: 92;
+    max-width: 70%;
+    min-width: 42;
+    height: 1fr;
+    background: $panel;
+    border-left: solid $primary;
+    padding: 0 1;
+    display: none;
+}
+
+/* App.HORIZONTAL_BREAKPOINTS: below 110 columns a side pane gets the whole width instead of a sliver of tree,
+   and its timeline rows (label plus band) do not wrap. */
+Screen.-narrow TimelinePane,
+Screen.-narrow ChangesPane {
+    width: 100%;
+    max-width: 100%;
+}
+
+TimelinePane > Static,
+ChangesPane > Static {
+    height: auto;
+}
+
+/* One row per control so the data, not the controls, fills the side pane. */
+TimelinePane Button,
+TimelinePane Input,
+ChangesPane Button,
+ChangesPane Input {
+    height: 1;
+    border: none;
+    padding: 0 1;
+    margin-right: 1;
+}
+
+TimelinePane Button,
+ChangesPane Button {
+    width: auto;
+    min-width: 0;
+    background: $primary-muted;
+}
+
+TimelinePane Input,
+ChangesPane Input {
+    width: 1fr;
+    min-width: 10;
+    background: $boost;
+}
+
+TimelinePane Input:focus,
+ChangesPane Input:focus {
+    background: $primary-darken-2;
+}
+
+/* A wrapped row would break the band column; a long row ends in an ellipsis instead. */
+#timeline-bands {
+    text-wrap: nowrap;
+    text-overflow: ellipsis;
+}
+
+#timeline-scroll,
+#changes-form-scroll {
+    height: 1fr;
+    border: round $primary-darken-2;
+    background: $surface;
+    padding: 0 1;
+    scrollbar-size-vertical: 1;
+}
+
+/* One line however many drafts exist, so the list never squeezes the form out. */
+#changes-drafts {
+    text-wrap: nowrap;
+    text-overflow: ellipsis;
+}
+
+/* At most 40% of the room above the apply controls: a long result is cut and a form field stays in view. */
+#changes-result-scroll {
+    height: auto;
+    background: $surface-lighten-1;
+    border: round $primary-darken-2;
+    padding: 0 1;
+    margin: 0 0 1 0;
+    min-height: 1;
+    max-height: 40%;
+    scrollbar-size-vertical: 1;
+}
+
+#changes-result {
+    color: $accent;
+}
+
+/* App.VERTICAL_BREAKPOINTS: on a short screen a result of at most 3 unbordered lines leaves a form field in view. */
+Screen.-short #changes-review-scroll {
+    max-height: 4;
+}
+
+Screen.-short #changes-result-scroll {
+    border: none;
+    margin: 0;
+    max-height: 3;
+}
+
+TimelinePane Horizontal,
+ChangesPane Horizontal {
+    height: auto;
+    width: 100%;
+}
+
+.changes-section-label {
+    color: $accent;
+    text-style: bold;
+}
+
+.changes-field-label {
+    color: $text-muted;
+}
+
+#changes-apply-controls {
+    dock: bottom;
+    height: auto;
+    border: round $primary-darken-2;
+    background: $surface;
+    padding: 0 1;
+    margin-top: 1;
+}
+
+/* The plan grows with its content up to 30% of the screen, then scrolls. */
+#changes-review-scroll {
+    height: auto;
+    min-height: 3;
+    max-height: 30vh;
+    background: $surface;
+    padding: 0 1;
+    margin-bottom: 1;
+    scrollbar-size-vertical: 1;
+}
+
+#quit-dialog-actions Button {
+    width: 1fr;
+}
+
+HealthTree:focus {
+    border: round $accent;
+}
+
+/* Tree guide lines — subtle dotted look */
+HealthTree > .tree--guides {
+    color: $text-muted;
+}
+
+/* Cursor highlight — full-row highlight */
+HealthTree > .tree--cursor {
+    background: $primary-darken-2;
+    color: $text;
+    text-style: bold;
+}
+
+HealthTree > .tree--highlight {
+    background: $surface-lighten-1;
+}
+
+/* ─── Status Bar (footer) ────────────────────────────────────── */
+/* split, not dock: side panes end above the bar instead of hiding their last rows under it */
+StatusBar {
+    split: bottom;
+    height: 2;
+    background: $panel;
+    padding: 0 1;
+    text-wrap: nowrap;
+    text-overflow: ellipsis;
+}
+
+/* ─── Search Modal ───────────────────────────────────────────── */
+SearchModal {
+    align: center middle;
+}
+
+SearchModal > Vertical {
+    width: 80;
+    max-width: 90%;
+    height: auto;
+    max-height: 70%;
+    background: $surface;
+    border: round $accent;
+    padding: 1 2;
+}
+
+SearchModal Input {
+    dock: top;
+    margin-bottom: 1;
+}
+
+SearchModal OptionList {
+    height: auto;
+    max-height: 20;
+    background: $surface;
+    scrollbar-size-vertical: 1;
+}
+
+SearchModal OptionList > .option-list--option-highlighted {
+    background: $primary-darken-2;
+    color: $text;
+    text-style: bold;
+}
+
+/* ─── Query Editor Modal ─────────────────────────────────────── */
+QueryEditor {
+    align: center middle;
+}
+
+QueryEditor #query-editor-root {
+    width: 95%;
+    height: 90%;
+    background: $surface;
+    border: round $accent;
+    padding: 1 2;
+}
+
+QueryEditor #qe-title {
+    dock: top;
+    height: 1;
+    width: 100%;
+    background: $surface;
+}
+
+QueryEditor #qe-meta {
+    background: $panel;
+    border: round $primary-darken-2;
+    padding: 0 1;
+}
+
+QueryEditor .qe-section-label {
+    color: $accent;
+    text-style: bold;
+    padding: 1 0 0 0;
+}
+
+/* The query takes the free room; the results grow, and the editor is the one scroll that reaches them. */
+QueryEditor #qe-query {
+    height: 1fr;
+    min-height: 4;
+    max-height: 12;
+    border: round $primary;
+    background: $panel;
+}
+
+QueryEditor #qe-query:focus {
+    border: round $accent;
+}
+
+QueryEditor #qe-buttons {
+    height: 3;
+    align: left middle;
+}
+
+QueryEditor #qe-buttons Button {
+    margin-right: 2;
+}
+
+QueryEditor #qe-results {
+    background: $panel;
+    border: round $primary-darken-2;
+    padding: 0 1;
+}
+
+/* ─── Entity Detail Drawer ───────────────────────────────────── */
+EntityDrawer {
+    dock: right;
+    width: 60;
+    max-width: 50%;
+    height: 1fr;
+    background: $panel;
+    border: round $primary;
+    padding: 1 2;
+    scrollbar-size-vertical: 1;
+    display: none;
+}
+
+EntityDrawer.-visible {
+    display: block;
+}
+
+EntityDrawer:focus-within {
+    border: round $accent;
+}
+
+EntityDrawer #entity-drawer-body {
+    width: 100%;
+    height: auto;
+}
+
+/* ─── Signal Verification Panel (right drawer) ─────────────────── */
+SignalPanel {
+    dock: right;
+    width: 60;
+    max-width: 50%;
+    height: 1fr;
+    background: $panel;
+    border-left: solid $primary;
+    padding: 1 2;
+    scrollbar-size-vertical: 1;
+}
+
+SignalPanel:focus-within {
+    border-left: solid $accent;
+}
+
+SignalPanel .sp-header {
+    height: auto;
+    margin-bottom: 1;
+    border-bottom: solid $primary-darken-2;
+    padding-bottom: 1;
+}
+
+SignalPanel .sp-section {
+    height: auto;
+    margin-bottom: 1;
+}
+
+SignalPanel .sp-status {
+    height: auto;
+    margin: 1 0;
+}
+
+SignalPanel .sp-raw {
+    height: auto;
+    margin-top: 1;
+    color: $text-muted;
+}
+
+SignalPanel .sp-sparkline {
+    height: auto;
+    margin-bottom: 1;
+}
+
+SignalPanel Button {
+    margin: 1 0;
+    width: 100%;
+}
+
+#shortcut-dialog {
+    width: 72;
+    max-width: 90%;
+    height: auto;
+    max-height: 80%;
+    background: $surface;
+    border: round $accent;
+    padding: 1 2;
+}
+
+.shortcut-title {
+    text-style: bold;
+    margin-bottom: 1;
+}
+
+HelpDialog .shortcut-title {
+    dock: top;  /* docked, so the key list's 100% max-height is the space below the title */
+}
+
+#help-scroll {
+    height: auto;
+    max-height: 100%;
+}
+
+ActionsDialog, HelpDialog, QuitDraftsDialog {
+    align: center middle;
+    background: $background 60%;
+}
+
+#actions-dialog {
+    width: 56;
+    max-width: 90%;
+    height: auto;
+    max-height: 70%;
+    background: $surface;
+    border: round $accent;
+    padding: 1;
+}
+
+#actions-scroll {
+    height: auto;
+    max-height: 8;
+    border: round $primary-darken-2;
+    background: $surface;
+    padding: 0;
+    margin: 0;
+    scrollbar-size-vertical: 1;
+}
+
+#actions-scroll Button {
+    border: none;
+    min-width: 0;
+    width: 1fr;
+    height: 1;
+    padding: 0 1;
+    margin: 0;
+}
+
+#actions-empty {
+    color: $text-muted;
+}

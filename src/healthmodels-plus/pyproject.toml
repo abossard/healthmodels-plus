@@ -1,0 +1,45 @@
+[build-system]
+requires = ["setuptools==84.0.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "healthmodels-plus"
+version = "0.1.0"
+description = "Azure CLI extension for Azure Monitor health models: canvas layout and a terminal monitor"
+readme = "README.md"
+requires-python = ">=3.11"
+license = "MIT"
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Intended Audience :: Developers",
+  "Intended Audience :: System Administrators",
+  "Programming Language :: Python",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+]
+dependencies = [
+  "textual==8.2.8",
+  "rich>=15.0.0,<16.0.0",
+  "azure-core>=1.41.0,<2.0.0",
+  "azure-mgmt-cloudhealth==1.0.0b5",
+]
+
+[project.urls]
+Homepage = "https://github.com/abossard/healthmodels-plus"
+
+[dependency-groups]
+dev = [
+  "pytest==9.1.1",
+  "anyio",
+  "azure-cli-core>=2.75.0",
+]
+
+[tool.setuptools.packages.find]
+# Namespace discovery is on by default here, so without include a local build/ dir ships too.
+include = ["azext_healthmodels_plus*"]
+exclude = ["azext_healthmodels_plus.*.tests*"]
+
+[tool.setuptools.package-data]
+azext_healthmodels_plus = ["py.typed", "azext_metadata.json", "tui/watch/styles.tcss"]

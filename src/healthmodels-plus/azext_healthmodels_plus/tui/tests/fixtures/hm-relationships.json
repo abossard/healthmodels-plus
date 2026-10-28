@@ -1,0 +1,526 @@
+{
+  "value": [
+    {
+      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/rg-alwayson-global/providers/microsoft.cloudhealth/healthmodels/hm-graphorleons/relationships/07837c5e-5d4f-5dbf-aa61-8a0786ab00fc",
+      "name": "07837c5e-5d4f-5dbf-aa61-8a0786ab00fc",
+      "properties": {
+        "childEntityName": "edac475a-80c7-5f3e-b75d-339a605cab11",
+        "parentEntityName": "8116afcd-76f4-5f62-9ad5-43d9fa6926f0",
+        "provisioningState": "Succeeded"
+      },
+      "systemData": {
+        "createdAt": "2026-04-13T17:58:01.2026422Z",
+        "createdBy": "11111111-1111-1111-1111-111111111111",
+        "createdByType": "Application",
+        "lastModifiedAt": "2026-04-13T17:58:01.3247985Z",
+        "lastModifiedBy": "11111111-1111-1111-1111-111111111111",
+        "lastModifiedByType": "Application"
+      },
+      "type": "Microsoft.CloudHealth/healthmodels/relationships"
+    },
+    {
+      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/rg-alwayson-global/providers/microsoft.cloudhealth/healthmodels/hm-graphorleons/relationships/15b6bea5-6089-5cb5-9f21-342a3d13fee7",
+      "name": "15b6bea5-6089-5cb5-9f21-342a3d13fee7",
+      "properties": {
+        "childEntityName": "4f132e63-a38d-5125-a44a-f6b9fadc5207",
+        "parentEntityName": "7e265bfd-c5eb-5bb6-80f7-d422c92b83b1",
+        "provisioningState": "Succeeded"
+      },
+      "systemData": {
+        "createdAt": "2026-04-13T17:58:00.5151366Z",
+        "createdBy": "11111111-1111-1111-1111-111111111111",
+        "createdByType": "Application",
+        "lastModifiedAt": "2026-04-13T17:58:00.615794Z",
+        "lastModifiedBy": "11111111-1111-1111-1111-111111111111",
+        "lastModifiedByType": "Application"
+      },
+      "type": "Microsoft.CloudHealth/healthmodels/relationships"
+    },
+    {
+      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/rg-alwayson-global/providers/microsoft.cloudhealth/healthmodels/hm-graphorleons/relationships/1e0c8ab6-52f2-5134-bd08-b6ec1a151e2b",
+      "name": "1e0c8ab6-52f2-5134-bd08-b6ec1a151e2b",
+      "properties": {
+        "childEntityName": "448dc8af-8eee-551c-b1c1-dd523675a8bd",
+        "parentEntityName": "4f132e63-a38d-5125-a44a-f6b9fadc5207",
+        "provisioningState": "Succeeded"
+      },
+      "systemData": {
+        "createdAt": "2026-04-13T22:07:51.1263702Z",
+        "createdBy": "11111111-1111-1111-1111-111111111111",
+        "createdByType": "Application",
+        "lastModifiedAt": "2026-04-13T22:07:51.2304584Z",
+        "lastModifiedBy": "11111111-1111-1111-1111-111111111111",
+        "lastModifiedByType": "Application"
+      },
+      "type": "Microsoft.CloudHealth/healthmodels/relationships"
+    },
+    {
+      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/rg-alwayson-global/providers/microsoft.cloudhealth/healthmodels/hm-graphorleons/relationships/20e354d6-3abe-5338-aec9-79b7d7a4bd9a",
+      "name": "20e354d6-3abe-5338-aec9-79b7d7a4bd9a",
+      "properties": {
+        "childEntityName": "eebd1a93-6ace-5a56-a087-e94b277b7ca9",
+        "parentEntityName": "21eb9ab7-3f38-55a4-bf16-38367018071f",
+        "provisioningState": "Succeeded"
+      },
+      "systemData": {
+        "createdAt": "2026-04-13T17:58:01.2651455Z",
+        "createdBy": "11111111-1111-1111-1111-111111111111",
+        "createdByType": "Application",
+        "lastModifiedAt": "2026-04-13T17:58:01.3754948Z",
+        "lastModifiedBy": "11111111-1111-1111-1111-111111111111",
+        "lastModifiedByType": "Application"
+      },
+      "type": "Microsoft.CloudHealth/healthmodels/relationships"
+    },
+    {
+      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/rg-alwayson-global/providers/microsoft.cloudhealth/healthmodels/hm-graphorleons/relationships/2f94b31f-3e7f-55d0-b3e3-98e88cc2c247",
+      "name": "2f94b31f-3e7f-55d0-b3e3-98e88cc2c247",
+      "properties": {
+        "childEntityName": "30781c5b-7c8a-5561-bb34-dca7801d3524",
+        "parentEntityName": "4f132e63-a38d-5125-a44a-f6b9fadc5207",
+        "provisioningState": "Succeeded"
+      },
+      "systemData": {
+        "createdAt": "2026-04-14T21:07:26.2387302Z",
+        "createdBy": "11111111-1111-1111-1111-111111111111",
+        "createdByType": "Application",
+        "lastModifiedAt": "2026-04-14T21:07:26.3423483Z",
+        "lastModifiedBy": "11111111-1111-1111-1111-111111111111",
+        "lastModifiedByType": "Application"
+      },
+      "type": "Microsoft.CloudHealth/healthmodels/relationships"
+    },
+    {
+      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/rg-alwayson-global/providers/microsoft.cloudhealth/healthmodels/hm-graphorleons/relationships/3d344c98-61c9-5b8c-bb6e-1559de031c6d",
+      "name": "3d344c98-61c9-5b8c-bb6e-1559de031c6d",
+      "properties": {
+        "childEntityName": "bd552eef-4fa8-53f2-ae41-ec128252dfe8",
+        "parentEntityName": "2ecd547a-51a5-5411-8a40-894d164898e1",
+        "provisioningState": "Succeeded"
+      },
+      "systemData": {
+        "createdAt": "2026-04-13T22:07:51.1576223Z",
+        "createdBy": "11111111-1111-1111-1111-111111111111",
+        "createdByType": "Application",
+        "lastModifiedAt": "2026-04-13T22:07:51.2547977Z",
+        "lastModifiedBy": "11111111-1111-1111-1111-111111111111",
+        "lastModifiedByType": "Application"
+      },
+      "type": "Microsoft.CloudHealth/healthmodels/relationships"
+    },
+    {
+      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/rg-alwayson-global/providers/microsoft.cloudhealth/healthmodels/hm-graphorleons/relationships/43782eec-2c93-5d37-bcc9-68984a3841d1",
+      "name": "43782eec-2c93-5d37-bcc9-68984a3841d1",
+      "properties": {
+        "childEntityName": "8116afcd-76f4-5f62-9ad5-43d9fa6926f0",
+        "parentEntityName": "21eb9ab7-3f38-55a4-bf16-38367018071f",
+        "provisioningState": "Succeeded"
+      },
+      "systemData": {
+        "createdAt": "2026-04-13T17:58:00.5307592Z",
+        "createdBy": "11111111-1111-1111-1111-111111111111",
+        "createdByType": "Application",
+        "lastModifiedAt": "2026-04-13T17:58:00.7322664Z",
+        "lastModifiedBy": "11111111-1111-1111-1111-111111111111",
+        "lastModifiedByType": "Application"
+      },
+      "type": "Microsoft.CloudHealth/healthmodels/relationships"
+    },
+    {
+      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/rg-alwayson-global/providers/microsoft.cloudhealth/healthmodels/hm-graphorleons/relationships/4de94817-f713-5cd6-8d42-7bd52a40ed46",
+      "name": "4de94817-f713-5cd6-8d42-7bd52a40ed46",
+      "properties": {
+        "childEntityName": "2ecd547a-51a5-5411-8a40-894d164898e1",
+        "parentEntityName": "7e265bfd-c5eb-5bb6-80f7-d422c92b83b1",
+        "provisioningState": "Succeeded"
+      },
+      "systemData": {
+        "createdAt": "2026-04-13T17:58:00.4682593Z",
+        "createdBy": "11111111-1111-1111-1111-111111111111",
+        "createdByType": "Application",
+        "lastModifiedAt": "2026-04-13T17:58:00.5833549Z",
+        "lastModifiedBy": "11111111-1111-1111-1111-111111111111",
+        "lastModifiedByType": "Application"
+      },
+      "type": "Microsoft.CloudHealth/healthmodels/relationships"
+    },
+    {
+      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/rg-alwayson-global/providers/microsoft.cloudhealth/healthmodels/hm-graphorleons/relationships/4e5f79e7-d1a7-57d3-9cf2-1796994363a2",
+      "name": "4e5f79e7-d1a7-57d3-9cf2-1796994363a2",
+      "properties": {
+        "childEntityName": "b837fc55-e35c-5c7b-87b6-949a99ec3b6e",
+        "parentEntityName": "4f132e63-a38d-5125-a44a-f6b9fadc5207",
+        "provisioningState": "Succeeded"
+      },
+      "systemData": {
+        "createdAt": "2026-04-13T17:58:01.546399Z",
+        "createdBy": "11111111-1111-1111-1111-111111111111",
+        "createdByType": "Application",
+        "lastModifiedAt": "2026-04-13T17:58:01.6453819Z",
+        "lastModifiedBy": "11111111-1111-1111-1111-111111111111",
+        "lastModifiedByType": "Application"
+      },
+      "type": "Microsoft.CloudHealth/healthmodels/relationships"
+    },
+    {
+      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/rg-alwayson-global/providers/microsoft.cloudhealth/healthmodels/hm-graphorleons/relationships/590eaf5c-8398-504c-bcdc-7309ced61272",
+      "name": "590eaf5c-8398-504c-bcdc-7309ced61272",
+      "properties": {
+        "childEntityName": "775fce9b-c237-536e-aed8-0dfb4b8be103",
+        "parentEntityName": "hm-graphorleons",
+        "provisioningState": "Succeeded"
+      },
+      "systemData": {
+        "createdAt": "2026-04-13T17:58:01.7964026Z",
+        "createdBy": "11111111-1111-1111-1111-111111111111",
+        "createdByType": "Application",
+        "lastModifiedAt": "2026-04-13T17:58:01.9084991Z",
+        "lastModifiedBy": "11111111-1111-1111-1111-111111111111",
+        "lastModifiedByType": "Application"
+      },
+      "type": "Microsoft.CloudHealth/healthmodels/relationships"
+    },
+    {
+      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/rg-alwayson-global/providers/microsoft.cloudhealth/healthmodels/hm-graphorleons/relationships/5ac79c6f-90ea-57e5-812a-0cbb6b70445a",
+      "name": "5ac79c6f-90ea-57e5-812a-0cbb6b70445a",
+      "properties": {
+        "childEntityName": "dfb1892c-722c-54f2-98c4-acfdc50ed413",
+        "parentEntityName": "8116afcd-76f4-5f62-9ad5-43d9fa6926f0",
+        "provisioningState": "Succeeded"
+      },
+      "systemData": {
+        "createdAt": "2026-04-13T22:07:51.0794463Z",
+        "createdBy": "11111111-1111-1111-1111-111111111111",
+        "createdByType": "Application",
+        "lastModifiedAt": "2026-04-13T22:07:51.1857912Z",
+        "lastModifiedBy": "11111111-1111-1111-1111-111111111111",
+        "lastModifiedByType": "Application"
+      },
+      "type": "Microsoft.CloudHealth/healthmodels/relationships"
+    },
+    {
+      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/rg-alwayson-global/providers/microsoft.cloudhealth/healthmodels/hm-graphorleons/relationships/61f1a0e2-9a18-5f93-b17b-6adb4cb1f7f7",
+      "name": "61f1a0e2-9a18-5f93-b17b-6adb4cb1f7f7",
+      "properties": {
+        "childEntityName": "4ab04b62-2c1f-5fde-8746-f4f94372b56d",
+        "parentEntityName": "8116afcd-76f4-5f62-9ad5-43d9fa6926f0",
+        "provisioningState": "Succeeded"
+      },
+      "systemData": {
+        "createdAt": "2026-04-14T21:07:26.2387302Z",
+        "createdBy": "11111111-1111-1111-1111-111111111111",
+        "createdByType": "Application",
+        "lastModifiedAt": "2026-04-14T21:07:26.3361504Z",
+        "lastModifiedBy": "11111111-1111-1111-1111-111111111111",
+        "lastModifiedByType": "Application"
+      },
+      "type": "Microsoft.CloudHealth/healthmodels/relationships"
+    },
+    {
+      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/rg-alwayson-global/providers/microsoft.cloudhealth/healthmodels/hm-graphorleons/relationships/67dd460f-5722-51c6-8356-81e8bb305112",
+      "name": "67dd460f-5722-51c6-8356-81e8bb305112",
+      "properties": {
+        "childEntityName": "7e265bfd-c5eb-5bb6-80f7-d422c92b83b1",
+        "parentEntityName": "hm-graphorleons",
+        "provisioningState": "Succeeded"
+      },
+      "systemData": {
+        "createdAt": "2026-04-13T17:58:00.4682593Z",
+        "createdBy": "11111111-1111-1111-1111-111111111111",
+        "createdByType": "Application",
+        "lastModifiedAt": "2026-04-13T17:58:00.5847232Z",
+        "lastModifiedBy": "11111111-1111-1111-1111-111111111111",
+        "lastModifiedByType": "Application"
+      },
+      "type": "Microsoft.CloudHealth/healthmodels/relationships"
+    },
+    {
+      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/rg-alwayson-global/providers/microsoft.cloudhealth/healthmodels/hm-graphorleons/relationships/68793388-19be-5082-8aec-3998cc69f1a8",
+      "name": "68793388-19be-5082-8aec-3998cc69f1a8",
+      "properties": {
+        "childEntityName": "58fd8939-0008-587c-b5bb-4df80542b95d",
+        "parentEntityName": "2ecd547a-51a5-5411-8a40-894d164898e1",
+        "provisioningState": "Succeeded"
+      },
+      "systemData": {
+        "createdAt": "2026-04-13T17:58:01.2338935Z",
+        "createdBy": "11111111-1111-1111-1111-111111111111",
+        "createdByType": "Application",
+        "lastModifiedAt": "2026-04-13T17:58:01.3436063Z",
+        "lastModifiedBy": "11111111-1111-1111-1111-111111111111",
+        "lastModifiedByType": "Application"
+      },
+      "type": "Microsoft.CloudHealth/healthmodels/relationships"
+    },
+    {
+      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/rg-alwayson-global/providers/microsoft.cloudhealth/healthmodels/hm-graphorleons/relationships/702b372d-0458-54fe-8697-d45bc01d49ed",
+      "name": "702b372d-0458-54fe-8697-d45bc01d49ed",
+      "properties": {
+        "childEntityName": "1b3d369b-bebd-59ae-94a4-3a4aab477355",
+        "parentEntityName": "eebd1a93-6ace-5a56-a087-e94b277b7ca9",
+        "provisioningState": "Succeeded"
+      },
+      "systemData": {
+        "createdAt": "2026-04-13T17:58:01.2651455Z",
+        "createdBy": "11111111-1111-1111-1111-111111111111",
+        "createdByType": "Application",
+        "lastModifiedAt": "2026-04-13T17:58:01.3884328Z",
+        "lastModifiedBy": "11111111-1111-1111-1111-111111111111",
+        "lastModifiedByType": "Application"
+      },
+      "type": "Microsoft.CloudHealth/healthmodels/relationships"
+    },
+    {
+      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/rg-alwayson-global/providers/microsoft.cloudhealth/healthmodels/hm-graphorleons/relationships/72746d84-e9cd-5e26-81ff-01603d1399b7",
+      "name": "72746d84-e9cd-5e26-81ff-01603d1399b7",
+      "properties": {
+        "childEntityName": "cc5933ec-149a-5386-a437-b87b6ef22086",
+        "parentEntityName": "eebd1a93-6ace-5a56-a087-e94b277b7ca9",
+        "provisioningState": "Succeeded"
+      },
+      "systemData": {
+        "createdAt": "2026-04-13T17:58:01.2651455Z",
+        "createdBy": "11111111-1111-1111-1111-111111111111",
+        "createdByType": "Application",
+        "lastModifiedAt": "2026-04-13T17:58:01.4060998Z",
+        "lastModifiedBy": "11111111-1111-1111-1111-111111111111",
+        "lastModifiedByType": "Application"
+      },
+      "type": "Microsoft.CloudHealth/healthmodels/relationships"
+    },
+    {
+      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/rg-alwayson-global/providers/microsoft.cloudhealth/healthmodels/hm-graphorleons/relationships/91fd3852-adc2-5559-9541-8ba5da1eded6",
+      "name": "91fd3852-adc2-5559-9541-8ba5da1eded6",
+      "properties": {
+        "childEntityName": "fff668d9-54a3-579c-8b7d-004eeb80d2ef",
+        "parentEntityName": "2ecd547a-51a5-5411-8a40-894d164898e1",
+        "provisioningState": "Succeeded"
+      },
+      "systemData": {
+        "createdAt": "2026-04-13T17:58:01.2807689Z",
+        "createdBy": "11111111-1111-1111-1111-111111111111",
+        "createdByType": "Application",
+        "lastModifiedAt": "2026-04-13T17:58:01.4015521Z",
+        "lastModifiedBy": "11111111-1111-1111-1111-111111111111",
+        "lastModifiedByType": "Application"
+      },
+      "type": "Microsoft.CloudHealth/healthmodels/relationships"
+    },
+    {
+      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/rg-alwayson-global/providers/microsoft.cloudhealth/healthmodels/hm-graphorleons/relationships/959f4e39-c166-59a4-991a-9372eecec9bc",
+      "name": "959f4e39-c166-59a4-991a-9372eecec9bc",
+      "properties": {
+        "childEntityName": "5c729e0e-89f9-55d9-be0a-37c414ed4f7a",
+        "parentEntityName": "8116afcd-76f4-5f62-9ad5-43d9fa6926f0",
+        "provisioningState": "Succeeded"
+      },
+      "systemData": {
+        "createdAt": "2026-04-13T17:58:01.5620239Z",
+        "createdBy": "11111111-1111-1111-1111-111111111111",
+        "createdByType": "Application",
+        "lastModifiedAt": "2026-04-13T17:58:01.6635053Z",
+        "lastModifiedBy": "11111111-1111-1111-1111-111111111111",
+        "lastModifiedByType": "Application"
+      },
+      "type": "Microsoft.CloudHealth/healthmodels/relationships"
+    },
+    {
+      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/rg-alwayson-global/providers/microsoft.cloudhealth/healthmodels/hm-graphorleons/relationships/9eff4926-f74c-5b6a-b88f-87aeeb6bd7e3",
+      "name": "9eff4926-f74c-5b6a-b88f-87aeeb6bd7e3",
+      "properties": {
+        "childEntityName": "028f77e9-b029-56b9-9d68-b3a77e15758d",
+        "parentEntityName": "eebd1a93-6ace-5a56-a087-e94b277b7ca9",
+        "provisioningState": "Succeeded"
+      },
+      "systemData": {
+        "createdAt": "2026-04-13T22:07:50.6575598Z",
+        "createdBy": "11111111-1111-1111-1111-111111111111",
+        "createdByType": "Application",
+        "lastModifiedAt": "2026-04-13T22:07:50.7583501Z",
+        "lastModifiedBy": "11111111-1111-1111-1111-111111111111",
+        "lastModifiedByType": "Application"
+      },
+      "type": "Microsoft.CloudHealth/healthmodels/relationships"
+    },
+    {
+      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/rg-alwayson-global/providers/microsoft.cloudhealth/healthmodels/hm-graphorleons/relationships/9fc445a3-3f1e-562d-8f69-f247116a6cd5",
+      "name": "9fc445a3-3f1e-562d-8f69-f247116a6cd5",
+      "properties": {
+        "childEntityName": "0923d7e7-744f-53d2-b3da-e5f7bc67b2f8",
+        "parentEntityName": "2ecd547a-51a5-5411-8a40-894d164898e1",
+        "provisioningState": "Succeeded"
+      },
+      "systemData": {
+        "createdAt": "2026-04-13T17:58:01.546399Z",
+        "createdBy": "11111111-1111-1111-1111-111111111111",
+        "createdByType": "Application",
+        "lastModifiedAt": "2026-04-13T17:58:01.6603367Z",
+        "lastModifiedBy": "11111111-1111-1111-1111-111111111111",
+        "lastModifiedByType": "Application"
+      },
+      "type": "Microsoft.CloudHealth/healthmodels/relationships"
+    },
+    {
+      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/rg-alwayson-global/providers/microsoft.cloudhealth/healthmodels/hm-graphorleons/relationships/a60f6bf8-2fc1-58a7-bd33-fb7f6c33ab0e",
+      "name": "a60f6bf8-2fc1-58a7-bd33-fb7f6c33ab0e",
+      "properties": {
+        "childEntityName": "f74bb038-dc9d-55da-89e1-eefe0d5db391",
+        "parentEntityName": "4f132e63-a38d-5125-a44a-f6b9fadc5207",
+        "provisioningState": "Succeeded"
+      },
+      "systemData": {
+        "createdAt": "2026-04-13T17:58:01.1870175Z",
+        "createdBy": "11111111-1111-1111-1111-111111111111",
+        "createdByType": "Application",
+        "lastModifiedAt": "2026-04-13T17:58:01.2971791Z",
+        "lastModifiedBy": "11111111-1111-1111-1111-111111111111",
+        "lastModifiedByType": "Application"
+      },
+      "type": "Microsoft.CloudHealth/healthmodels/relationships"
+    },
+    {
+      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/rg-alwayson-global/providers/microsoft.cloudhealth/healthmodels/hm-graphorleons/relationships/a743b890-8d65-5b0f-9aee-e7c0bb9cbbc1",
+      "name": "a743b890-8d65-5b0f-9aee-e7c0bb9cbbc1",
+      "properties": {
+        "childEntityName": "2fb39c5c-ebf6-5fa7-b5e4-7b4a3e2df2e6",
+        "parentEntityName": "8116afcd-76f4-5f62-9ad5-43d9fa6926f0",
+        "provisioningState": "Succeeded"
+      },
+      "systemData": {
+        "createdAt": "2026-04-13T17:58:01.1713936Z",
+        "createdBy": "11111111-1111-1111-1111-111111111111",
+        "createdByType": "Application",
+        "lastModifiedAt": "2026-04-13T17:58:01.3118809Z",
+        "lastModifiedBy": "11111111-1111-1111-1111-111111111111",
+        "lastModifiedByType": "Application"
+      },
+      "type": "Microsoft.CloudHealth/healthmodels/relationships"
+    },
+    {
+      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/rg-alwayson-global/providers/microsoft.cloudhealth/healthmodels/hm-graphorleons/relationships/ba53dc66-2d72-5342-a328-4837ddb8ef9a",
+      "name": "ba53dc66-2d72-5342-a328-4837ddb8ef9a",
+      "properties": {
+        "childEntityName": "da6f39ac-be63-526b-b446-3cc51015d00f",
+        "parentEntityName": "eebd1a93-6ace-5a56-a087-e94b277b7ca9",
+        "provisioningState": "Succeeded"
+      },
+      "systemData": {
+        "createdAt": "2026-04-13T17:58:01.2495247Z",
+        "createdBy": "11111111-1111-1111-1111-111111111111",
+        "createdByType": "Application",
+        "lastModifiedAt": "2026-04-13T17:58:01.3840502Z",
+        "lastModifiedBy": "11111111-1111-1111-1111-111111111111",
+        "lastModifiedByType": "Application"
+      },
+      "type": "Microsoft.CloudHealth/healthmodels/relationships"
+    },
+    {
+      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/rg-alwayson-global/providers/microsoft.cloudhealth/healthmodels/hm-graphorleons/relationships/bc080cfa-1872-5518-970d-3fb95879859a",
+      "name": "bc080cfa-1872-5518-970d-3fb95879859a",
+      "properties": {
+        "childEntityName": "12cfa1e5-64cd-533f-be30-de3e71d46085",
+        "parentEntityName": "eebd1a93-6ace-5a56-a087-e94b277b7ca9",
+        "provisioningState": "Succeeded"
+      },
+      "systemData": {
+        "createdAt": "2026-04-13T17:58:01.5307733Z",
+        "createdBy": "11111111-1111-1111-1111-111111111111",
+        "createdByType": "Application",
+        "lastModifiedAt": "2026-04-13T17:58:01.6483867Z",
+        "lastModifiedBy": "11111111-1111-1111-1111-111111111111",
+        "lastModifiedByType": "Application"
+      },
+      "type": "Microsoft.CloudHealth/healthmodels/relationships"
+    },
+    {
+      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/rg-alwayson-global/providers/microsoft.cloudhealth/healthmodels/hm-graphorleons/relationships/c40c86dd-6d5d-58c0-b2d4-b6af1eb589de",
+      "name": "c40c86dd-6d5d-58c0-b2d4-b6af1eb589de",
+      "properties": {
+        "childEntityName": "21eb9ab7-3f38-55a4-bf16-38367018071f",
+        "parentEntityName": "hm-graphorleons",
+        "provisioningState": "Succeeded"
+      },
+      "systemData": {
+        "createdAt": "2026-04-13T17:58:00.2807557Z",
+        "createdBy": "11111111-1111-1111-1111-111111111111",
+        "createdByType": "Application",
+        "lastModifiedAt": "2026-04-13T17:58:00.3978134Z",
+        "lastModifiedBy": "11111111-1111-1111-1111-111111111111",
+        "lastModifiedByType": "Application"
+      },
+      "type": "Microsoft.CloudHealth/healthmodels/relationships"
+    },
+    {
+      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/rg-alwayson-global/providers/microsoft.cloudhealth/healthmodels/hm-graphorleons/relationships/c778a926-a021-563d-8f31-92a393f92676",
+      "name": "c778a926-a021-563d-8f31-92a393f92676",
+      "properties": {
+        "childEntityName": "a24ba7ca-c93e-5b99-9f39-1eb3b5004106",
+        "parentEntityName": "2ecd547a-51a5-5411-8a40-894d164898e1",
+        "provisioningState": "Succeeded"
+      },
+      "systemData": {
+        "createdAt": "2026-04-14T21:07:26.5043527Z",
+        "createdBy": "11111111-1111-1111-1111-111111111111",
+        "createdByType": "Application",
+        "lastModifiedAt": "2026-04-14T21:07:26.6001573Z",
+        "lastModifiedBy": "11111111-1111-1111-1111-111111111111",
+        "lastModifiedByType": "Application"
+      },
+      "type": "Microsoft.CloudHealth/healthmodels/relationships"
+    },
+    {
+      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/rg-alwayson-global/providers/microsoft.cloudhealth/healthmodels/hm-graphorleons/relationships/e12767a8-143e-55af-ac16-21f9f5cd8bd4",
+      "name": "e12767a8-143e-55af-ac16-21f9f5cd8bd4",
+      "properties": {
+        "childEntityName": "41e5920a-2ced-5724-8b4b-e5d9aca2ac4f",
+        "parentEntityName": "4f132e63-a38d-5125-a44a-f6b9fadc5207",
+        "provisioningState": "Succeeded"
+      },
+      "systemData": {
+        "createdAt": "2026-04-13T17:58:01.1557679Z",
+        "createdBy": "11111111-1111-1111-1111-111111111111",
+        "createdByType": "Application",
+        "lastModifiedAt": "2026-04-13T17:58:01.266151Z",
+        "lastModifiedBy": "11111111-1111-1111-1111-111111111111",
+        "lastModifiedByType": "Application"
+      },
+      "type": "Microsoft.CloudHealth/healthmodels/relationships"
+    },
+    {
+      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/rg-alwayson-global/providers/microsoft.cloudhealth/healthmodels/hm-graphorleons/relationships/e2effeb7-3ceb-52bf-88ba-a609d5cdda8b",
+      "name": "e2effeb7-3ceb-52bf-88ba-a609d5cdda8b",
+      "properties": {
+        "childEntityName": "a03d0ec8-7c84-540c-a9da-29e7cb23c333",
+        "parentEntityName": "8116afcd-76f4-5f62-9ad5-43d9fa6926f0",
+        "provisioningState": "Succeeded"
+      },
+      "systemData": {
+        "createdAt": "2026-04-13T17:58:01.2182705Z",
+        "createdBy": "11111111-1111-1111-1111-111111111111",
+        "createdByType": "Application",
+        "lastModifiedAt": "2026-04-13T17:58:01.3415601Z",
+        "lastModifiedBy": "11111111-1111-1111-1111-111111111111",
+        "lastModifiedByType": "Application"
+      },
+      "type": "Microsoft.CloudHealth/healthmodels/relationships"
+    },
+    {
+      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/rg-alwayson-global/providers/microsoft.cloudhealth/healthmodels/hm-graphorleons/relationships/f467035e-5beb-54d1-aef3-a3d3e8de2cc6",
+      "name": "f467035e-5beb-54d1-aef3-a3d3e8de2cc6",
+      "properties": {
+        "childEntityName": "1f5fb5d5-f562-513b-a937-74dba9a5e7a3",
+        "parentEntityName": "eebd1a93-6ace-5a56-a087-e94b277b7ca9",
+        "provisioningState": "Succeeded"
+      },
+      "systemData": {
+        "createdAt": "2026-04-14T21:07:26.1606009Z",
+        "createdBy": "11111111-1111-1111-1111-111111111111",
+        "createdByType": "Application",
+        "lastModifiedAt": "2026-04-14T21:07:26.2563107Z",
+        "lastModifiedBy": "11111111-1111-1111-1111-111111111111",
+        "lastModifiedByType": "Application"
+      },
+      "type": "Microsoft.CloudHealth/healthmodels/relationships"
+    }
+  ]
+}

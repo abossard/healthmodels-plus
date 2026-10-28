@@ -5,7 +5,8 @@
 
 import json
 import unittest
-from itertools import combinations
+from itertools import combinations, cycle
+from random import Random
 from types import SimpleNamespace
 from unittest import mock
 
@@ -13,7 +14,7 @@ from azure.cli.core.azclierror import InvalidArgumentValueError, ResourceNotFoun
 
 from azext_healthmodels_plus.layout import custom
 from azext_healthmodels_plus.layout.layout import (CARD_H, CARD_W, ENGINES, GRID_X, ROW, TRACK, arrange, arrange_below,
-                                                   cost, describe, project, tracks)
+                                                   cost, describe, descendants, project, tracks)
 
 SERVICES = {'assistant': 3, 'destinations': 2, 'generation': 1, 'interface': 1, 'itinerary': 1, 'preferences': 1}
 RESOURCES = [(s, f'{s}-{i}') for s, k in SERVICES.items() for i in range(k)]
@@ -32,9 +33,43 @@ GRAPHS = {
 }
 
 
-def overlaps(pos):
-    return [(a, b) for a, b in combinations(pos, 2)
-            if abs(pos[a][0] - pos[b][0]) < CARD_W and abs(pos[a][1] - pos[b][1]) < CARD_H]
+SUBTREES = {  # edges around the subtree root 's', which sits below 'r'
+    'leaf': [('r', 's')],
+    'chain': [('r', 's'), ('s', 'a'), ('a', 'b')],
+    'fan': [('r', 's'), *(('s', f'c{i}') for i in range(6))],
+    'tree': [('r', 's'), ('s', 'a'), ('s', 'b'), ('a', 'c'), ('a', 'd'), ('b', 'f')],
+    'diamond': [('r', 's'), ('s', 'a'), ('s', 'b'), ('a', 'c'), ('b', 'c')],
+    'long edge': [('r', 's'), ('s', 'a'), ('a', 'b'), ('s', 'b')],
+    'child shared with a card outside': [('r', 's'), ('r', 'o'), ('s', 'a'), ('o', 'a')],
+    'cycle through the root': [('r', 's'), ('s', 'a'), ('a', 'b'), ('b', 's')],
+    'cycle below the root': [('r', 's'), ('s', 'a'), ('a', 'b'), ('b', 'a')],
+}
+
+
+def subtree_canvases(subtree):
+    """Canvases around the subtree root 's': its parent 'r' above it, cards beside and below it, and
+    the rest of the subtree tidy, scattered, missing or on top of the cards beside it."""
+    around = {'r': (500, 0), 's': (500, ROW), 'west': (250, ROW), 'east': (750, ROW), 'o': (1250, ROW),
+              'south-west': (0, 2 * ROW), 'south-east': (1000, 2 * ROW), 'far': (500, 12 * ROW)}
+    rest = [n for n in subtree if n != 's']
+    scattered = {n: (-i * 90, i * 40) for i, n in enumerate(rest)}
+    return {
+        'tidy': {**around, **{n: (500 + 250 * i, 3 * ROW) for i, n in enumerate(rest)}},
+        'scattered': {**around, **scattered},
+        'subtree unplaced': around,
+        'on top of the cards beside it': {**around, **{n: around[k] for n, k in zip(rest, cycle(around))}},
+        'off the grid': {**{n: (x + 0.3 * i, y + 7.7 * i) for i, (n, (x, y)) in enumerate(around.items())},
+                         **scattered},
+        'between the rows': {'r': (500, 0), 's': (500, ROW), 'o': (1250, ROW), 'west': (250, ROW + 60),
+                             'west2': (0, ROW + 160), 'east': (750, ROW + 100), 'east2': (1000, ROW + 200),
+                             'east3': (1250, ROW + 300)},
+    }
+
+
+def overlaps(pos, among=None):
+    """Pairs of cards on top of each other, only those with a card in ``among`` when given."""
+    return [(a, b) for a, b in combinations(pos, 2) if (among is None or a in among or b in among)
+            and abs(pos[a][0] - pos[b][0]) < CARD_W and abs(pos[a][1] - pos[b][1]) < CARD_H]
 
 
 class LayoutTest(unittest.TestCase):
@@ -106,6 +141,14 @@ class LayoutTest(unittest.TestCase):
                 self.assertIn(logged.format(score=f'{cost(nodes, edges, pos):.0f}', faults=describe(nodes, edges, pos)),
                               '\n'.join(logs.output))
 
+    def test_local_search_moves_a_card_past_one_in_the_way(self):
+        nodes, edges = GRAPHS['travel agent']
+        edges = edges + [('assistant-0', 'generation'), ('destinations-1', 'generation-0')]  # swaps alone: 12 false links
+        for engine in ('auto', 'layered', 'tree'):
+            with self.subTest(engine=engine):
+                self.assertEqual(describe(nodes, edges, arrange(nodes, edges, engine)),
+                                 '0 edges through cards, 3 false links, 0 crossings, 0 label clashes')
+
     def test_project_keeps_order_and_separation(self):
         for want, seps, expected in [
             ([0, 100, 500], [50, 50], [0, 100, 500]),
@@ -152,18 +195,96 @@ class LayoutTest(unittest.TestCase):
                 out = tracks(nodes, edges, pos)
                 self.assertEqual({c for c in ('c1', 'c2') if out[c][1] == min(out['c1'][1], out['c2'][1]) + TRACK}, lowered)
 
-    def test_arrange_below_keeps_root_and_avoids_overlaps(self):
-        edges = [('r', 'a'), ('r', 'b'), ('a', 'c'), ('a', 'd'), ('a', 'e')]
-        for name, current in {
-            'cards crowd the subtree': {'r': (250, 0), 'a': (0, 200), 'b': (250, 200),
-                                        'c': (0, 400), 'd': (0, 400), 'e': (0, 400)},
-            'subtree has no positions': {'r': (250, 0), 'a': (0, 200), 'b': (250, 200)},
-        }.items():
+    def assert_subtree_arranged(self, root, edges, current, pos, acyclic=True):
+        """``root`` keeps its exact position, its subtree is on the grid below it, and the other cards
+        only slide sideways, away from it, so that no moved card overlaps another."""
+        subtree, (rx, ry) = descendants(root, edges), current[root]
+        self.assertEqual(pos[root], current[root])
+        self.assertLessEqual(set(subtree), set(pos))
+        self.assertEqual(overlaps({**current, **pos}, among=set(pos)), [])
+        def on_grid(v, step):  # off-grid roots leave float rounding in the offsets
+            return abs(v / step - round(v / step)) < 1e-9
+
+        self.assertTrue(all(on_grid(x - rx, GRID_X) and on_grid(y - ry, TRACK) and y >= ry
+                            for x, y in (pos[n] for n in subtree)))
+        slid = [n for n in pos if n not in subtree]
+        self.assertTrue(all(pos[n][1] == current[n][1] for n in slid))
+        self.assertTrue(all((pos[n][0] > current[n][0]) == (current[n][0] >= rx) for n in slid))
+        if acyclic:
+            self.assertTrue(all(pos[p][1] < pos[c][1] for p, c in edges if p in subtree and c in subtree))
+
+    def test_arrange_below_invariants(self):
+        for engine in ENGINES:
+            for graph_name, edges in SUBTREES.items():
+                nodes = descendants('s', edges)
+                for canvas_name, current in subtree_canvases(nodes).items():
+                    with self.subTest(engine=engine, graph=graph_name, canvas=canvas_name):
+                        pos = arrange_below('s', edges, current, engine)
+                        self.assert_subtree_arranged('s', edges, current, pos, acyclic='cycle' not in graph_name)
+
+    def test_arrange_below_invariants_on_random_models(self):
+        for seed in range(60):
+            rng = Random(seed)
+            nodes = [f'n{i}' for i in range(rng.randrange(3, 14))]
+            edges = sorted({(nodes[p], c) for i, c in enumerate(nodes[1:], 1)
+                            for p in rng.sample(range(i), min(i, rng.choice([1, 1, 2])))})
+            if seed % 4 == 0:  # a back edge closes a cycle
+                edges.append((nodes[-1], nodes[rng.randrange(len(nodes) - 1)]))
+            current = {}
+            for n in nodes:
+                spots = [(rng.uniform(0, 2500), rng.uniform(0, 1200)) for _ in range(50)]
+                current.update(next(([(n, xy)] for xy in spots if not overlaps({**current, n: xy}, among={n})), []))
+            roots = [p for p, _ in edges if p in current]
+            if not roots:
+                continue
+            root, engine = rng.choice(roots), list(ENGINES)[seed % len(ENGINES)]
+            with self.subTest(seed=seed, engine=engine, root=root):
+                pos = arrange_below(root, edges, current, engine)
+                self.assert_subtree_arranged(root, edges, current, pos, acyclic=seed % 4 != 0)
+
+    def test_arrange_below_slides_the_rows_beside_the_subtree_as_a_whole(self):
+        edges = [('r', 's'), ('s', 'a'), ('s', 'b'), ('s', 'c')]
+        current = {'r': (500, 0), 'up': (1500, 0), 's': (500, ROW), 'w': (250, ROW), 'e': (750, ROW),
+                   'sw': (0, 2 * ROW), 'se': (1000, 2 * ROW), 'below': (500, 3 * ROW)}
+        with self.assertLogs('cli', 'INFO') as logs:
+            pos = arrange_below('s', edges, current)
+        self.assertEqual(sorted(pos[n] for n in 'abc'), [(250, 2 * ROW), (500, 2 * ROW), (750, 2 * ROW)])
+        self.assertEqual({n: xy for n, xy in pos.items() if n not in 'sabc'},
+                         {'w': (0, ROW), 'e': (1000, ROW), 'sw': (-250, 2 * ROW), 'se': (1250, 2 * ROW)})
+        self.assertIn("'s' stays at (500, 192); 2 cards beside it slid 250 px right, 2 slid 250 px left",
+                      '\n'.join(logs.output))
+
+    def test_arrange_below_takes_along_a_card_a_sliding_neighbour_runs_into(self):
+        edges = [('s', f'c{i}') for i in range(4)]
+        for name, below, expected in [
+                ('right', {'e': (1000, 2 * ROW + 100), 'hit': (1250, 2 * ROW + 200), 'clear': (2000, 2 * ROW + 200)},
+                 {'e': (1125, 2 * ROW + 100), 'hit': (1375, 2 * ROW + 200)}),
+                ('left', {'w': (-100, 2 * ROW + 100), 'hit': (-350, 2 * ROW + 200), 'clear': (-1000, 2 * ROW + 200)},
+                 {'w': (-225, 2 * ROW + 100), 'hit': (-475, 2 * ROW + 200)}),
+                ('a chain of them', {'e': (1000, 2 * ROW + 100), 'hit': (1250, 2 * ROW + 200),
+                                     'next': (1500, 2 * ROW + 300)},
+                 {'e': (1125, 2 * ROW + 100), 'hit': (1375, 2 * ROW + 200), 'next': (1625, 2 * ROW + 300)}),
+        ]:
+            with self.subTest(side=name):
+                current = {'s': (500, ROW), **below}
+                pos = arrange_below('s', edges, current)
+                self.assertEqual({n: xy for n, xy in pos.items() if n in below}, expected)
+                self.assert_subtree_arranged('s', edges, current, pos)
+
+    def test_arrange_below_keeps_the_root_on_top_and_shared_children_with_the_subtree(self):
+        rx, ry = 164.36806833325412, 454.5796827597004
+        for name, edges, current, expected in [
+            ('cycle through the root', [('r', 's'), ('s', 'a'), ('a', 'b'), ('b', 's')],
+             {'r': (500, 0), 's': (500, ROW), 'a': (0, 0), 'b': (1000, 0)},
+             {'s': (500, ROW), 'a': (500, 2 * ROW), 'b': (500, 3 * ROW)}),
+            ('child shared with a card outside', [('r', 's'), ('r', 'o'), ('s', 'a'), ('o', 'a')],
+             {'r': (875, 0), 's': (500, ROW), 'o': (1250, ROW), 'a': (1250, 2 * ROW)},
+             {'s': (500, ROW), 'a': (500, 2 * ROW)}),
+            ('position off the grid, as dragged in the portal', [('s', 'a'), ('s', 'b')], {'s': (rx, ry)},
+             {'s': (rx, ry), 'a': (rx - 125, ry + ROW), 'b': (rx + 125, ry + ROW)}),
+        ]:
             with self.subTest(case=name):
-                pos = {**current, **arrange_below('a', edges, current)}
-                self.assertEqual(pos['a'], current['a'])
-                self.assertEqual(overlaps(pos), [])
-                self.assertEqual(pos['r'], current['r'])
+                self.assertEqual(arrange_below('s', edges, current), expected)
 
 
 ENTITIES = [

@@ -27,6 +27,7 @@ GRID_X, ROW = (CARD_W + GAP_X) / 2, CARD_H + GAP_Y  # half a column lets a paren
 TRACK = ROW // 6  # a child one track lower moves its incoming lines 16 px, clear of a label
 LETTER, LABEL_H = 7, 16  # size of the portal's edge label text on the canvas
 WORK = 30_000  # local search tries times edges: big models get fewer tries
+REACH = 3  # after swapping neighbours, the local search moves a card up to this many places
 
 
 def note(count, message, *args):
@@ -267,26 +268,28 @@ def describe(nodes, edges, pos, labels=None):
     return f'{through} edges through cards, {false} false links, {crossed} crossings, {clashes} label clashes'
 
 
-def improve(rows, judge, tries):
-    """Local search: swap neighbours in a row while that lowers ``judge`` of the drawing, at most
-    ``tries`` times so big models stay fast."""
+def improve(rows, judge, tries, reach=1):
+    """Local search: move a card up to ``reach`` places along its row while that lowers ``judge``
+    of the drawing, at most ``tries`` times so big models stay fast. Reach 1 swaps neighbours."""
     rows, improved = [list(r) for r in rows], True
     start = best = judge(rows)
     left, kept = tries, 0
+    steps = [d for d in range(-reach, reach + 1) if d not in (-1, 0)]  # one left is the neighbour's one right
     while improved:
         improved = False
-        for row, i in [(row, i) for row in rows for i in range(len(row) - 1)]:
+        for row, i, j in [(row, i, i + d) for row in rows for i in range(len(row)) for d in steps
+                          if 0 <= i + d < len(row)]:
             if left == 0:
                 break
             left -= 1
-            row[i], row[i + 1] = row[i + 1], row[i]
+            row.insert(j, row.pop(i))
             score = judge(rows)
             if score < best - 1:  # a real gain, not a few pixels of fit
                 best, improved, kept = score, True, kept + 1
             else:
-                row[i], row[i + 1] = row[i + 1], row[i]
-    note(sum(map(len, rows)), 'Local search kept %d of %d swaps (limit %d), score %.0f -> %.0f (lower is better)',
-         kept, tries - left, tries, start, best)
+                row.insert(i, row.pop(j))
+    note(sum(map(len, rows)), 'Local search moving cards up to %d place(s) kept %d of %d moves (limit %d), '
+         'score %.0f -> %.0f (lower is better)', reach, kept, tries - left, tries, start, best)
     return rows
 
 
@@ -334,7 +337,8 @@ def columns(nodes, parents, rank, card_x=None, judge=None):
          sum(rank[c] - rank[p] > 1 for p, c in links), sum(not is_card(n) for row in rows for n in row))
     rows = order(rows, up, down) if card_x is None else [sorted(row, key=sort_key) for row in rows]
     if judge:
-        rows = improve(rows, lambda rows: judge(draw(rows)), WORK // max(len(links), 100))
+        for reach in (1, REACH):  # swaps alone get stuck when the better spot is past a card in the way
+            rows = improve(rows, lambda rows: judge(draw(rows)), WORK // max(len(links), 100), reach)
     return draw(rows)
 
 
@@ -531,23 +535,33 @@ def descendants(root, edges):
 
 def arrange_below(root, edges, current, engine='auto', labels=None):
     """Arrange ``root`` and its descendants with ``root`` kept in place, and slide the other
-    cards in the rows the subtree covers aside so that nothing overlaps it. Returns the positions
-    of the subtree and of the cards it pushed; ``current`` maps entities to their positions."""
-    pos = arrange(descendants(root, edges), edges, engine, current, labels)
-    rx, ry = current.get(root, pos[root])
-    pos = {n: (x + rx - pos[root][0], y + ry - pos[root][1]) for n, (x, y) in pos.items()}
+    cards in the rows the subtree covers aside so that nothing overlaps it; a card they would run
+    into slides along. Returns the positions of the subtree and of the cards that slid;
+    ``current`` maps entities to their positions."""
+    # the root tops its subtree: an edge back into it closes a cycle
+    pos = arrange(descendants(root, edges), [(p, c) for p, c in edges if c != root], engine, current, labels)
+    (rx, ry), (x0, y0) = current.get(root, pos[root]), pos[root]
+    pos = {n: (rx + (x - x0), ry + (y - y0)) for n, (x, y) in pos.items()}  # exact for the root
     left = min(x for x, _ in pos.values())
     right = max(x for x, _ in pos.values()) + CARD_W
     bottom = max(y for _, y in pos.values()) + CARD_H
-    # shortcut: only cards that overlap the subtree's rows move, so a card pushed into a taller
-    # neighbour outside those rows can still overlap; iterate the band if that shows up
-    band = {n: xy for n, xy in current.items() if n not in pos and ry - CARD_H < xy[1] < bottom}
-    rights = {n: xy for n, xy in band.items() if xy[0] >= rx}
-    lefts = {n: xy for n, xy in band.items() if xy[0] < rx}
-    push_right = ceil(max([0] + [right + GAP_X - x for x, _ in rights.values()]) / GRID_X) * GRID_X
-    push_left = ceil(max([0] + [x + CARD_W + GAP_X - left for x, _ in lefts.values()]) / GRID_X) * GRID_X
+    others = {n: xy for n, xy in current.items() if n not in pos}
+    band = {n: xy for n, xy in others.items() if ry - CARD_H < xy[1] < bottom}
+    push_right = ceil(max([0] + [right + GAP_X - x for x, _ in band.values() if x >= rx]) / GRID_X) * GRID_X
+    push_left = ceil(max([0] + [x + CARD_W + GAP_X - left for x, _ in band.values() if x < rx]) / GRID_X) * GRID_X
+
+    def slide(xy):  # each side slides as one, so its cards keep their spacing
+        return (xy[0] + push_right if xy[0] >= rx else xy[0] - push_left), xy[1]
+
+    def hits(xy, cards):
+        return any(abs(xy[0] - x) < CARD_W and abs(xy[1] - y) < CARD_H for x, y in cards)
+
+    moved, hit = {}, band
+    while hit:  # a card that slid into one outside the subtree's rows takes that one along
+        moved.update((n, slide(xy)) for n, xy in hit.items())
+        hit = {n: xy for n, xy in others.items() if n not in moved and hits(xy, moved.values())}
+    moved = {n: xy for n, xy in moved.items() if xy != others[n]}
+    rights = sum(others[n][0] >= rx for n in moved)
     logger.info("'%s' stays at (%g, %g); %d cards beside it slid %g px right, %d slid %g px left to clear the subtree",
-                root, rx, ry, len(rights) if push_right else 0, push_right, len(lefts) if push_left else 0, push_left)
-    pos.update({n: (x + push_right, y) for n, (x, y) in rights.items()})
-    pos.update({n: (x - push_left, y) for n, (x, y) in lefts.items()})
-    return pos
+                root, rx, ry, rights, push_right, len(moved) - rights, push_left)
+    return {**pos, **moved}

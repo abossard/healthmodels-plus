@@ -1,0 +1,87 @@
+[
+ {
+  "name": "anbotrai-capacity",
+  "x": 750,
+  "y": 0
+ },
+ {
+  "name": "assistant",
+  "x": 750.4,
+  "y": 384.6
+ },
+ {
+  "name": "assistant-langchain-resource",
+  "x": 500.4,
+  "y": 576.6
+ },
+ {
+  "name": "assistant-llamaindex-resource",
+  "x": 750.4,
+  "y": 576.6
+ },
+ {
+  "name": "assistant-python-resource",
+  "x": 1000.4,
+  "y": 576.6
+ },
+ {
+  "name": "destinations",
+  "x": -125.0,
+  "y": 384
+ },
+ {
+  "name": "destinations-ai-resource",
+  "x": -250.0,
+  "y": 576
+ },
+ {
+  "name": "destinations-mcp-resource",
+  "x": 50.0,
+  "y": 750
+ },
+ {
+  "name": "generation",
+  "x": 250.0,
+  "y": 384
+ },
+ {
+  "name": "generation-resource",
+  "x": 250.0,
+  "y": 650
+ },
+ {
+  "name": "interface",
+  "x": 1375.0,
+  "y": 384
+ },
+ {
+  "name": "interface-resource",
+  "x": 1375.0,
+  "y": 640
+ },
+ {
+  "name": "itinerary",
+  "x": 1625.0,
+  "y": 384
+ },
+ {
+  "name": "itinerary-resource",
+  "x": 1825.0,
+  "y": 740
+ },
+ {
+  "name": "plan-trip",
+  "x": 750,
+  "y": 192
+ },
+ {
+  "name": "preferences",
+  "x": 1875.0,
+  "y": 384
+ },
+ {
+  "name": "preferences-resource",
+  "x": 1875.0,
+  "y": 576
+ }
+]

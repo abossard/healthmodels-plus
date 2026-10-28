@@ -1,0 +1,70 @@
+[
+  {
+    "name": "anbotrai-stability",
+    "displayName": "anbotrai-stability"
+  },
+  {
+    "name": "assistant",
+    "displayName": "Assistant coordination"
+  },
+  {
+    "name": "assistant-langchain-resource",
+    "displayName": "Container App: api-langchain-js (assistant-langchain)"
+  },
+  {
+    "name": "assistant-llamaindex-resource",
+    "displayName": "Container App: api-llamaindex-ts (assistant-llamaindex)"
+  },
+  {
+    "name": "assistant-python-resource",
+    "displayName": "Container App: api-maf-python (assistant-python)"
+  },
+  {
+    "name": "destinations",
+    "displayName": "Destination recommendations"
+  },
+  {
+    "name": "destinations-ai-resource",
+    "displayName": "AI Services: cog-uuj7bntzehqsu (destinations-ai)"
+  },
+  {
+    "name": "destinations-mcp-resource",
+    "displayName": "Container App: mcp-destination-recommendation (destinations-mcp)"
+  },
+  {
+    "name": "generation",
+    "displayName": "AI generation"
+  },
+  {
+    "name": "generation-resource",
+    "displayName": "AI Services: cog-uuj7bntzehqsu (generation)"
+  },
+  {
+    "name": "interface",
+    "displayName": "Chat interface"
+  },
+  {
+    "name": "interface-resource",
+    "displayName": "Container App: ui-angular (interface)"
+  },
+  {
+    "name": "itinerary",
+    "displayName": "Itinerary planning"
+  },
+  {
+    "name": "itinerary-resource",
+    "displayName": "Container App: mcp-itinerary-planning (itinerary)"
+  },
+  {
+    "name": "plan-trip",
+    "displayName": "Plan a trip"
+  },
+  {
+    "name": "preferences",
+    "displayName": "Customer preferences"
+  },
+  {
+    "name": "preferences-resource",
+    "displayName": "Container App: mcp-customer-query (preferences)"
+  }
+]

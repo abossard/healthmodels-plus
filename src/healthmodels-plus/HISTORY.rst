@@ -3,6 +3,13 @@
 Release History
 ===============
 
+0.4.0
++++++
+* ``layout arrange --entity-name`` no longer leaves overlaps: a card that slides aside takes along any card just outside the subtree's rows that it would land on. The entity keeps its exact position (it is no longer saved when its position has a fractional part), and a cycle back into it no longer puts subtree cards above it.
+* ``layout arrange``: a parent with a single child now sits straight above it in more cases, because each row is straightened in both directions.
+* ``layout arrange``: the local search and ``auto`` now score the layout as it is saved (snapped to the grid). After swapping neighbours, a second pass moves a card up to three places, so it gets past a card in the way.
+* ``layout arrange --engine keep-order``: a card without a position stays with its siblings when it ties with a placed card of another group.
+
 0.3.0
 +++++
 * ``az monitor health-models tui`` colors the tree lines by health: a vertical line by its parent, a branch by the entity or signal it leads to.

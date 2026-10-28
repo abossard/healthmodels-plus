@@ -20,3 +20,9 @@ htmlcov/
 .idea/
 *.swp
 .DS_Store
+
+# Arrange showcase: isolated extension dir, browser profile and the Azure ids
+.azext/
+.playwright/
+.locks/
+docs/arrange-showcase/.env

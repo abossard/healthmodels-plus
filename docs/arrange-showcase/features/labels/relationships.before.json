@@ -1,0 +1,98 @@
+[
+  {
+    "name": "anbotrai-stability-plan-trip",
+    "p": "anbotrai-stability",
+    "c": "plan-trip",
+    "label": null
+  },
+  {
+    "name": "assistant-assistant-langchain-resource",
+    "p": "assistant",
+    "c": "assistant-langchain-resource",
+    "label": null
+  },
+  {
+    "name": "assistant-assistant-llamaindex-resource",
+    "p": "assistant",
+    "c": "assistant-llamaindex-resource",
+    "label": null
+  },
+  {
+    "name": "assistant-assistant-python-resource",
+    "p": "assistant",
+    "c": "assistant-python-resource",
+    "label": null
+  },
+  {
+    "name": "destinations-destinations-ai-resource",
+    "p": "destinations",
+    "c": "destinations-ai-resource",
+    "label": null
+  },
+  {
+    "name": "destinations-destinations-mcp-resource",
+    "p": "destinations",
+    "c": "destinations-mcp-resource",
+    "label": null
+  },
+  {
+    "name": "generation-generation-resource",
+    "p": "generation",
+    "c": "generation-resource",
+    "label": null
+  },
+  {
+    "name": "interface-interface-resource",
+    "p": "interface",
+    "c": "interface-resource",
+    "label": null
+  },
+  {
+    "name": "itinerary-itinerary-resource",
+    "p": "itinerary",
+    "c": "itinerary-resource",
+    "label": null
+  },
+  {
+    "name": "plan-trip-assistant",
+    "p": "plan-trip",
+    "c": "assistant",
+    "label": null
+  },
+  {
+    "name": "plan-trip-destinations",
+    "p": "plan-trip",
+    "c": "destinations",
+    "label": null
+  },
+  {
+    "name": "plan-trip-generation",
+    "p": "plan-trip",
+    "c": "generation",
+    "label": null
+  },
+  {
+    "name": "plan-trip-interface",
+    "p": "plan-trip",
+    "c": "interface",
+    "label": null
+  },
+  {
+    "name": "plan-trip-itinerary",
+    "p": "plan-trip",
+    "c": "itinerary",
+    "label": null
+  },
+  {
+    "name": "plan-trip-preferences",
+    "p": "plan-trip",
+    "c": "preferences",
+    "label": null
+  },
+  {
+    "name": "preferences-preferences-resource",
+    "p": "preferences",
+    "c": "preferences-resource",
+    "label": null
+  }
+]

@@ -1,0 +1,87 @@
+[
+  {
+    "name": "anbotrai-platform",
+    "x": 0.0,
+    "y": 0.0
+  },
+  {
+    "name": "assistant",
+    "x": null,
+    "y": null
+  },
+  {
+    "name": "assistant-langchain-resource",
+    "x": null,
+    "y": null
+  },
+  {
+    "name": "assistant-llamaindex-resource",
+    "x": null,
+    "y": null
+  },
+  {
+    "name": "assistant-python-resource",
+    "x": null,
+    "y": null
+  },
+  {
+    "name": "destinations",
+    "x": null,
+    "y": null
+  },
+  {
+    "name": "destinations-ai-resource",
+    "x": null,
+    "y": null
+  },
+  {
+    "name": "destinations-mcp-resource",
+    "x": null,
+    "y": null
+  },
+  {
+    "name": "generation",
+    "x": null,
+    "y": null
+  },
+  {
+    "name": "generation-resource",
+    "x": null,
+    "y": null
+  },
+  {
+    "name": "interface",
+    "x": null,
+    "y": null
+  },
+  {
+    "name": "interface-resource",
+    "x": null,
+    "y": null
+  },
+  {
+    "name": "itinerary",
+    "x": null,
+    "y": null
+  },
+  {
+    "name": "itinerary-resource",
+    "x": null,
+    "y": null
+  },
+  {
+    "name": "plan-trip",
+    "x": null,
+    "y": null
+  },
+  {
+    "name": "preferences",
+    "x": null,
+    "y": null
+  },
+  {
+    "name": "preferences-resource",
+    "x": null,
+    "y": null
+  }
+]

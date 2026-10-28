@@ -36,6 +36,10 @@ dev = [
   "azure-cli-core>=2.75.0",
 ]
 
+[tool.uv]
+# azure-core>=1.41 limits azure-cli-core to 2.76, which pins msal 1.33.0b1 and that caps cryptography below 48.
+override-dependencies = ["msal>=1.39.0"]
+
 [tool.setuptools.packages.find]
 # Namespace discovery is on by default here, so without include a local build/ dir ships too.
 include = ["azext_healthmodels_plus*"]

@@ -13,8 +13,10 @@ from azure.cli.core.azclierror import InvalidArgumentValueError, ResourceNotFoun
 
 from azext_healthmodels_plus.layout import custom
 from azext_healthmodels_plus.layout.layout import (CARD_H, CARD_W, ENGINES, GRID_X, ROW, TRACK, arrange, arrange_below,
-                                                   cost, project, tracks)
+                                                   cost, describe, project, tracks)
 
+SERVICES = {'assistant': 3, 'destinations': 2, 'generation': 1, 'interface': 1, 'itinerary': 1, 'preferences': 1}
+RESOURCES = [(s, f'{s}-{i}') for s, k in SERVICES.items() for i in range(k)]
 GRAPHS = {
     'empty': ([], []),
     'single': (['a'], []),
@@ -25,6 +27,8 @@ GRAPHS = {
     'cycle': (list('abc'), [('a', 'b'), ('b', 'c'), ('c', 'a')]),
     'unknown and self edges': (list('ab'), [('a', 'b'), ('a', 'a'), ('a', 'ghost')]),
     'wide fan': (['r'] + [f'c{i}' for i in range(12)], [('r', f'c{i}') for i in range(12)]),
+    'travel agent': (['root', 'plan-trip', *SERVICES, *(c for _, c in RESOURCES)],
+                     [('root', 'plan-trip'), *(('plan-trip', s) for s in SERVICES), *RESOURCES]),
 }
 
 
@@ -50,14 +54,17 @@ class LayoutTest(unittest.TestCase):
 
     def test_keep_order_keeps_the_drawn_order_of_each_row(self):
         nodes, edges = list('rabcde'), [('r', 'a'), ('r', 'b'), ('r', 'c'), ('a', 'd'), ('c', 'd'), ('b', 'e')]
-        for name, current, expected in [
-            ('drawn order', {'r': (0, 0), 'a': (500, 300), 'b': (900, 260), 'c': (-40, 310)}, 'cab'),
-            ('unplaced card goes beside its neighbours', {'a': (500, 300), 'c': (-40, 310), 'e': (200, 600)}, 'cba'),
-            ('unplaced card without placed neighbours goes last', {'a': (500, 300), 'c': (-40, 310)}, 'cab'),
+        for name, current, row, expected in [
+            ('drawn order', {'r': (0, 0), 'a': (500, 300), 'b': (900, 260), 'c': (-40, 310)}, 'abc', 'cab'),
+            ('unplaced card goes beside its neighbours', {'a': (500, 300), 'c': (-40, 310), 'e': (200, 600)}, 'abc',
+             'cba'),
+            ('unplaced card without placed neighbours goes last', {'a': (500, 300), 'c': (-40, 310)}, 'abc', 'cab'),
+            ('unplaced card on a tie goes with its own parent, not by name',
+             {'a': (500, 300), 'b': (0, 300), 'c': (250, 300), 'd': (0, 600)}, 'de', 'ed'),
         ]:
             with self.subTest(case=name):
                 pos = arrange(nodes, edges, 'keep-order', current)
-                self.assertEqual(''.join(sorted('abc', key=lambda n: pos[n][0])), expected)
+                self.assertEqual(''.join(sorted(row, key=lambda n: pos[n][0])), expected)
         with self.subTest(case='unconnected cards keep their order too'):
             pos = arrange(['a', 'b'], [], 'keep-order', {'a': (500, 0), 'b': (0, 0)})
             self.assertLess(pos['b'][0], pos['a'][0])
@@ -81,10 +88,23 @@ class LayoutTest(unittest.TestCase):
             'chain': (list('ab'), [('a', 'b')], 'a', 'b'),
             'chain beside a fan': (list('rabcde'), [('r', 'a'), ('r', 'b'), ('a', 'c'), ('b', 'd'), ('b', 'e')],
                                    'a', 'c'),
+            **{f'services packed tighter than their resources ({p})': (*GRAPHS['travel agent'], p, c)
+               for p, c in RESOURCES if SERVICES[p] == 1},
         }.items():
             with self.subTest(graph=name):
                 pos = arrange(nodes, edges)
                 self.assertEqual(pos[parent][0], pos[child][0])
+
+    def test_logged_scores_are_those_of_the_saved_layout(self):
+        nodes, edges = GRAPHS['travel agent']
+        edges = edges + [('destinations', 'assistant-0'), ('preferences', 'itinerary-0')]  # layered 58 -> 438 snapped
+        for engine, logged in [('layered', '-> {score} (lower is better)'), ('tree', '-> {score} (lower is better)'),
+                               ('network', '-> {score} (lower is better)'), ('auto', 'has {faults}, score {score}')]:
+            with self.subTest(engine=engine):
+                with self.assertLogs('cli', 'INFO') as logs:
+                    pos = arrange(nodes, edges, engine)
+                self.assertIn(logged.format(score=f'{cost(nodes, edges, pos):.0f}', faults=describe(nodes, edges, pos)),
+                              '\n'.join(logs.output))
 
     def test_project_keeps_order_and_separation(self):
         for want, seps, expected in [

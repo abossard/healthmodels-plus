@@ -183,14 +183,14 @@ def place(rows, want, seps, iterations=40):
 
 def straighten(rows, x, seps, up, down):
     """Columns: line up a card with its parent when it is that parent's only child and either row
-    has room."""
+    has room. Each row is visited both ways, so a card can take the room its neighbour just made."""
     def fits(row, n, v):
         i, gaps = row.index(n), seps(row)
         return (i == 0 or v - x[row[i - 1]] >= gaps[i - 1] - 1e-6) and (
             i == len(row) - 1 or x[row[i + 1]] - v >= gaps[i] - 1e-6)
 
     for above, row in zip(rows, rows[1:]):
-        for n in row:
+        for n in row + row[::-1]:
             if is_card(n) and len(up.get(n, ())) == 1 and len(down[up[n][0]]) == 1:
                 p = up[n][0]
                 if fits(row, n, x[p]):
@@ -293,7 +293,7 @@ def improve(rows, judge, tries):
 def columns(nodes, parents, rank, card_x=None, judge=None):
     """Dummy points for long edges; rows sorted by ``card_x`` when given, else ordered for few
     crossings and refined by local search when ``judge`` scores drawings; then balanced, straight
-    columns."""
+    columns, snapped to the grid like the saved layout, so ``judge`` and ``auto`` score what is saved."""
     links = [(p, c) for c in nodes for p in parents[c]]
     up, down = {}, {}
     for p, c in hops(links, rank):
@@ -327,7 +327,7 @@ def columns(nodes, parents, rank, card_x=None, judge=None):
     def draw(rows):
         x = place(rows, want, seps)
         x = straighten(rows, x, lambda row: seps(row, x), up, down)
-        return {n: (x[n] - CARD_W / 2, rank[n] * ROW) for n in nodes}
+        return normalize({n: (x[n] - CARD_W / 2, rank[n] * ROW) for n in nodes})
 
     rows = rows_by_dfs(nodes, down, lambda n: rank[n] if is_card(n) else n[2])
     note(len(nodes), '%d rows by longest path; %d edges skip rows and get %d extra points', len(rows),
@@ -434,12 +434,16 @@ def keep_order(nodes, edges, current, labels):  # pylint: disable=unused-argumen
     but every row keeps its left-to-right order from the canvas. A card without a position goes
     where its placed neighbours are, or to the end of its row."""
     parents, children = graph(nodes, edges)
+    rank = ranks(nodes, parents)
     placed = {n: current[n][0] for n in nodes if n in current}
     near = {n: [placed[m] for m in parents[n] + children[n] if m in placed] for n in nodes}
     drawn = {n: placed.get(n, sum(near[n]) / len(near[n]) if near[n] else inf) for n in nodes}
     note(len(nodes), 'Keep-order: %d cards keep their drawn left-to-right order, %d without a position go beside '
          'their placed neighbours or last in their row', len(placed), len(nodes) - len(placed))
-    return columns(nodes, parents, ranks(nodes, parents), drawn)
+    # cards at the same x keep their depth-first order; walking the rows in drawn order makes that
+    # the order of their parents, so an unplaced card stays with its siblings instead of going by name
+    pos = columns(sorted(nodes, key=lambda n: (rank[n], drawn[n])), parents, rank, drawn)
+    return {n: pos[n] for n in nodes}
 
 
 ENGINES = {'auto': auto, 'layered': layered, 'tree': tree, 'network': network, 'keep-order': keep_order}

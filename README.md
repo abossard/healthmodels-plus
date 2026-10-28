@@ -68,11 +68,7 @@ az extension remove --name healthmodels-plus
 
 ### `layout` is "misspelled or not recognized" right after install
 
-The Azure CLI sometimes keeps a stale command index after installing an extension, so `az monitor health-models layout` is not found while `az health-models-tui` works. Run any `az health-models-tui` command once, which makes the CLI rebuild its index:
-
-```bash
-az health-models-tui --help
-```
+Azure CLI 2.91 sometimes reports commands under `az monitor health-models` as not recognized, right after an extension is installed or while other `az` commands run at the same time. It happens to the official `health-models` extension too, and a later call works again. `az extension show --name healthmodels-plus` confirms the extension is installed.
 
 ## Usage
 

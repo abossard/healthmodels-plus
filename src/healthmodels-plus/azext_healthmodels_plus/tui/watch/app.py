@@ -1,4 +1,4 @@
-"""Main Textual application for ``az health-models-tui``."""
+"""Main Textual application for ``az monitor health-models tui``."""
 from __future__ import annotations
 
 import asyncio

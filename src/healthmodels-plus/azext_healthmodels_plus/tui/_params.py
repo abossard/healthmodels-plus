@@ -1,11 +1,11 @@
-"""CLI parameters for az health-models-tui."""
+"""CLI parameters for az monitor health-models tui."""
 from __future__ import annotations
 
 
 def load_arguments(self, _):  # noqa: ANN001
     from azure.cli.core.commands.parameters import get_resource_group_completion_list
 
-    with self.argument_context("health-models-tui") as context:
+    with self.argument_context("monitor health-models tui") as context:
         context.argument(
             "resource_group",
             options_list=["--resource-group", "-g"],

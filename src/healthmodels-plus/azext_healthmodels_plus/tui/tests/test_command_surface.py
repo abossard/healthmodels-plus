@@ -83,8 +83,8 @@ def test_load_command_table_registers_only_tui_command() -> None:
 
     load_command_table(loader, None)
 
-    assert [group.name for group in loader.groups] == ["health-models-tui"]
-    assert loader.groups[0].commands == [("", "health_models_tui")]
+    assert [group.name for group in loader.groups] == ["monitor health-models"]
+    assert loader.groups[0].commands == [("tui", "health_models_tui")]
 
 
 @pytest.mark.parametrize(
@@ -97,7 +97,7 @@ def test_load_arguments_registers_only_tui_arguments(argument_name: str) -> None
     load_arguments(loader, None)
 
     scopes = {scope for scope, _, _ in loader.arguments}
-    assert scopes == {"health-models-tui"}
+    assert scopes == {"monitor health-models tui"}
     assert any(name == argument_name for _, name, _ in loader.arguments)
 
 

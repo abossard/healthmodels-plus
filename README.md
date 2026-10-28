@@ -13,7 +13,7 @@ A collection of tools for [Azure Monitor health models](https://learn.microsoft.
 For now it holds one Azure CLI extension, `healthmodels-plus` (preview), with two commands:
 
 - `az monitor health-models layout arrange|export|import` arranges the entities of a health model on its canvas, like **Arrange** in the portal designer, and backs up and restores canvas layouts.
-- `az health-models-tui` browses health models, watches their health live, looks back in time and makes guarded edits in a terminal UI.
+- `az monitor health-models tui` browses health models, watches their health live, looks back in time and makes guarded edits in a terminal UI.
 
 <p align="center">
   <img src="docs/images/layout-before.png" alt="Portal designer canvas before arrange: lines run through cards" width="49%">
@@ -23,23 +23,23 @@ For now it holds one Azure CLI extension, `healthmodels-plus` (preview), with tw
 </p>
 
 <p align="center">
-  <img src="docs/images/tui-tree.svg" alt="Tree view of az health-models-tui on a degraded model with escalations" width="75%">
+  <img src="docs/images/tui-tree.svg" alt="Tree view of az monitor health-models tui on a degraded model with escalations" width="75%">
   <br>
-  <em><code>az health-models-tui</code> watching a degraded model</em>
+  <em><code>az monitor health-models tui</code> watching a degraded model</em>
 </p>
 
 ## Requirements
 
 - Azure CLI 2.75.0 or newer.
 - `az login` for the subscription that holds your health models.
-- The official `health-models` extension is optional. Neither command needs it. With both installed, `az monitor health-models --help` lists the official commands and the `layout` group together.
+- The official `health-models` extension is optional. Neither command needs it. With both installed, `az monitor health-models --help` lists the official commands next to `layout` and `tui`.
 
 ## Install
 
 The extension is not in the Azure CLI extension index. Install the wheel of a [release](https://github.com/abossard/healthmodels-plus/releases):
 
 ```bash
-VERSION=0.1.0
+VERSION=0.2.0
 az extension add --yes --source "https://github.com/abossard/healthmodels-plus/releases/download/v$VERSION/healthmodels_plus-$VERSION-py3-none-any.whl"
 ```
 
@@ -66,7 +66,7 @@ az extension add --upgrade --yes --source "$WHEEL_URL"
 az extension remove --name healthmodels-plus
 ```
 
-### `layout` is "misspelled or not recognized" right after install
+### `layout` or `tui` is "misspelled or not recognized" right after install
 
 Azure CLI 2.91 sometimes reports commands under `az monitor health-models` as not recognized, right after an extension is installed or while other `az` commands run at the same time. It happens to the official `health-models` extension too, and a later call works again. `az extension show --name healthmodels-plus` confirms the extension is installed.
 
@@ -141,16 +141,16 @@ $ az monitor health-models layout import -g MyResourceGroup -n Connectivity --la
 | ![Timeline tab: health and value history of a signal](docs/images/tui-timeline.svg) | ![Changes tab: draft edit of an entity](docs/images/tui-changes.svg) |
 
 ```bash
-az health-models-tui                              # pick a model from the active subscription
-az health-models-tui -g myRg                      # pick a model from one resource group
-az health-models-tui -g myRg --model myModel      # open a model directly
-az health-models-tui -g myRg --model myModel --plain --poll-interval 10
+az monitor health-models tui                              # pick a model from the active subscription
+az monitor health-models tui -g myRg                      # pick a model from one resource group
+az monitor health-models tui -g myRg --model myModel      # open a model directly
+az monitor health-models tui -g myRg --model myModel --plain --poll-interval 10
 ```
 
 Without a TTY, or with `--plain`, it prints the tree as text and polls until `Ctrl+C`:
 
 ```console
-$ az health-models-tui -g MyResourceGroup --model Connectivity --plain
+$ az monitor health-models tui -g MyResourceGroup --model Connectivity --plain
 Health Model: Connectivity — Poll interval: 30s
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 └── ⚪ connectivity ─── Unknown
@@ -181,7 +181,7 @@ AZURE_EXTENSION_DIR="$(mktemp -d)"
 export AZURE_EXTENSION_DIR
 az extension add --yes --source dist/healthmodels_plus-*.whl
 az monitor health-models layout --help
-az health-models-tui --help
+az monitor health-models tui --help
 ```
 
 [CI](.github/workflows/ci.yml) runs the tests on Python 3.11 to 3.13, builds the wheel, installs it into the Azure CLI, runs the help commands and removes it.

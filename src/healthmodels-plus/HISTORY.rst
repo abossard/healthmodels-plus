@@ -3,6 +3,10 @@
 Release History
 ===============
 
+0.2.0
++++++
+* ``az health-models-tui`` is now ``az monitor health-models tui``, next to the ``layout`` group. Arguments and help are unchanged.
+
 0.1.0
 +++++
 * Initial release. Combines the ``health-models-layout`` 1.0.0b1 and ``health-models-tui`` 0.4.0 extensions into one extension, ``healthmodels-plus``. ``az monitor health-models layout arrange|export|import`` and ``az health-models-tui`` keep their names, arguments and help.

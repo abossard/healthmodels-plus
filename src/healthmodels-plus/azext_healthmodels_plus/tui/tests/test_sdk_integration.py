@@ -888,7 +888,7 @@ def test_not_found_error_preserves_details():
     assert err.code == "ResourceNotFound"
     assert "model xyz not found" in err.diagnostic_text()
     assert "az healthmodel list" not in str(err)
-    assert "az health-models-tui -g" in str(err)
+    assert "az monitor health-models tui -g" in str(err)
 
 def test_arm_error_no_duplicate_fields():
     from azext_healthmodels_plus.tui.client.errors import ArmError

@@ -12,7 +12,7 @@ except ModuleNotFoundError:  # pragma: no cover
 
 
 class HealthModelsPlusCommandsLoader(AzCommandsLoader):
-    """Loader for az monitor health-models layout and az health-models-tui."""
+    """Loader for az monitor health-models layout and tui."""
 
     def load_command_table(self, args: list[str]):  # type: ignore[override]
         from azext_healthmodels_plus.layout import _help as _layout_help  # noqa: F401

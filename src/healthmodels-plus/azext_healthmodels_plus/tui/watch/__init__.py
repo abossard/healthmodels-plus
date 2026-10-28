@@ -16,7 +16,7 @@ def run_watch(
     poll_interval: int = 30,
     force_plain: bool = False,
 ) -> None:
-    """Entry point for ``az health-models-tui``.
+    """Entry point for ``az monitor health-models tui``.
 
     Dispatches to the interactive Textual TUI when stdout is a TTY and
     the ``textual`` package is available, otherwise falls back to a

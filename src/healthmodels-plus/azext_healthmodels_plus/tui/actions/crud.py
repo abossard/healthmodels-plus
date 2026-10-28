@@ -1,4 +1,4 @@
-"""CLI action for az health-models-tui."""
+"""CLI action for az monitor health-models tui."""
 from __future__ import annotations
 
 from azext_healthmodels_plus.tui.client.rest_client import CloudHealthClient

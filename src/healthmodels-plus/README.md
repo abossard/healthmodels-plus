@@ -3,13 +3,13 @@
 Two command surfaces for Azure Monitor health models in one extension:
 
 - `az monitor health-models layout arrange|export|import` arranges the entities of a health model on its canvas, like **Arrange** in the portal designer, and backs up and restores canvas layouts.
-- `az health-models-tui` browses health models, watches their health live, looks back in time, and makes guarded edits in a terminal UI.
+- `az monitor health-models tui` browses health models, watches their health live, looks back in time, and makes guarded edits in a terminal UI.
 
 The extension is in preview. It needs Azure CLI 2.75.0 or newer (with Python 3.11+) and `az login` for the subscription you work in.
 
 ## The official `health-models` extension is optional
 
-Neither command needs the official `health-models` extension (`az monitor health-models create|show|...`) at runtime. The layout commands call the Microsoft.CloudHealth REST API (version `2026-11-01`) directly with your `az login` credentials and bring their own help for the `az monitor health-models` group. `az health-models-tui` uses the `azure-mgmt-cloudhealth` SDK. With both extensions installed, `az monitor health-models --help` lists the official commands and the `layout` group together.
+Neither command needs the official `health-models` extension (`az monitor health-models create|show|...`) at runtime. The layout commands call the Microsoft.CloudHealth REST API (version `2026-11-01`) directly with your `az login` credentials and bring their own help for the `az monitor health-models` group. `az monitor health-models tui` uses the `azure-mgmt-cloudhealth` SDK. With both extensions installed, `az monitor health-models --help` lists the official commands next to `layout` and `tui`.
 
 ## Layout
 
@@ -37,10 +37,10 @@ The engines score each drawing the way the portal renders it, as step lines with
 ## Terminal monitor
 
 ```bash
-az health-models-tui                              # pick a model from the active subscription
-az health-models-tui -g myRg                      # pick a model from one resource group
-az health-models-tui -g myRg --model myModel      # open a model directly
-az health-models-tui -g myRg --model myModel --plain --poll-interval 10
+az monitor health-models tui                              # pick a model from the active subscription
+az monitor health-models tui -g myRg                      # pick a model from one resource group
+az monitor health-models tui -g myRg --model myModel      # open a model directly
+az monitor health-models tui -g myRg --model myModel --plain --poll-interval 10
 ```
 
 Without a TTY (or with `--plain`) the command prints plain text instead of the UI.
@@ -82,9 +82,9 @@ Install the wheel into an isolated extension directory so your regular extension
 ```bash
 AZURE_EXTENSION_DIR="$(mktemp -d)"
 export AZURE_EXTENSION_DIR
-az extension add --source dist/healthmodels_plus-0.1.0-py3-none-any.whl --yes
+az extension add --source dist/healthmodels_plus-0.2.0-py3-none-any.whl --yes
 az monitor health-models layout --help
-az health-models-tui --help
+az monitor health-models tui --help
 ```
 
 `docs/tui/NEXT_STEPS.md` lists the open items of the terminal monitor and its manual QA steps (live read-only pass, Apply on a fake backend).

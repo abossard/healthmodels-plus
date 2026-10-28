@@ -54,7 +54,7 @@ class HealthModelNotFoundError(HealthModelError):
             " Verify the resource group exists and the health model name is"
             " spelled correctly in the current subscription context"
             " (`az account show`). Then retry"
-            " `az health-models-tui -g <resource-group> --model <model-name>`."
+            " `az monitor health-models tui -g <resource-group> --model <model-name>`."
         )
         super().__init__(message + hint, status_code, code=code, details=details)
 

@@ -20,7 +20,7 @@ runs:
         az extension add --source "$SOURCE" --yes
         az monitor health-models layout --help
         az monitor health-models layout arrange --help
-        az health-models-tui --help
+        az monitor health-models tui --help
         az extension show --name healthmodels-plus
         az extension remove --name healthmodels-plus
         az extension list -o json | jq -e 'all(.name != "healthmodels-plus")'

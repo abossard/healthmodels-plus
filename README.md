@@ -23,9 +23,9 @@ For now it holds one Azure CLI extension, `healthmodels-plus` (preview), with tw
 </p>
 
 <p align="center">
-  <img src="docs/images/tui-tree.svg" alt="Tree view of az monitor health-models tui on a degraded model with escalations" width="75%">
+  <img src="docs/images/tui-tree.svg" alt="Tree view of az monitor health-models tui on a live model" width="75%">
   <br>
-  <em><code>az monitor health-models tui</code> watching a degraded model</em>
+  <em><code>az monitor health-models tui</code> watching a live model</em>
 </p>
 
 ## Requirements

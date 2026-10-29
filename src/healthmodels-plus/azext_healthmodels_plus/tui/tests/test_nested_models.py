@@ -1238,11 +1238,12 @@ async def test_earlier_branch_toggle_rebases_selected_node_before_next_key(widge
 @pytest.mark.parametrize("name,guides", [
     ("A", [("├── ", "green")]),
     ("A1", [("│   ", "yellow"), ("└── ", "green")]),
-    ("B", [("└── ", "red")]),
+    ("B", [("├── ", "red")]),
+    ("U", [("└── ", None)]),
 ])
 async def test_tree_guides_take_the_health_they_roll_up(name, guides):
-    states = {"R": "Degraded", "A": "Healthy", "A1": "Healthy", "B": "Unhealthy"}
-    children = {"R": ("A", "B"), "A": ("A1",)}
+    states = {"R": "Degraded", "A": "Healthy", "A1": "Healthy", "B": "Unhealthy", "U": "Unknown"}
+    children = {"R": ("A", "B", "U"), "A": ("A1",)}
     entities = parse_entities([
         {"id": f"/entities/{n}", "name": n, "properties": {"healthState": s}} for n, s in states.items()
     ], {})
@@ -1261,11 +1262,15 @@ async def test_tree_guides_take_the_health_they_roll_up(name, guides):
     async with app.run_test(size=(100, 20)) as pilot:
         await pilot.pause()
         tree = app.query_one(HealthTree)
+        tree.move_cursor(tree.root.children[0])  # Textual colors the guides below the cursor
+        tree.focus()
+        await pilot.pause()
+        plain = tree.get_component_rich_style("tree--guides", partial=True).color.name
         node = next(n for n in tree._occurrence_nodes.values() if n.data.entity_name == name)
         cells = [(char, segment.style.color.name) for segment in tree.render_line(node.line) for char in segment.text]
         depth = tree.guide_depth
         units = [("".join(c for c, _ in cells[i:i + depth]), cells[i][1]) for i in range(0, len(guides) * depth, depth)]
-        assert units == guides
+        assert units == [(glyph, color or plain) for glyph, color in guides]
 
 
 @pytest.mark.anyio

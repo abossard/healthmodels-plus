@@ -89,8 +89,10 @@ class HealthTree(Tree[EntityData]):
             states = guide_states([node.data.state if node.data else None for node in self._tree_lines[y].path])
             depth = self.guide_depth
             cuts = [*range(depth, depth * len(states) + 1, depth), strip.cell_length]
+            # The plain guide style first, so Unknown ("dim") does not keep the hover or cursor color.
+            guide = self.get_component_rich_style("tree--guides", partial=True)
             strip = Strip.join(
-                Strip(Segment.apply_style(part, post_style=Style.parse(state.color)), part.cell_length)
+                Strip(Segment.apply_style(part, post_style=guide + Style.parse(state.color)), part.cell_length)
                 if state else part
                 for part, state in zip(strip.divide(cuts), [*states, None])
             )

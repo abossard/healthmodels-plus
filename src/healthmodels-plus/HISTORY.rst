@@ -3,6 +3,10 @@
 Release History
 ===============
 
+0.4.1
++++++
+* ``az monitor health-models tui``: tree lines of Unknown entities and signals stay grey when the cursor is on a node above them, instead of taking the cursor color.
+
 0.4.0
 +++++
 * ``layout arrange --entity-name`` no longer leaves overlaps: a card that slides aside takes along any card just outside the subtree's rows that it would land on. The entity keeps its exact position (it is no longer saved when its position has a fractional part), and a cycle back into it no longer puts subtree cards above it.

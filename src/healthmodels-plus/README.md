@@ -82,7 +82,7 @@ Install the wheel into an isolated extension directory so your regular extension
 ```bash
 AZURE_EXTENSION_DIR="$(mktemp -d)"
 export AZURE_EXTENSION_DIR
-az extension add --source dist/healthmodels_plus-0.4.0-py3-none-any.whl --yes
+az extension add --source dist/healthmodels_plus-0.4.1-py3-none-any.whl --yes
 az monitor health-models layout --help
 az monitor health-models tui --help
 ```
